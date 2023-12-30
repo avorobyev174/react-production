@@ -1,11 +1,13 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "standard-with-typescript",
         "plugin:react/recommended",
+        "plugin:i18next/recommended",
     ],
     "overrides": [
         {
@@ -25,7 +27,9 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint",
+        "i18next"
     ],
     "rules": {
         "react/jsx-indent": [ 2, 2 ],
@@ -46,5 +50,6 @@ module.exports = {
         "@typescript-eslint/member-delimiter-style": "off",
         "computed-property-spacing": "off",
         "import-extensions": "off",
+        "i18next/no-literal-string": [ "error", { markupOnly: true } ]
     },
 }

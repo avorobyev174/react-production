@@ -2,7 +2,6 @@
   height: calc(100vh - var(--nav-bar-height));
   width: var(--side-bar-width);
   background: var(--inverted-bg-color);
-
   position: relative;
   transition: width 0.2s;
 }

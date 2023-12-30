@@ -5,14 +5,16 @@ import { NavBar } from 'widgets/Navbar';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Sidebar } from 'widgets/Sidebar';
 import React, { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const { theme } = useTheme()
+  const { t } = useTranslation()
 
   return (
     <div className={ classNames('app', {}, [ theme ]) }>
       <NavBar />
-      <Suspense fallback={ <div>Loading...</div> }>
+      <Suspense fallback={ <div className="content-page">{ t('Загрузка') }</div> }>
         <div className="content-page">
           <Sidebar />
           <AppRouter />

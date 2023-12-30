@@ -12,16 +12,16 @@ export const LangSwitcher = ({ className }: ILangSwitcherProps) => {
   const { t, i18n } = useTranslation();
 
   const toggle = () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+    void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
   }
 
   return (
-      <Button
-        className={ classNames(styles.LangSwitcher, {}, [ className ])}
-        theme={ EThemeButton.CLEAR }
-        onClick={ toggle }
-      >
-        { t('Язык') }
-      </Button>
+    <Button
+      className={ classNames(styles.LangSwitcher, {}, [ className ])}
+      theme={ EThemeButton.CLEAR }
+      onClick={ toggle }
+    >
+      { t('Язык') }
+    </Button>
   );
 };

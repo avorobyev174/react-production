@@ -1,4 +1,5 @@
 module.exports = {
+    "parser": "@typescript-eslint/parser",
     "env": {
         "browser": true,
         "es2021": true,
@@ -26,10 +27,12 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+    "ignorePatterns": [ '.eslintrc.js', '*.config.[jt]s '],
     "plugins": [
         "react",
         "@typescript-eslint",
-        "i18next"
+        "i18next",
+        "jest"
     ],
     "rules": {
         "react/jsx-indent": [ 2, 2 ],

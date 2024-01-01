@@ -9,19 +9,7 @@ module.exports = {
         "standard-with-typescript",
         "plugin:react/recommended",
         "plugin:i18next/recommended",
-    ],
-    "overrides": [
-        {
-            "env": {
-                "node": true
-            },
-            "files": [
-                ".eslintrc.{js,cjs}"
-            ],
-            "parserOptions": {
-                "sourceType": "script"
-            }
-        }
+        "plugin:storybook/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -53,6 +41,20 @@ module.exports = {
         "@typescript-eslint/member-delimiter-style": "off",
         "computed-property-spacing": "off",
         "import-extensions": "off",
-        "i18next/no-literal-string": [ "error", { markupOnly: true } ]
+        "i18next/no-literal-string": [
+            "error",
+            {
+                markupOnly: true,
+                ignoreAttribute: [ "data-testid", "to" ]
+            }
+        ]
     },
+    "overrides": [
+        {
+            files: [ '**/src/**/*/*.test.{ts,tsx}' ],
+            rules: {
+                "i18next/no-literal-string": "off"
+            }
+        }
+    ]
 }

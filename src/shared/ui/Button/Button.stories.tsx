@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, EThemeButton } from 'shared/ui/Button/Button';
+import { Button, EButtonSize, EButtonTheme } from 'shared/ui/Button/Button';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from 'app/providers/ThemeProvider';
 
@@ -21,20 +21,77 @@ export const Primary: Story = {
 export const Clear: Story = {
   args: {
     children: 'text',
-    theme: EThemeButton.CLEAR
+    theme: EButtonTheme.CLEAR
   }
 }
-export const Outline: Story = {
+export const OutlineSizeM: Story = {
   args: {
     children: 'text',
-    theme: EThemeButton.OUTLINE
+    theme: EButtonTheme.OUTLINE
+  }
+}
+
+export const OutlineSizeL: Story = {
+  args: {
+    children: 'text',
+    theme: EButtonTheme.OUTLINE,
+    size: EButtonSize.L
+  }
+}
+
+export const OutlineSizeXL: Story = {
+  args: {
+    children: 'text',
+    theme: EButtonTheme.OUTLINE,
+    size: EButtonSize.XL
   }
 }
 
 export const OutlineDark: Story = {
   args: {
     children: 'text',
-    theme: EThemeButton.OUTLINE
+    theme: EButtonTheme.OUTLINE
   },
   decorators: [ ThemeDecorator(ETheme.DARK) ]
+}
+
+export const BackgroundTheme: Story = {
+  args: {
+    children: 'text',
+    theme: EButtonTheme.BACKGROUND
+  }
+}
+
+export const BackgroundThemeInverted: Story = {
+  args: {
+    children: 'text',
+    theme: EButtonTheme.BACKGROUND_INVERTED
+  }
+}
+
+export const SquareSizeM: Story = {
+  args: {
+    children: '>',
+    theme: EButtonTheme.BACKGROUND_INVERTED,
+    square: true,
+    size: EButtonSize.M
+  }
+}
+
+export const SquareSizeL: Story = {
+  args: {
+    children: '>',
+    theme: EButtonTheme.BACKGROUND_INVERTED,
+    square: true,
+    size: EButtonSize.L
+  }
+}
+
+export const SquareSizeXL: Story = {
+  args: {
+    children: '>',
+    theme: EButtonTheme.BACKGROUND_INVERTED,
+    square: true,
+    size: EButtonSize.XL
+  }
 }

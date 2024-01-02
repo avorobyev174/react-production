@@ -18,11 +18,3 @@ export const ModalLight: Story = {
     children: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit!'
   }
 }
-
-export const ModalDark: Story = {
-  args: {
-    isOpen: true,
-    children: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit!'
-  },
-  decorators: [ ThemeDecorator(ETheme.DARK) ]
-}

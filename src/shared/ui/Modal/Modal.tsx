@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Modal.module.scss'
 import { type ReactNode, type MouseEvent, useState, useRef, useEffect, useCallback } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 const ANIMATION_DELAY = 300;
 
 interface IModalProps {
@@ -14,6 +15,7 @@ interface IModalProps {
 export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => {
   const [ isClosing, setIsClosing ] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const { theme } = useTheme();
 
   const onContentClickHandler = (e: MouseEvent) => { e.stopPropagation() };
   const onCloseHandler = useCallback(() => {
@@ -27,7 +29,6 @@ export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => 
   }, [ onClose ]);
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
-    console.log(e.key)
     if (e.key === 'Escape') {
       onCloseHandler();
     }
@@ -51,7 +52,7 @@ export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => 
 
   return (
     <Portal>
-      <div className={ classNames(styles.Modal, mods, [ className ])}>
+      <div className={ classNames(styles.Modal, mods, [ className, theme ])}>
         <div className={ styles.overlay } onClick={ onCloseHandler }>
           <div className={ styles.content } onClick={ onContentClickHandler }>
             { children }

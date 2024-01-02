@@ -19,7 +19,7 @@ export const ModalLight: Story = {
   }
 }
 
-export const ModalDark: Story = {
+export const ModalD: Story = {
   args: {
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit!'

@@ -1,6 +1,11 @@
 {
+  "Lorem ipsum": "Lorem ipsum",
+  "Lorem ipsum dolor sit amet, consecrate adipisicing elit": {
+    " Incidunt, iste, natus?": " Incidunt, iste, natus?"
+  },
   "throw error": "throw error",
   "toggle": "toggle",
+  "Войти": "Войти",
   "Главная": "Главная",
   "Загрузка": "Загрузка",
   "Короткий язык": "Короткий язык",

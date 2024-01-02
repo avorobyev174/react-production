@@ -24,6 +24,14 @@ export const Clear: Story = {
     theme: EButtonTheme.CLEAR
   }
 }
+
+export const ClearInverted: Story = {
+  args: {
+    children: 'text',
+    theme: EButtonTheme.CLEAR_INVERTED
+  }
+}
+
 export const OutlineSizeM: Story = {
   args: {
     children: 'text',

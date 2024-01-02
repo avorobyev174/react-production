@@ -1,4 +1,3 @@
-import './styles/index.scss'
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
 import { NavBar } from 'widgets/Navbar';

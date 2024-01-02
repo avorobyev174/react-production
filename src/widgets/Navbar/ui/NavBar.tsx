@@ -14,7 +14,7 @@ export const NavBar = ({ className }: NavBarProps) => {
   const [ isAuthModal, setIsAuthModal ] = useState(false);
   const onToggleModal = useCallback(() => {
     setIsAuthModal((prev) => !prev);
-  }, [ ]);
+  }, []);
   return (
     <div className={ classNames(styles.navBar, {}, [ className ])}>
       <Button

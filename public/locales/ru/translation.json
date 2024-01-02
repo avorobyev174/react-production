@@ -8,5 +8,7 @@
   "throw error": "throw error",
   "Переключить": "Переключить",
   "Короткий язык": "Ru",
-  "Lorem ipsum": "Lorem ipsum"
+  "Lorem ipsum": "Lorem ipsum",
+  "increment": "increment",
+  "decrement": "decrement"
 }

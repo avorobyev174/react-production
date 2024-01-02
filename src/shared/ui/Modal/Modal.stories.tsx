@@ -15,14 +15,14 @@ type Story = StoryObj<typeof Modal>;
 export const ModalLight: Story = {
   args: {
     isOpen: true,
-    children: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit. Incidunt, iste, natus?\n'
+    children: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit'
   }
 }
 
 export const ModalDark: Story = {
   args: {
     isOpen: true,
-    children: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit. Incidunt, iste, natus?\n'
+    children: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit'
   },
   decorators: [ ThemeDecorator(ETheme.DARK) ]
 }

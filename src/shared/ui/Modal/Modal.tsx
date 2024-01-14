@@ -10,10 +10,12 @@ interface IModalProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
-export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => {
+export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProps) => {
   const [ isClosing, setIsClosing ] = useState(false);
+  const [ isMounted, setIsMounted ] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
 
@@ -36,6 +38,12 @@ export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => 
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [ isOpen ]);
+
+  useEffect(() => {
+    if (isOpen) {
       window.addEventListener('keydown', onKeyDown)
     }
 
@@ -49,6 +57,10 @@ export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => 
     [ styles.opened ]: isOpen,
     [ styles.isClosing ]: isClosing
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

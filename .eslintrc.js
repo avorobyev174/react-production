@@ -50,7 +50,8 @@ module.exports = {
             }
         ],
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error"
+        "react-hooks/exhaustive-deps": "error",
+        "template-curly-spacing": ["error", "always"]
     },
     "overrides": [
         {

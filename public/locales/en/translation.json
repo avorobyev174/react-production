@@ -1,4 +1,6 @@
 {
+  "О сайте": "About",
+  "Главная": "Main",
   "Текст": "Text",
   "Язык": "English",
   "Загрузка": "Loading...",
@@ -11,5 +13,10 @@
   "Lorem ipsum": "Lorem ipsum",
   "increment": "increment",
   "decrement": "decrement",
-  "Ввведите пароль": "Ввведите пароль"
+  "Ввведите пароль": "Enter password",
+  "Ввведите имя": "Enter username",
+  "Форма авторизации": "Authorization form",
+  "Вы ввели неверный логин или пароль": "Uncorrected username or password",
+  "Войти": "Login",
+  "Выйти": "Logout"
 }

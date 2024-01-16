@@ -1,5 +1,5 @@
 import { Modal } from 'shared/ui/Modal/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { MemoizedLoginForm } from '../LoginForm/LoginForm';
 
 interface ILoginModalProps {
   className?: string;
@@ -14,7 +14,7 @@ export const LoginModal = ({ isOpen, onClose }: ILoginModalProps) => {
       onClose={ onClose }
       lazy
     >
-      <LoginForm />
+      <MemoizedLoginForm />
     </Modal>
   );
 };

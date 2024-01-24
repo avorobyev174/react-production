@@ -5,19 +5,30 @@ import styles from './LoginForm.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { loginActions } from '../../model/slice/loginSlice';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 
-interface ILoginFormProps {
+export interface ILoginFormProps {
   className?: string;
+}
+
+const initialReducers: ReducersList = {
+  loginForm: loginReducer
 }
 
 export const LoginForm = ({ className }: ILoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { username, password, error, isLoading } = useSelector(getLoginState);
+  const username = useSelector(getLoginUserName);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const onChangeUserName = useCallback((value: string) => {
     dispatch(loginActions.setUserName(value));
@@ -32,34 +43,42 @@ export const LoginForm = ({ className }: ILoginFormProps) => {
   }, [ username, password, dispatch ]);
 
   return (
-    <div className={ classNames(styles.LoginForm, {}, [ className ])}>
-      <Text text={ t('Форма авторизации') }/>
-      { error && <Text text={ t('Вы ввели неверный логин или пароль') } theme={ ETextTheme.ERROR }/> }
-      <Input
-        placeholder={ t('Ввведите имя') }
-        className={ styles.input }
-        type="text"
-        autofocus
-        onChange={ onChangeUserName }
-        value={ username }
-      />
-      <Input
-        placeholder={ t('Ввведите пароль') }
-        className={ styles.input }
-        type="text"
-        onChange={ onChangePassword }
-        value={ password }
-      />
-      <Button
-        className={ styles.loginBtn }
-        theme={ EButtonTheme.OUTLINE }
-        onClick={ onLoginClick }
-        disabled={ isLoading }
-      >
-        { t('Войти') }
-      </Button>
-    </div>
+    <DynamicModuleLoader
+      // eslint-disable-next-line i18next/no-literal-string
+      name="loginForm"
+      removeAfterUnmount={ true }
+      reducers={ initialReducers }
+    >
+      <div className={ classNames(styles.LoginForm, {}, [ className ])}>
+        <Text text={ t('Форма авторизации') }/>
+        { error && <Text text={ t('Вы ввели неверный логин или пароль') } theme={ ETextTheme.ERROR }/> }
+        <Input
+          placeholder={ t('Ввведите имя') }
+          className={ styles.input }
+          type="text"
+          autofocus
+          onChange={ onChangeUserName }
+          value={ username }
+        />
+        <Input
+          placeholder={ t('Ввведите пароль') }
+          className={ styles.input }
+          type="text"
+          onChange={ onChangePassword }
+          value={ password }
+        />
+        <Button
+          className={ styles.loginBtn }
+          theme={ EButtonTheme.OUTLINE }
+          onClick={ onLoginClick }
+          disabled={ isLoading }
+        >
+          { t('Войти') }
+        </Button>
+      </div>
+    </DynamicModuleLoader>
   );
 };
 
-export const MemoizedLoginForm = memo(LoginForm);
+const MemoizedLoginForm = memo(LoginForm);
+export default MemoizedLoginForm;

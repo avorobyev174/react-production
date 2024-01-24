@@ -19,7 +19,10 @@ export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProp
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
 
-  const onContentClickHandler = (e: MouseEvent) => { e.stopPropagation() };
+  const onContentClickHandler = (e: MouseEvent) => {
+    e.stopPropagation()
+  };
+
   const onCloseHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);

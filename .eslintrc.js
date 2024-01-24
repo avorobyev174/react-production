@@ -42,6 +42,7 @@ module.exports = {
         "@typescript-eslint/member-delimiter-style": "off",
         "computed-property-spacing": "off",
         "import-extensions": "off",
+        "@typescript-eslint/no-dynamic-delete": "off",
         "i18next/no-literal-string": [
             "error",
             {

@@ -9,10 +9,7 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
-import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
-import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginUserName, getLoginError, getLoginIsLoading, getLoginPassword } from 'features/AuthByUserName';
 
 export interface ILoginFormProps {
   className?: string;

@@ -1,5 +1,6 @@
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { type BuildEnv, type BuildPaths } from './config/build/types/config';
+// @ts-ignore
 import path from 'path';
 
 export default (env: BuildEnv) => {

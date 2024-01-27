@@ -43,11 +43,13 @@ module.exports = {
         "computed-property-spacing": "off",
         "import-extensions": "off",
         "@typescript-eslint/no-dynamic-delete": "off",
+        "@typescript-eslint/no-misused-promises": "off",
+        "react/display-name": "off",
         "i18next/no-literal-string": [
             "error",
             {
                 markupOnly: true,
-                ignoreAttribute: [ "data-testid", "to" ]
+                ignoreAttribute: [ "data-testid", "to", "name" ]
             }
         ],
         "react-hooks/rules-of-hooks": "error",

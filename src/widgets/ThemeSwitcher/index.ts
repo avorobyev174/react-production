@@ -1,1 +1,1 @@
-export { ThemeSwitcher } from './ui/ThemeSwitcher';
+export { MemoizedThemeSwitcher as ThemeSwitcher } from './ui/ThemeSwitcher';

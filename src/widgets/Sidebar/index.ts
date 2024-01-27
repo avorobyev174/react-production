@@ -1,1 +1,1 @@
-export { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar';
+export { MemoizedSidebar as Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar';

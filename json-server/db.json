@@ -25,5 +25,13 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Alex",
+    "lastname": "Vorob",
+    "age": 27,
+    "currency": "RUB",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://loremflickr.com/g/320/240/paris"
+  }
 }

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeSwitcher } from './ThemeSwitcher';
+import { MemoizedThemeSwitcher as ThemeSwitcher } from './ThemeSwitcher';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from 'app/providers/ThemeProvider';
 

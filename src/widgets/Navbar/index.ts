@@ -1,1 +1,1 @@
-export { NavBar } from './ui/NavBar';
+export { MemoizedNavbar as NavBar } from './ui/NavBar';

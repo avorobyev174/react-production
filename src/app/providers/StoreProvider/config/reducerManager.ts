@@ -27,7 +27,6 @@ export function createReducerManager (initialReducers: ReducersMapObject<IStateS
       }
 
       reducers[ key ] = reducer
-      console.log(reducers)
       combinedReducer = combineReducers(reducers)
     },
 

@@ -2,11 +2,13 @@ import { type ICounterSchema } from 'entites/Counter';
 import { type IUserSchema } from 'entites/User';
 import { type ILoginSchema } from 'features/AuthByUserName';
 import { type AnyAction, type EnhancedStore, type Reducer, type ReducersMapObject, type CombinedState } from '@reduxjs/toolkit';
+import { type IProfileSchema } from 'entites/Profile';
 
 export interface IStateSchema {
   counter: ICounterSchema,
   user: IUserSchema,
-  loginForm?: ILoginSchema
+  loginForm?: ILoginSchema,
+  profile?: IProfileSchema
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

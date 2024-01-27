@@ -3,7 +3,7 @@ import { useDispatch, useStore } from 'react-redux';
 import { type IReduxStoreWithManager, type TStateSchemaKey } from 'app/providers/StoreProvider';
 import { type Reducer } from '@reduxjs/toolkit';
 
-export type ReducersList = {
+export type TReducersList = {
   [ name in TStateSchemaKey ]?: Reducer;
 }
 
@@ -11,7 +11,7 @@ type ReducersListEntry = [ TStateSchemaKey, Reducer ]
 
 interface IDynamicModuleLoaderProps {
   name: TStateSchemaKey;
-  reducers: ReducersList;
+  reducers: TReducersList;
   removeAfterUnmount?: boolean;
 }
 

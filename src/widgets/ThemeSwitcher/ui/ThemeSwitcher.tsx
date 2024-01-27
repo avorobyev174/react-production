@@ -3,12 +3,13 @@ import { ETheme, useTheme } from 'app/providers/ThemeProvider';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
+import { memo } from 'react';
 
 interface IThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher = ({ className }: IThemeSwitcherProps) => {
+const ThemeSwitcher = ({ className }: IThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme()
 
   return (
@@ -21,3 +22,5 @@ export const ThemeSwitcher = ({ className }: IThemeSwitcherProps) => {
     </Button>
   );
 };
+
+export const MemoizedThemeSwitcher = memo(ThemeSwitcher);

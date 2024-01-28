@@ -1,5 +1,4 @@
 import { type IStateSchema } from 'app/providers/StoreProvider';
-import { type DeepPartial } from '@reduxjs/toolkit';
 import { getLoginError } from './getLoginError';
 describe('getLoginError test', () => {
   test('should return error', () => {

@@ -1,5 +1,4 @@
 import { type IStateSchema } from 'app/providers/StoreProvider';
-import { type DeepPartial } from '@reduxjs/toolkit';
 import { getLoginUserName } from './getLoginUserName';
 describe('getLoginUserName test', () => {
   test('should return value', () => {

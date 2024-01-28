@@ -14,7 +14,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export interface ILoginFormProps {
   className?: string;
-  onSuccess: () => void;
+  onSuccess?: () => void;
 }
 
 const initialReducers: TReducersList = {
@@ -40,7 +40,7 @@ export const LoginForm = ({ className, onSuccess }: ILoginFormProps) => {
   const onLoginClick = useCallback(async () => {
     const res = await dispatch(loginByUserName({ username, password }));
     if (res.meta.requestStatus === 'fulfilled') {
-      onSuccess();
+      onSuccess?.();
     }
   }, [ onSuccess, username, password, dispatch ]);
 

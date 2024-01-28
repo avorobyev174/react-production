@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Input.module.scss'
-import { type ChangeEvent, type InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
+import { type ChangeEvent, type InputHTMLAttributes, memo, type MutableRefObject, useEffect, useRef, useState } from 'react';
 
 type THtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
@@ -22,7 +22,7 @@ export const Input = memo(({
 }: IInputProps) => {
   const [ isFocused, setIsFocused ] = useState(false)
   const [ caretPosition, setCaretPosition ] = useState(0)
-  const ref = useRef<HTMLInputElement>();
+  const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
     if (autofocus) {

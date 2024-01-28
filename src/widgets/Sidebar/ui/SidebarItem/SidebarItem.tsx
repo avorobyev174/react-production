@@ -6,7 +6,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 interface ISidebarItemProps {
-  item?: ISideBarItem;
+  item: ISideBarItem;
   collapsed: boolean;
 }
 

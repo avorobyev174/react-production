@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, type Mods } from 'shared/lib/classNames/classNames';
 import styles from './Modal.module.scss'
-import { type ReactNode, type MouseEvent, useState, useRef, useEffect, useCallback } from 'react';
+import { type ReactNode, type MouseEvent, useState, useRef, useEffect, useCallback, type MutableRefObject } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 const ANIMATION_DELAY = 300;
@@ -16,7 +16,7 @@ interface IModalProps {
 export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProps) => {
   const [ isClosing, setIsClosing ] = useState(false);
   const [ isMounted, setIsMounted ] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const { theme } = useTheme();
 
   const onContentClickHandler = (e: MouseEvent) => {
@@ -56,7 +56,7 @@ export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProp
     }
   }, [ isOpen, onKeyDown ]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [ styles.opened ]: isOpen,
     [ styles.isClosing ]: isClosing
   };

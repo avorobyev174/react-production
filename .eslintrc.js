@@ -44,6 +44,7 @@ module.exports = {
         "import-extensions": "off",
         "@typescript-eslint/no-dynamic-delete": "off",
         "@typescript-eslint/no-misused-promises": "off",
+        "no-undef": "off",
         "react/display-name": "off",
         "i18next/no-literal-string": [
             "error",
@@ -55,6 +56,10 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "template-curly-spacing": ["error", "always"]
+    },
+    "globals": {
+        __IS_DEV__: true,
+        __API__: true,
     },
     "overrides": [
         {

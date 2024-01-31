@@ -17,31 +17,24 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
   // eslint-disable-next-line n/handle-callback-err
   static getDerivedStateFromError () {
-    // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
 
   componentDidCatch (error: Error, errorInfo: ErrorInfo) {
-    // You can also log the error to an error reporting service
-    console.log('-----------');
     console.log(error, errorInfo);
   }
 
   render () {
     const { hasError } = this.state;
     const { children } = this.props;
-    console.log(hasError)
-    console.log(children)
+
     if (hasError) {
-      // You can render any custom fallback UI
-      // eslint-disable-next-line i18next/no-literal-string
       return (
         <Suspense fallback="">
           <PageError />
         </Suspense>
       );
     }
-    console.log(1234)
     return children;
   }
 }

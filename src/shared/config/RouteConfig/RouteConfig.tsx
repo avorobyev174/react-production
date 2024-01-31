@@ -4,6 +4,10 @@ import { AboutPage } from 'pages/about-page';
 import { NotFoundPage } from 'pages/not-found';
 import { ProfilePage } from 'pages/profile-page';
 
+type TAppRouteProps = RouteProps & {
+  authOnly?: boolean;
+}
+
 export enum AppRoute {
   MAIN = 'main',
   ABOUT = 'about',
@@ -19,7 +23,7 @@ export const RoutePath: Record<AppRoute, string> = {
   [ AppRoute.NOT_FOUND ]: '*'
 }
 
-export const routeConfig: Record<AppRoute, RouteProps> = {
+export const routeConfig: Record<AppRoute, TAppRouteProps> = {
   [ AppRoute.MAIN ]: {
     path: RoutePath.main,
     element: <MainPage />
@@ -30,7 +34,8 @@ export const routeConfig: Record<AppRoute, RouteProps> = {
   },
   [ AppRoute.PROFILE ]: {
     path: RoutePath.profile,
-    element: <ProfilePage />
+    element: <ProfilePage />,
+    authOnly: true
   },
   [ AppRoute.NOT_FOUND ]: {
     path: RoutePath.not_found,

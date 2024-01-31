@@ -34,6 +34,7 @@ module.exports = {
         "react/require-default-props": "off",
         "react/react-in-jsx-scope": "off",
         "space-in-brackets": "off",
+        "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
         "semi": "off",

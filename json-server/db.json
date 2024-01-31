@@ -32,6 +32,7 @@
     "currency": "RUB",
     "city": "Moscow",
     "username": "admin",
-    "avatar": "https://loremflickr.com/g/320/240/paris"
+    "avatar": "https://loremflickr.com/320/240",
+    "country": "RUSSIA"
   }
 }

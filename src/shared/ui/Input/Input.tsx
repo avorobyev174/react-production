@@ -1,14 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, type Mods } from 'shared/lib/classNames/classNames';
 import styles from './Input.module.scss'
 import { type ChangeEvent, type InputHTMLAttributes, memo, type MutableRefObject, useEffect, useRef, useState } from 'react';
 
-type THtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type THtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' >
 
 interface IInputProps extends THtmlInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   autofocus?: boolean;
+  readonly?: boolean;
 }
 
 // eslint-disable-next-line react/display-name
@@ -18,11 +19,13 @@ export const Input = memo(({
   type = 'text', onChange,
   placeholder,
   autofocus = false,
+  readonly,
   ...otherProps
 }: IInputProps) => {
   const [ isFocused, setIsFocused ] = useState(false)
   const [ caretPosition, setCaretPosition ] = useState(0)
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
+  const isCaretVisible = isFocused && !readonly;
 
   useEffect(() => {
     if (autofocus) {
@@ -48,8 +51,12 @@ export const Input = memo(({
     setCaretPosition(evt?.target.selectionStart);
   }
 
+  const mods: Mods = {
+    [ styles.readonly ]: readonly
+  }
+
   return (
-    <div className={ classNames(styles.InputWrapper, {}, [ className ])}>
+    <div className={ classNames(styles.InputWrapper, mods, [ className ])}>
       { placeholder && (<div className={ styles.placeholder }>{ `${ placeholder }>` }</div>) }
       <div className={ styles.caretWrapper }>
         <input
@@ -61,9 +68,10 @@ export const Input = memo(({
           onFocus={ onFocus }
           onBlur={ onBlur }
           onSelect={ onSelect }
+          readOnly={ readonly }
           { ...otherProps }
         />
-        { isFocused &&
+        { isCaretVisible &&
           <span
             className={ styles.caret }
             style={{ left: `${ caretPosition * 7 }px` }}

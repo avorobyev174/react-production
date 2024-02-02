@@ -23,9 +23,9 @@ export function buildPlugins ({ paths, isDev, apiUrl, project }: BuildOptions): 
   ]
 
   if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin());
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
     plugins.push(new HotModuleReplacementPlugin());
-    plugins.push(new ReactRefreshWebpackPlugin());
   }
 
   return plugins;

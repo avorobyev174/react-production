@@ -3,6 +3,8 @@ import ProfilePage from './ProfilePage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ECountry } from 'entites/Country';
+import { ECurrency } from 'entites/Currency';
 
 const meta: Meta<typeof ProfilePage> = {
   title: 'pages/ProfilePage',
@@ -16,7 +18,19 @@ type Story = StoryObj<typeof ProfilePage>;
 export const Light: Story = {
   args: {},
   decorators: [
-    StoreDecorator({})
+    StoreDecorator({
+      profile: {
+        form: {
+          username: 'av',
+          age: 28,
+          country: ECountry.RUSSIA,
+          lastname: 'vorob',
+          first: 'alex',
+          city: 'mgn',
+          currency: ECurrency.EUR
+        }
+      }
+    })
   ]
 }
 
@@ -24,6 +38,18 @@ export const Dark: Story = {
   args: {},
   decorators: [
     ThemeDecorator(ETheme.DARK),
-    StoreDecorator({})
+    StoreDecorator({
+      profile: {
+        form: {
+          username: 'av',
+          age: 28,
+          country: ECountry.RUSSIA,
+          lastname: 'vorob',
+          first: 'alex',
+          city: 'mgn',
+          currency: ECurrency.EUR
+        }
+      }
+    })
   ]
 }

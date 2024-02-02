@@ -1,4 +1,5 @@
 export type { IProfileSchema, IProfile } from 'entites/Profile/model/types/profile';
+export { EValidateProfileError } from 'entites/Profile/model/types/profile';
 export { profileActions, profileReducer } from 'entites/Profile/model/slice/profileSlice';
 export { fetchProfileData } from 'entites/Profile/model/services/fetchProfileData/fetchProfileData';
 export { ProfileCard } from 'entites/Profile/ui/ProfileCard/ProfileCard';
@@ -8,3 +9,4 @@ export { getProfileData } from 'entites/Profile/model/selectors/getProfileData/g
 export { getProfileReadonly } from 'entites/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 export { getProfileIsLoading } from 'entites/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 export { updateProfileData } from 'entites/Profile/model/services/updateProfileData/updateProfileData';
+export { getProfileValidateErrors } from 'entites/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';

@@ -26,3 +26,17 @@ export const Dark: Story = {
     user: { authData: {} }
   }) ]
 }
+
+export const NoAuth: Story = {
+  args: {},
+  decorators: [ StoreDecorator({
+    user: {}
+  }) ]
+}
+
+export const NoAuthDark: Story = {
+  args: {},
+  decorators: [ ThemeDecorator(ETheme.DARK), StoreDecorator({
+    user: {}
+  }) ]
+}

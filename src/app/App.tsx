@@ -5,13 +5,14 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { Sidebar } from 'widgets/Sidebar';
 import React, { Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entites/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserInited, userActions } from 'entites/User';
 
 const App = () => {
   const { theme } = useTheme()
   const { t } = useTranslation()
   const dispatch = useDispatch();
+  const inited = useSelector(getUserInited);
 
   useEffect(() => {
     dispatch(userActions.initAuthData())
@@ -23,7 +24,7 @@ const App = () => {
       <Suspense fallback={ <div className="content-page">{ t('Загрузка') }</div> }>
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          { inited && <AppRouter /> }
         </div>
       </Suspense>
     </div>

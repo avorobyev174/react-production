@@ -4,7 +4,7 @@ import { AboutPage } from 'pages/about-page';
 import { NotFoundPage } from 'pages/not-found';
 import { ProfilePage } from 'pages/profile-page';
 
-type TAppRouteProps = RouteProps & {
+export type TAppRouteProps = RouteProps & {
   authOnly?: boolean;
 }
 

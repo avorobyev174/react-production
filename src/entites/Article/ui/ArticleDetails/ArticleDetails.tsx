@@ -94,7 +94,7 @@ export const ArticleDetails = memo(({ className, articleDetailsId }: IArticleDet
           <Icon Svg={ CalendarIcon } className={ styles.icon }/>
           <Text text={ article?.createdAt } />
         </div>
-        { article?.blocks.map(renderBlock) }
+        { article?.blocks?.map(renderBlock) }
       </>)
   }
 

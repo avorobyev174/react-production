@@ -11,17 +11,10 @@ const initialState: IArticleDetailsSchema = {
 const articleDetailsSlice = createSlice({
   name: 'articleDetails',
   initialState,
-  reducers: {
-    /* setUserName: (state, action: PayloadAction<string>) => {
-      state.username = action.payload;
-    },
-    setPassword: (state, action: PayloadAction<string>) => {
-      state.password = action.payload;
-    } */
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticleById.pending, (state, action) => {
+      .addCase(fetchArticleById.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })

@@ -14,6 +14,7 @@ import { type AxiosInstance } from 'axios';
 import { type To } from 'history';
 import { type NavigateOptions } from 'react-router';
 import { type IArticleDetailsSchema } from 'entites/Article';
+import { type IArticleDetailsCommentsSchema } from 'pages/article-details-page';
 
 export interface IStateSchema {
   counter: ICounterSchema,
@@ -21,6 +22,7 @@ export interface IStateSchema {
   loginForm?: ILoginSchema,
   profile?: IProfileSchema
   articlesDetails?: IArticleDetailsSchema;
+  articlesDetailsComments?: IArticleDetailsCommentsSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

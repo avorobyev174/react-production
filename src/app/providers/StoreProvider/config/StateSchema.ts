@@ -13,12 +13,14 @@ import { type IProfileSchema } from 'entites/Profile';
 import { type AxiosInstance } from 'axios';
 import { type To } from 'history';
 import { type NavigateOptions } from 'react-router';
+import { type IArticleDetailsSchema } from 'entites/Article';
 
 export interface IStateSchema {
   counter: ICounterSchema,
   user: IUserSchema,
   loginForm?: ILoginSchema,
   profile?: IProfileSchema
+  articlesDetails?: IArticleDetailsSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

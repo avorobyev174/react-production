@@ -12,18 +12,33 @@ export enum ETextAlign {
   LEFT = 'left'
 }
 
+export enum ETextSize {
+  M = 'size_m',
+  L = 'size_l',
+}
+
 interface ITextProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: ETextTheme;
   align?: ETextAlign;
+  size?: ETextSize;
 }
 
-export const Text = ({ className, title, text, theme = ETextTheme.PRIMARY, align = ETextAlign.LEFT }: ITextProps) => {
+export const Text = (props: ITextProps) => {
+  const {
+    className,
+    title,
+    text,
+    theme = ETextTheme.PRIMARY,
+    align = ETextAlign.LEFT,
+    size = ETextSize.M
+  } = props;
   const mods: Mods = {
     [ styles[ theme ] ]: true,
-    [ styles[ align ] ]: true
+    [ styles[ align ] ]: true,
+    [ styles[ size ] ]: true
   };
 
   return (

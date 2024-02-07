@@ -45,6 +45,7 @@ module.exports = {
         "import-extensions": "off",
         "@typescript-eslint/no-dynamic-delete": "off",
         "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/comma-dangle": "off",
         "no-undef": "off",
         "react/display-name": "off",
         "i18next/no-literal-string": [

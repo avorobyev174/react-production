@@ -1,6 +1,6 @@
 import React, { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig, type TAppRouteProps } from 'shared/config/RouteConfig/RouteConfig';
+import { routeConfig, type TAppRouteProps } from 'shared/config/RouteConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
 import { RequireAuth } from 'app/providers/ErrorBoundary/ui/RequireAuth';
 

@@ -4,8 +4,9 @@
 @import "themes/light";
 @import "themes/orange";
 
-body {
-  font-size: var(--font-m);
+.app,
+.app_modal {
+  font: var(--font-m);
   color: var(--primary-color);
 }
 
@@ -20,8 +21,8 @@ body {
 
 .page-wrapper {
   flex-grow: 1;
-  padding: 20px 20px 20px 40px;
-  height: calc(100vh) - var(--nav-bar-height);
+  padding: 20px 20px 20px 45px;
+  height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
-  width: 100%;
+  flex-shrink: 100;
 }

@@ -2,6 +2,7 @@ import { type ECountry } from 'entites/Country';
 import { type ECurrency } from 'entites/Currency';
 
 export interface IProfile {
+  id?: string;
   first?: string,
   lastname?: string,
   age?: number,

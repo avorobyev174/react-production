@@ -5,17 +5,19 @@ import { type IComment } from 'entites/Comment';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/RouteConfig/routeConfig';
 
 interface ICommentCard {
   className?: string;
-  comment: IComment;
+  comment?: IComment;
   isLoading?: boolean;
 }
 
 export const CommentCard = memo(({ className, comment, isLoading }: ICommentCard) => {
   if (isLoading) {
     return (
-      <div className={ classNames(styles.CommentCard, {}, [ className ]) }>
+      <div className={ classNames(styles.CommentCard, {}, [ className, styles.loading ]) }>
         <div className={ styles.header }>
           <Skeleton width={ 30 } height={ 30 } border={ '50%' }/>
           <Skeleton className={ styles.username } width={ 16 } height={ 100 }/>
@@ -25,13 +27,29 @@ export const CommentCard = memo(({ className, comment, isLoading }: ICommentCard
     );
   }
 
+  if (!comment) {
+    return null;
+  }
+
   return (
     <div className={ classNames(styles.CommentCard, {}, [ className ]) }>
-      <div className={ styles.header }>
-        { comment.user.avatar ? <Avatar size={ 30 } src={ comment.user.avatar }/> : null }
-        <Text className={ styles.username } title={ comment.user.username } />
-      </div>
-      <Text className={ styles.text } text={ comment.text } />
+      <AppLink
+        to={ `${ RoutePath.profile }${ comment.user.id }` }
+        className={ styles.header }
+      >
+        { comment.user.avatar
+          ? <Avatar size={ 30 } src={ comment.user.avatar }/>
+          : null
+        }
+        <Text
+          className={ styles.username }
+          title={ comment.user.username }
+        />
+      </AppLink>
+      <Text
+        className={ styles.text }
+        text={ comment.text }
+      />
     </div>
   );
 });

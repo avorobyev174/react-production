@@ -47,7 +47,6 @@ export const LoginForm = ({ className, onSuccess }: ILoginFormProps) => {
   return (
     <DynamicModuleLoader
       name="loginForm"
-      removeAfterUnmount={ true }
       reducers={ initialReducers }
     >
       <div className={ classNames(styles.LoginForm, {}, [ className ?? '' ])}>

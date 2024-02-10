@@ -1,13 +1,16 @@
 .InputWrapper {
   display: flex;
+  align-items: center;
 }
 
 .placeholder {
   margin-right: 5px;
   color: var(--primary-color);
+  font-size: var(--font-size-m);
 }
 
 .input {
+  display: block;
   background: transparent;
   border: none;
   outline: none;

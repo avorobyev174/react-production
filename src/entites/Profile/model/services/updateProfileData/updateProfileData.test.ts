@@ -11,7 +11,7 @@ const data = {
   lastname: 'vorob',
   first: 'alex',
   city: 'mgn',
-  currency: ECurrency.EUR
+  currency: ECurrency.EUR,
 }
 
 describe('updateProfileData test', () => {

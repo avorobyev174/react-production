@@ -66,7 +66,6 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
     <DynamicModuleLoader
       name='articlesDetailsComments'
       reducers={ reducers }
-      removeAfterUnmount
     >
       <div className={ classNames(styles.ArticleDetailsPage, {}, [ className ]) }>
         <Button onClick={ onBackToList }>

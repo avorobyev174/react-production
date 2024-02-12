@@ -90,7 +90,7 @@ const article: IArticle = {
 export default meta
 type Story = StoryObj<typeof ArticleListItem>;
 
-export const Big: Story = {
+export const ArticleListItemBig: Story = {
   args: {
     view: EArticleView.BIG,
     article
@@ -98,7 +98,7 @@ export const Big: Story = {
   decorators: []
 }
 
-export const Small: Story = {
+export const ArticleListItemSmall: Story = {
   args: {
     view: EArticleView.SMALL,
     article

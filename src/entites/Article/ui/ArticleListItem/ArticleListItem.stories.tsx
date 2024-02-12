@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ArticleDetails } from './ArticleDetails';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { type IArticle } from 'entites/Article';
-import { EArticleBlockType, EArticleType } from 'entites/Article/model';
+import { ArticleListItem } from './ArticleListItem';
+import { EArticleBlockType, EArticleType, EArticleView, type IArticle } from 'entites/Article/model';
 
-const meta: Meta<typeof ArticleDetails> = {
-  title: 'entities/Article/ArticleDetails',
-  component: ArticleDetails,
+const meta: Meta<typeof ArticleListItem> = {
+  title: 'entities/Article/ArticleListItem',
+  component: ArticleListItem,
   argTypes: {}
 }
 
@@ -17,11 +15,16 @@ const article: IArticle = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  type: [ EArticleType.IT ],
   user: {
     id: '2',
     username: 'user',
+    avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png'
   },
+  type: [
+    EArticleType.IT,
+    EArticleType.SCIENCE,
+    EArticleType.ECONOMICS
+  ],
   blocks: [
     {
       id: '1',
@@ -82,34 +85,23 @@ const article: IArticle = {
       ]
     }
   ]
-}
+};
 
 export default meta
-type Story = StoryObj<typeof ArticleDetails>;
+type Story = StoryObj<typeof ArticleListItem>;
 
-export const Normal: Story = {
-  args: {},
-  decorators: [ StoreDecorator({
-    articlesDetails: {
-      data: article
-    }
-  })]
+export const Big: Story = {
+  args: {
+    view: EArticleView.BIG,
+    article
+  },
+  decorators: []
 }
 
-export const Loading: Story = {
-  args: {},
-  decorators: [ StoreDecorator({
-    articlesDetails: {
-      isLoading: true
-    }
-  })]
-}
-
-export const Error: Story = {
-  args: {},
-  decorators: [ StoreDecorator({
-    articlesDetails: {
-      error: 'error'
-    }
-  })]
+export const Small: Story = {
+  args: {
+    view: EArticleView.SMALL,
+    article
+  },
+  decorators: []
 }

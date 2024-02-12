@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ArticleDetails } from './ArticleDetails';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { type IArticle } from 'entites/Article';
-import { EArticleBlockType, EArticleType } from 'entites/Article/model';
+import { ArticleList } from './ArticleList';
+import { EArticleBlockType, EArticleType, EArticleView, type IArticle } from 'entites/Article/model';
 
-const meta: Meta<typeof ArticleDetails> = {
-  title: 'entities/Article/ArticleDetails',
-  component: ArticleDetails,
+const meta: Meta<typeof ArticleList> = {
+  title: 'entities/Article/ArticleList',
+  component: ArticleList,
   argTypes: {}
 }
 
@@ -85,31 +83,38 @@ const article: IArticle = {
 }
 
 export default meta
-type Story = StoryObj<typeof ArticleDetails>;
+type Story = StoryObj<typeof ArticleList>;
 
-export const Normal: Story = {
-  args: {},
-  decorators: [ StoreDecorator({
-    articlesDetails: {
-      data: article
-    }
-  })]
+export const IsLoadingBig: Story = {
+  args: {
+    isLoading: true,
+    articles: [],
+    view: EArticleView.BIG
+  },
+  decorators: []
 }
 
-export const Loading: Story = {
-  args: {},
-  decorators: [ StoreDecorator({
-    articlesDetails: {
-      isLoading: true
-    }
-  })]
+export const IsLoadingSmall: Story = {
+  args: {
+    isLoading: true,
+    articles: [],
+    view: EArticleView.SMALL
+  },
+  decorators: []
 }
 
-export const Error: Story = {
-  args: {},
-  decorators: [ StoreDecorator({
-    articlesDetails: {
-      error: 'error'
-    }
-  })]
+export const Small: Story = {
+  args: {
+    articles: Array.from({ length: 9 }, (item, index) => ({ ...article, id: String(index) })),
+    view: EArticleView.SMALL
+  },
+  decorators: []
+}
+
+export const Big: Story = {
+  args: {
+    articles: Array.from({ length: 3 }, (item, index) => ({ ...article, id: String(index) })),
+    view: EArticleView.BIG
+  },
+  decorators: []
 }

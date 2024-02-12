@@ -1,45 +1,8 @@
-export enum EArticleBlockType {
-  CODE = 'CODE',
-  TEXT = 'TEXT',
-  IMAGE = 'IMAGE',
-}
-
-export interface IArticleBlockBase {
-  id: string;
-  type: EArticleBlockType;
-}
-
-export interface IArticleCodeBlock extends IArticleBlockBase {
-  type: EArticleBlockType.CODE;
-  code: string;
-}
-
-export interface IArticleImageBlock extends IArticleBlockBase {
-  type: EArticleBlockType.IMAGE;
-  src: string;
-  title: string;
-}
-
-export interface IArticleTextBlock extends IArticleBlockBase {
-  type: EArticleBlockType.TEXT;
-  title?: string;
-  paragraphs: string[];
-}
-export type TArticleBlock = IArticleImageBlock | IArticleTextBlock | IArticleCodeBlock;
-
-export enum EArticleType {
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS',
-}
-
-export interface IArticle {
-  id: string;
-  title: string;
-  subtitle: string;
-  img: string;
-  views: number;
-  createdAt: string;
-  type: EArticleType[];
-  blocks: TArticleBlock[]
-}
+export type { IArticle } from 'entites/Article/model/types/article';
+export type { IArticleTextBlock } from 'entites/Article/model/types/article';
+export type { TArticleBlock } from 'entites/Article/model/types/article';
+export type { IArticleCodeBlock } from 'entites/Article/model/types/article';
+export type { IArticleImageBlock } from 'entites/Article/model/types/article';
+export { EArticleType } from 'entites/Article/model/types/article';
+export { EArticleBlockType } from 'entites/Article/model/types/article';
+export { EArticleView } from 'entites/Article/model/types/article';

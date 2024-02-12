@@ -27,14 +27,6 @@ export const ArticleList = memo((props: IArticleListProps) => {
       { length: view === EArticleView.SMALL ? 9 : 3 },
       (_, index) => (<ArticleListItemSkeleton className={ styles.card } view={ view } key={ index }/>))
 
-  if (isLoading) {
-    return (
-      <div className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }>
-        { getSkeletons(view) }
-      </div>
-    )
-  }
-
   const renderArticle = (article: IArticle) => {
     return (
       <ArticleListItem
@@ -48,6 +40,7 @@ export const ArticleList = memo((props: IArticleListProps) => {
   return (
     <div className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }>
       { articles.length ? articles.map(renderArticle) : t('Статьи отсутствуют') }
+      { isLoading && getSkeletons(view) }
     </div>
   );
 });

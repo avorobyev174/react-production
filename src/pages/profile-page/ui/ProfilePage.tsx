@@ -22,6 +22,7 @@ import { ETextTheme, Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 
 const reducers: TReducersList = {
   profile: profileReducer
@@ -89,7 +90,7 @@ const ProfilePage = ({ className }: IProfilePageProps) => {
 
   return (
     <DynamicModuleLoader name="profile" reducers={ reducers } removeAfterUnmount>
-      <div className={ classNames('', {}, [ className ])}>
+      <Page className={ classNames('', {}, [ className ])}>
         <ProfilePageHeader />
         { validateErrors?.length && validateErrors.map((error) =>
           <Text
@@ -112,7 +113,7 @@ const ProfilePage = ({ className }: IProfilePageProps) => {
           onChangeCurrency={ onChangeCurrency }
           onChangeCountry={ onChangeCountry }
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

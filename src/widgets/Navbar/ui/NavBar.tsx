@@ -31,7 +31,7 @@ const NavBar = ({ className }: NavBarProps) => {
 
   if (authData) {
     return (
-      <div className={ classNames(styles.navBar, {}, [ className ])}>
+      <header className={ classNames(styles.navBar, {}, [ className ])}>
         <Button
           theme={ EButtonTheme.CLEAR_INVERTED }
           className={ styles.links }
@@ -39,11 +39,11 @@ const NavBar = ({ className }: NavBarProps) => {
         >
           { t('Выйти') }
         </Button>
-      </div>
+      </header>
     );
   } else {
     return (
-      <div className={ classNames(styles.navBar, {}, [ className ])}>
+      <header className={ classNames(styles.navBar, {}, [ className ])}>
         <Button
           theme={ EButtonTheme.CLEAR_INVERTED }
           className={ styles.links }
@@ -56,7 +56,7 @@ const NavBar = ({ className }: NavBarProps) => {
           onClose={ onCloseModal }
         />
         }
-      </div>
+      </header>
     );
   }
 };

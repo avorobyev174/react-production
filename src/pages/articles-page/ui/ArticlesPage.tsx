@@ -8,8 +8,13 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticlesList } from 'pages/articles-page/model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
-import { getArticlesIsLoading, getArticlesView } from 'pages/articles-page/model/selectors/articles';
+import {
+  getArticlesIsLoading,
+  getArticlesView
+} from 'pages/articles-page/model/selectors/articles';
 import { type EArticleView } from 'entites/Article/model';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from 'pages/articles-page/model/services/fetchNextArticlePage/fetchNextArticlesPage';
 
 interface IArticlesPage {
   className?: string;
@@ -29,9 +34,15 @@ export const ArticlesPage = ({ className }: IArticlesPage) => {
     dispatch(articlePageActions.setView(view));
   }, [ dispatch ]);
 
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage(undefined));
+  }, [ dispatch ])
+
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlePageActions.initState());
+    dispatch(fetchArticlesList({
+      page: 1
+    }));
   });
 
   return (
@@ -39,7 +50,10 @@ export const ArticlesPage = ({ className }: IArticlesPage) => {
       name='articlesPage'
       reducers={ reducers }
     >
-      <div className={ classNames(styles.ArticlesPage, {}, [ className ]) }>
+      <Page
+        onScrollEnd={ onLoadNextPart }
+        className={ classNames(styles.ArticlesPage, {}, [ className ]) }
+      >
         <ArticleViewSelector
           view={ view }
           onViewClick={ onViewChange }
@@ -49,7 +63,7 @@ export const ArticlesPage = ({ className }: IArticlesPage) => {
           articles={ articles }
           view={ view }
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

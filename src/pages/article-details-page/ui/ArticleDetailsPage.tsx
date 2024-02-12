@@ -25,6 +25,7 @@ import {
 } from 'pages/article-details-page/model/services/addCommentForArticle/addCommentForArticle';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/RouteConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 interface IArticleDetailsPage {
   className?: string;
@@ -67,7 +68,7 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
       name='articlesDetailsComments'
       reducers={ reducers }
     >
-      <div className={ classNames(styles.ArticleDetailsPage, {}, [ className ]) }>
+      <Page className={ classNames(styles.ArticleDetailsPage, {}, [ className ]) }>
         <Button onClick={ onBackToList }>
           { t('Назад к списку') }
         </Button>
@@ -78,7 +79,7 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
           isLoading={ isLoading }
           comments={ comments }
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

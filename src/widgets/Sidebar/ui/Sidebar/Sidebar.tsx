@@ -28,7 +28,7 @@ const Sidebar = ({ className }: ISidebarProps) => {
   )), [ collapsed, sideBarItemsList ]);
 
   return (
-    <div
+    <menu
       data-testid="sidebar"
       className={ classNames(styles.Sidebar, { [ styles.collapsed ]: collapsed }, [ className ])}
     >
@@ -52,7 +52,7 @@ const Sidebar = ({ className }: ISidebarProps) => {
           short={ collapsed }
         />
       </div>
-    </div>
+    </menu>
   );
 };
 

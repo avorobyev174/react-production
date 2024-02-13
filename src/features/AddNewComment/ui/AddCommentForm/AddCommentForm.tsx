@@ -22,7 +22,6 @@ const initialReducers: TReducersList = {
 export const AddCommentForm = memo(({ className, onSendComment }: IAddCommentFormProps) => {
   const { t } = useTranslation();
   const text = useSelector(getAddCommentFormText);
-  // const error = useSelector(getAddCommentFormError);
   const dispatch = useAppDispatch();
 
   const onCommentTextChange = useCallback((value: string) => {
@@ -43,7 +42,7 @@ export const AddCommentForm = memo(({ className, onSendComment }: IAddCommentFor
         <Input
           className={ styles.input }
           placeholder={ t('Введите текст комментария') }
-          value={ text }
+          value={ text || '' }
           onChange={ onCommentTextChange }
         />
         <Button onClick={ onSendHandler }>

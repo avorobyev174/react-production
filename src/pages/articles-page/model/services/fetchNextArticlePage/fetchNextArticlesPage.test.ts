@@ -15,11 +15,12 @@ describe('fetchNextArticlesPage test', () => {
         limit: 5,
         isLoading: false,
         hasMore: true,
-        view: EArticleView.SMALL
+        view: EArticleView.SMALL,
+        _inited: false
       }
     });
 
-    await thunk.callThunk('1');
+    await thunk.callThunk();
 
     expect(thunk.dispatch).toBeCalledTimes(4);
     expect(fetchArticlesList).toBeCalledWith({ page: 3 });
@@ -34,11 +35,12 @@ describe('fetchNextArticlesPage test', () => {
         limit: 5,
         isLoading: true,
         hasMore: false,
-        view: EArticleView.SMALL
+        view: EArticleView.SMALL,
+        _inited: false
       }
     });
 
-    await thunk.callThunk('1');
+    await thunk.callThunk();
 
     expect(thunk.dispatch).toBeCalledTimes(2);
     expect(fetchArticlesList).not.toHaveBeenCalled();

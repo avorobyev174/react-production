@@ -4,14 +4,11 @@ import { counterReducer } from 'entites/Counter';
 import { userReducer } from 'entites/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
-import { type To } from 'history';
-import { type NavigateOptions } from 'react-router';
 import { type CombinedState, type Reducer } from 'redux';
 
 export function createReduxStore (
   initialState?: IStateSchema,
   asyncReducers?: ReducersMapObject<IStateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void
 ) {
   const rootReducers: ReducersMapObject<IStateSchema> = {
     ...asyncReducers,
@@ -21,8 +18,7 @@ export function createReduxStore (
 
   const reducerManager = createReducerManager(rootReducers);
   const extraArg: IThunkExtraArg = {
-    api: $api,
-    navigate
+    api: $api
   }
 
   const store = configureStore({

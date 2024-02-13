@@ -14,20 +14,6 @@ const addCommentFormSlice = createSlice({
       state.text = action.payload;
     },
   },
-  /* extraReducers: (builder) => {
-    builder
-      .addCase(loginByUserName.pending, (state, action) => {
-        state.error = undefined;
-        state.isLoading = true;
-      })
-      .addCase(loginByUserName.fulfilled, (state, action) => {
-        state.isLoading = false;
-      })
-      .addCase(loginByUserName.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-  } */
 })
 
 export const { actions: addCommentFormActions } = addCommentFormSlice;

@@ -12,7 +12,7 @@ import {
   getArticlesView
 } from 'pages/articles-page/model/selectors/articles';
 import { type EArticleView } from 'entites/Article/model';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { fetchNextArticlesPage } from 'pages/articles-page/model/services/fetchNextArticlePage/fetchNextArticlesPage';
 import { initArticlesPage } from 'pages/articles-page/model/services/initArticlesPage/initArticlesPage';
 

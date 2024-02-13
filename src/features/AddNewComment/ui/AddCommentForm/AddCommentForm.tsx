@@ -42,7 +42,7 @@ export const AddCommentForm = memo(({ className, onSendComment }: IAddCommentFor
         <Input
           className={ styles.input }
           placeholder={ t('Введите текст комментария') }
-          value={ text || '' }
+          value={ text }
           onChange={ onCommentTextChange }
         />
         <Button onClick={ onSendHandler }>

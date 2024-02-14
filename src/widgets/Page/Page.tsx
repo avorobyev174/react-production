@@ -48,7 +48,7 @@ export const Page = memo((props: IPageProps) => {
       className={ classNames(styles.Page, {}, [ className ]) }
     >
       { children }
-      <div ref={ triggerRef }></div>
+      { onScrollEnd && <div ref={ triggerRef } className={ styles.trigger }></div> }
     </section>
   );
 });

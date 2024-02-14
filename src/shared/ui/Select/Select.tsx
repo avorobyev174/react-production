@@ -2,7 +2,7 @@ import { classNames, type Mods } from 'shared/lib/classNames/classNames';
 import styles from './Select.module.scss'
 import { type ChangeEvent, memo, useMemo } from 'react';
 
-interface ISelectOption {
+export interface ISelectOption {
   value: string;
   content: string;
 }
@@ -11,7 +11,7 @@ interface ISelectProps {
   className?: string;
   label?: string;
   options?: ISelectOption[];
-  value: string;
+  value?: string;
   onChange?: (value: string) => void;
   readonly?: boolean;
 }

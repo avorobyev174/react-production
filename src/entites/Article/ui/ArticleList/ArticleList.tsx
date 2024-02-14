@@ -39,8 +39,11 @@ export const ArticleList = memo((props: IArticleListProps) => {
 
   return (
     <div className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }>
-      { articles.length ? articles.map(renderArticle) : t('Статьи отсутствуют') }
-      { isLoading && getSkeletons(view) }
+      {
+        isLoading
+          ? getSkeletons(view)
+          : articles.length ? articles.map(renderArticle) : t('Статьи отсутствуют')
+      }
     </div>
   );
 });

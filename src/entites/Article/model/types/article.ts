@@ -1,5 +1,11 @@
 import { type IUser } from 'entites/User';
 
+export enum EArticleSortField {
+  VIEWS = 'views',
+  TITLE = 'title',
+  CREATED = 'created',
+}
+
 export enum EArticleBlockType {
   CODE = 'CODE',
   TEXT = 'TEXT',
@@ -38,6 +44,7 @@ export enum EArticleType {
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
+  ALL = 'ALL',
 }
 
 export interface IArticle {

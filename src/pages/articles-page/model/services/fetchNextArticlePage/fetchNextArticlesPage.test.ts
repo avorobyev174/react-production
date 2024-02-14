@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlesPage } from 'pages/articles-page/model/services/fetchNextArticlePage/fetchNextArticlesPage';
-import { EArticleView } from 'entites/Article/model';
+import { EArticleType, EArticleView } from 'entites/Article/model';
 import { fetchArticlesList } from 'pages/articles-page/model/services/fetchArticlesList/fetchArticlesList';
 
 jest.mock('pages/articles-page/model/services/fetchArticlesList/fetchArticlesList');
@@ -16,14 +16,15 @@ describe('fetchNextArticlesPage test', () => {
         isLoading: false,
         hasMore: true,
         view: EArticleView.SMALL,
-        _inited: false
+        _inited: false,
+        type: EArticleType.ALL
       }
     });
 
     await thunk.callThunk();
 
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toBeCalledWith({ page: 3 });
+    expect(fetchArticlesList).toBeCalledWith({ replace: false });
   })
 
   test('fetchArticlesList not called', async () => {
@@ -36,7 +37,8 @@ describe('fetchNextArticlesPage test', () => {
         isLoading: true,
         hasMore: false,
         view: EArticleView.SMALL,
-        _inited: false
+        _inited: false,
+        type: EArticleType.ALL
       }
     });
 

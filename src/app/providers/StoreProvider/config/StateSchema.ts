@@ -12,7 +12,7 @@ import {
 import { type IProfileSchema } from 'entites/Profile';
 import { type AxiosInstance } from 'axios';
 import { type IArticleDetailsSchema } from 'entites/Article';
-import { type IArticleDetailsCommentsSchema } from 'pages/article-details-page';
+import { type IArticleDetailsPageSchema } from 'pages/article-details-page';
 import { type IAddCommentFormSchema } from 'features/AddNewComment';
 import { type IArticlesPageSchema } from 'pages/articles-page';
 import { type IScrollSaveSchema } from 'features/ScrollSave';
@@ -26,9 +26,9 @@ export interface IStateSchema {
   loginForm?: ILoginSchema,
   profile?: IProfileSchema
   articlesDetails?: IArticleDetailsSchema;
-  articlesDetailsComments?: IArticleDetailsCommentsSchema;
   addCommentForm?: IAddCommentFormSchema;
   articlesPage?: IArticlesPageSchema;
+  articleDetailsPage?: IArticleDetailsPageSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

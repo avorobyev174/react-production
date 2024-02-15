@@ -3,7 +3,7 @@ import styles from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleDetails, ArticleList } from 'entites/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ETextSize, Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entites/Comment';
 import { DynamicModuleLoader, type TReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -22,8 +22,6 @@ import { AddCommentForm } from 'features/AddNewComment';
 import {
   addCommentForArticle
 } from 'pages/article-details-page/model/services/addCommentForArticle/addCommentForArticle';
-import { Button } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/RouteConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
 import {
   getArticleRecommendations
@@ -35,6 +33,9 @@ import {
   fetchArticleRecommendations
 } from 'pages/article-details-page/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from 'pages/article-details-page/model/slices';
+import {
+  ArticleDetailsPageHeader
+} from 'pages/article-details-page/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface IArticleDetailsPage {
   className?: string;
@@ -49,7 +50,7 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
   const target = '_blank';
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const comments = useSelector(getArticleComments.selectAll);
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
@@ -63,10 +64,6 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
   const onCommentSend = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
   }, [ dispatch ]);
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [ navigate ]);
 
   if (!id) {
     return (
@@ -82,9 +79,7 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
       reducers={ reducers }
     >
       <Page className={ classNames(styles.ArticleDetailsPage, {}, [ className ]) }>
-        <Button onClick={ onBackToList }>
-          { t('Назад к списку') }
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails articleDetailsId={ id }/>
         <Text
           size={ ETextSize.L }

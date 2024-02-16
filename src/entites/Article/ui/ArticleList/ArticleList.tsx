@@ -2,10 +2,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './ArticleList.module.scss'
 import { useTranslation } from 'react-i18next';
 import { type HTMLAttributeAnchorTarget, memo } from 'react';
-import { type IArticle } from 'entites/Article';
-import { EArticleView } from 'entites/Article/model';
+import { EArticleView, type IArticle } from 'entites/Article';
 import { ArticleListItem } from 'entites/Article/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from 'entites/Article/ui/ArticleListItemSkeleton/ArticleListItemSkeleton';
+import { List, type ListRowProps, WindowScroller } from 'react-virtualized';
+import { PAGE_ID } from 'widgets/Page/Page';
 
 interface IArticleListProps {
   className?: string;
@@ -24,29 +25,78 @@ export const ArticleList = memo((props: IArticleListProps) => {
     target
   } = props;
   const { t } = useTranslation('articles');
+  const isBig = view === EArticleView.BIG;
+  const itemsPerRow = isBig ? 1 : 3;
+  const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
   const getSkeletons = (view: EArticleView) =>
     Array.from(
       { length: view === EArticleView.SMALL ? 9 : 3 },
       (_, index) => (<ArticleListItemSkeleton className={ styles.card } view={ view } key={ index }/>))
 
-  const renderArticle = (article: IArticle) => {
+  const rowRenderer = ({ index, isScrolling, key, style }: ListRowProps) => {
+    const items = [];
+    const fromIndex = index * itemsPerRow;
+    const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+
+    for (let i = fromIndex; i < toIndex; i += 1) {
+      items.push(
+        <ArticleListItem
+          article={ articles[ index ] }
+          view={ view }
+          target={ target }
+          key={ `str${ i }` }
+          className={ styles.item }
+        />
+      )
+    }
     return (
-      <ArticleListItem
-        article={ article }
-        view={ view }
-        key={ article.id }
-        target={ target }
-      />
+      <div
+        className={ styles.row }
+        key={ key }
+        style={ style }
+      >
+        { items }
+      </div>
     );
   }
 
+  if (!isLoading && !articles.length) {
+    return (<div className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }>
+      { t('Статьи отсутствуют') }
+    </div>)
+  }
+
   return (
-    <div className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }>
+    <WindowScroller
+      onScroll={ () => { console.log('scroll'); }}
+      scrollElement={ document.getElementById(PAGE_ID) as Element }
+    >
+      { ({ height, width, registerChild, scrollTop, isScrolling, onChildScroll }) => (
+        <div
+          ref={ registerChild }
+          className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }
+        >
+          <List
+            width={ width ? width - 80 : 700 }
+            height={ height ?? 700 }
+            rowHeight={ isBig ? 700 : 330 }
+            rowRenderer={ rowRenderer }
+            rowCount={ rowCount }
+            autoHeight
+            scrollTop={ scrollTop }
+            onScroll={ onChildScroll }
+            isScrolling={ isScrolling }
+          />
+          { isLoading && getSkeletons(view) }
+        </div>
+      )}
+    </WindowScroller>
+    /* <div className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }>
       {
         isLoading
           ? getSkeletons(view)
           : articles.length ? articles.map(renderArticle) : t('Статьи отсутствуют')
       }
-    </div>
+    </div> */
   );
 });

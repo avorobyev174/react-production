@@ -27,7 +27,7 @@ server.post('/login', (req, res) => {
     const userFromBd = users.find(
       (user) => user.username === username && user.password === password,
     );
-
+    console.log(username, password)
     if (userFromBd) {
       return res.json(userFromBd);
     }
@@ -42,6 +42,7 @@ server.post('/login', (req, res) => {
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
+  console.log(req.headers.authorization)
   if (!req.headers.authorization) {
     return res.status(403).json({ message: 'AUTH ERROR' });
   }

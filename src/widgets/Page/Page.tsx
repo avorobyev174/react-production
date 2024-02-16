@@ -16,6 +16,8 @@ interface IPageProps {
   onScrollEnd?: () => void;
 }
 
+export const PAGE_ID = 'PAGE_ID'
+
 export const Page = memo((props: IPageProps) => {
   const { className, children, onScrollEnd } = props;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -43,6 +45,7 @@ export const Page = memo((props: IPageProps) => {
 
   return (
     <section
+      id={ PAGE_ID }
       onScroll={ onScroll }
       ref={ wrapperRef }
       className={ classNames(styles.Page, {}, [ className ]) }

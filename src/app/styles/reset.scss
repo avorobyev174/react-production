@@ -4,10 +4,18 @@
   box-sizing: border-box;
 }
 
-.app {
-  font-size: 30px;
+li {
+  list-style-type: none;
 }
 
 a {
   text-decoration: none;
+}
+
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  font: inherit;
 }

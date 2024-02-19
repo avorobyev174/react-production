@@ -29,7 +29,7 @@ const Sidebar = ({ className }: ISidebarProps) => {
   )), [ collapsed, sideBarItemsList ]);
 
   return (
-    <menu
+    <aside
       data-testid="sidebar"
       className={ classNames(styles.Sidebar, { [ styles.collapsed ]: collapsed }, [ className ])}
     >
@@ -43,7 +43,11 @@ const Sidebar = ({ className }: ISidebarProps) => {
       >
         { collapsed ? '>' : '<' }
       </Button>
-      <VStack gap="8" className={ styles.items }>
+      <VStack
+        role="navigation"
+        gap="8"
+        className={ styles.items }
+      >
         { itemsList }
       </VStack>
       <div className={ styles.switchers }>
@@ -53,7 +57,7 @@ const Sidebar = ({ className }: ISidebarProps) => {
           short={ collapsed }
         />
       </div>
-    </menu>
+    </aside>
   );
 };
 

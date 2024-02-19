@@ -54,7 +54,7 @@ module.exports = {
             "error",
             {
                 markupOnly: true,
-                ignoreAttribute: [ "data-testid", "to", "name", "justify", "direction", "align", "gap" ]
+                ignoreAttribute: [ "data-testid", "to", "name", "justify", "direction", "align", "gap", "role" ]
             }
         ],
         "react-hooks/rules-of-hooks": "error",

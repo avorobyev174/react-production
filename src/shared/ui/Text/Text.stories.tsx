@@ -61,6 +61,15 @@ export const OnlyTextDark: Story = {
   decorators: [ ThemeDecorator(ETheme.DARK) ]
 }
 
+export const TitleAndTextDarkSizeS: Story = {
+  args: {
+    title: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit!',
+    text: 'test description',
+    size: ETextSize.S
+  },
+  decorators: [ ThemeDecorator(ETheme.DARK) ]
+}
+
 export const TitleAndTextDarkSizeM: Story = {
   args: {
     title: 'Lorem ipsum dolor sit amet, consecrate adipisicing elit!',

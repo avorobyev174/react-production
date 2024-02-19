@@ -44,7 +44,7 @@ export const Page = memo((props: IPageProps) => {
   }, 500);
 
   return (
-    <section
+    <main
       id={ PAGE_ID }
       onScroll={ onScroll }
       ref={ wrapperRef }
@@ -52,6 +52,6 @@ export const Page = memo((props: IPageProps) => {
     >
       { children }
       { onScrollEnd && <div ref={ triggerRef } className={ styles.trigger }></div> }
-    </section>
+    </main>
   );
 });

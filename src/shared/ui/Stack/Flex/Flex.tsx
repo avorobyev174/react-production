@@ -1,21 +1,11 @@
 import { classNames, type TMods } from 'shared/lib/classNames/classNames';
 import styles from './Flex.module.scss'
-import { memo, type ReactNode } from 'react';
+import { type DetailedHTMLProps, type HTMLAttributes, type ReactNode } from 'react';
 
 export type TFlexJustify = 'start' | 'center' | 'end' | 'between'
 export type TFlexAlign = 'start' | 'end' | 'center';
 export type TFlexDirection = 'row' | 'column';
 export type TFlexGap = '4' | '8' | '16' | '32';
-
-export interface IFlexProps {
-  className?: string;
-  children?: ReactNode;
-  justify?: TFlexJustify;
-  align?: TFlexAlign;
-  direction?: TFlexDirection;
-  gap?: TFlexGap;
-  max?: boolean;
-}
 
 const justifyClasses: Record<TFlexJustify, string> = {
   start: styles.justifyStart,
@@ -42,7 +32,18 @@ const gapClasses: Record<TFlexGap, string> = {
   32: styles.gap32
 }
 
-export const Flex = memo((props: IFlexProps) => {
+type TDivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+export interface IFlexProps extends TDivProps {
+  className?: string;
+  children: ReactNode;
+  justify?: TFlexJustify;
+  align?: TFlexAlign;
+  direction: TFlexDirection;
+  gap?: TFlexGap;
+  max?: boolean;
+}
+
+export const Flex = (props: IFlexProps) => {
   const {
     className,
     children,
@@ -70,4 +71,4 @@ export const Flex = memo((props: IFlexProps) => {
       { children }
     </div>
   );
-});
+};

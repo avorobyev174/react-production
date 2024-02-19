@@ -9,6 +9,7 @@ import { getAddCommentFormText } from 'features/AddNewComment/model/selectors/ad
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentFormActions, addCommentFormReducer } from 'features/AddNewComment/model/slice/addCommentFormSlice';
 import { DynamicModuleLoader, type TReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from 'shared/ui/Stack';
 
 export interface IAddCommentFormProps {
   className?: string;
@@ -38,7 +39,11 @@ export const AddCommentForm = memo(({ className, onSendComment }: IAddCommentFor
       name="addCommentForm"
       reducers={ initialReducers }
     >
-      <div className={ classNames(styles.AddCommentForm, {}, [ className ]) }>
+      <HStack
+        justify="between"
+        max
+        className={ classNames(styles.AddCommentForm, {}, [ className ]) }
+      >
         <Input
           className={ styles.input }
           placeholder={ t('Введите текст комментария') }
@@ -48,7 +53,7 @@ export const AddCommentForm = memo(({ className, onSendComment }: IAddCommentFor
         <Button onClick={ onSendHandler }>
           { t('Отправить') }
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

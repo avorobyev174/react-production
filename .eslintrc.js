@@ -21,7 +21,8 @@ module.exports = {
         "@typescript-eslint",
         "i18next",
         "jest",
-        "react-hooks"
+        "react-hooks",
+        "alexey-plugin"
     ],
     "rules": {
         "react/jsx-indent": [ 2, 2 ],
@@ -53,12 +54,13 @@ module.exports = {
             "error",
             {
                 markupOnly: true,
-                ignoreAttribute: [ "data-testid", "to", "name" ]
+                ignoreAttribute: [ "data-testid", "to", "name", "justify", "direction", "align", "gap" ]
             }
         ],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
-        "template-curly-spacing": ["error", "always"]
+        "template-curly-spacing": ["error", "always"],
+        "alexey-plugin/path-checker": "error"
     },
     "globals": {
         __IS_DEV__: true,

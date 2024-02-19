@@ -1,4 +1,4 @@
-import { classNames, type Mods } from 'shared/lib/classNames/classNames';
+import { classNames, type TMods } from 'shared/lib/classNames/classNames';
 import styles from './Button.module.scss';
 import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react';
 
@@ -37,7 +37,7 @@ export const Button = memo((props: IButtonProps) => {
     ...otherProps
   } = props;
 
-  const mods: Mods = {
+  const mods: TMods = {
     [ styles[ theme ] ]: true,
     [ styles.square ]: square,
     [ styles[ size ] ]: true,

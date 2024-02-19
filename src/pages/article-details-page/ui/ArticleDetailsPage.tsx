@@ -36,6 +36,7 @@ import { articleDetailsPageReducer } from 'pages/article-details-page/model/slic
 import {
   ArticleDetailsPageHeader
 } from 'pages/article-details-page/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 interface IArticleDetailsPage {
   className?: string;
@@ -79,29 +80,31 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
       reducers={ reducers }
     >
       <Page className={ classNames(styles.ArticleDetailsPage, {}, [ className ]) }>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails articleDetailsId={ id }/>
-        <Text
-          size={ ETextSize.L }
-          className={ styles.commentTitle }
-          title={ t('Рекомендации') }
-        />
-        <ArticleList
-          isLoading={ isRecommendationsLoading }
-          articles={ recommendations }
-          className={ styles.recommendations }
-          target={ target }
-        />
-        <Text
-          size={ ETextSize.L }
-          className={ styles.commentTitle }
-          title={ t('Комментарии') }
-        />
-        <AddCommentForm onSendComment={ onCommentSend } />
-        <CommentList
-          isLoading={ isLoading }
-          comments={ comments }
-        />
+        <VStack gap="16" max>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails articleDetailsId={ id }/>
+          <Text
+            size={ ETextSize.L }
+            className={ styles.commentTitle }
+            title={ t('Рекомендации') }
+          />
+          <ArticleList
+            isLoading={ isRecommendationsLoading }
+            articles={ recommendations }
+            className={ styles.recommendations }
+            target={ target }
+          />
+          <Text
+            size={ ETextSize.L }
+            className={ styles.commentTitle }
+            title={ t('Комментарии') }
+          />
+          <AddCommentForm onSendComment={ onCommentSend } />
+          <CommentList
+            isLoading={ isLoading }
+            comments={ comments }
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

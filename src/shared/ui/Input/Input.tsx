@@ -1,4 +1,4 @@
-import { classNames, type Mods } from 'shared/lib/classNames/classNames';
+import { classNames, type TMods } from 'shared/lib/classNames/classNames';
 import styles from './Input.module.scss'
 import { type ChangeEvent, type InputHTMLAttributes, memo, type MutableRefObject, useEffect, useRef, useState } from 'react';
 
@@ -51,7 +51,7 @@ export const Input = memo(({
     setCaretPosition(evt?.target.selectionStart);
   }
 
-  const mods: Mods = {
+  const mods: TMods = {
     [ styles.readonly ]: readonly
   }
 

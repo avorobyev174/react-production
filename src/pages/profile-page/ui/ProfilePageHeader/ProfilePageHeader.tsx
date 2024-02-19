@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './ProfilePageHeader.module.scss'
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
@@ -9,6 +8,7 @@ import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileData, profileActions, updateProfileData } from 'entites/Profile';
 import { getUserAuthData } from 'entites/User';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 
 interface IProfilePageHeaderProps {
   className?: string;
@@ -35,39 +35,36 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeaderProps) => {
   }, [ dispatch ]);
 
   return (
-    <div className={ classNames(styles.ProfilePageHeader, {}, [ className ])}>
+    <HStack max justify="between" className={ classNames('', {}, [ className ])}>
       <Text title={ t('Профиль') } />
       { canEdit && (
-        <div className={ styles.btnWrapper }>
+        <>
           { readonly
             ? (
               <Button
-                className={ styles.editButton }
                 theme={ EButtonTheme.OUTLINE }
                 onClick={ onEdit }
               >
                 { t('Редактировать') }
               </Button>)
             : (
-              <>
+              <HStack gap="8">
                 <Button
-                  className={ styles.editButton }
                   theme={ EButtonTheme.OUTLINE_RED }
                   onClick={ onCancelEdit }
                 >
                   { t('Отменить') }
                 </Button>
                 <Button
-                  className={ styles.saveButton }
                   theme={ EButtonTheme.OUTLINE }
                   onClick={ onSave }
                 >
                   { t('Сохранить') }
                 </Button>
-              </>)
+              </HStack>)
           }
-        </div>
+        </>
       )}
-    </div>
+    </HStack>
   );
 };

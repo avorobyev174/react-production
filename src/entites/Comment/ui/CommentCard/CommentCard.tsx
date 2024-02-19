@@ -7,6 +7,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/RouteConfig/routeConfig';
+import { VStack } from 'shared/ui/Stack';
 
 interface ICommentCard {
   className?: string;
@@ -17,13 +18,16 @@ interface ICommentCard {
 export const CommentCard = memo(({ className, comment, isLoading }: ICommentCard) => {
   if (isLoading) {
     return (
-      <div className={ classNames(styles.CommentCard, {}, [ className, styles.loading ]) }>
+      <VStack
+        gap="8"
+        max className={ classNames(styles.CommentCard, {}, [ className, styles.loading ]) }
+      >
         <div className={ styles.header }>
           <Skeleton width={ 30 } height={ 30 } border={ '50%' }/>
           <Skeleton className={ styles.username } width={ 16 } height={ 100 }/>
         </div>
         <Skeleton className={ styles.text } width={ '100%' } height={ 50 } />
-      </div>
+      </VStack>
     );
   }
 

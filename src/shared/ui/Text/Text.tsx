@@ -1,4 +1,4 @@
-import { classNames, type Mods } from 'shared/lib/classNames/classNames';
+import { classNames, type TMods } from 'shared/lib/classNames/classNames';
 import styles from './Text.module.scss'
 
 export enum ETextTheme {
@@ -36,7 +36,7 @@ export const Text = (props: ITextProps) => {
     align = ETextAlign.LEFT,
     size = ETextSize.M
   } = props;
-  const mods: Mods = {
+  const mods: TMods = {
     [ styles[ theme ] ]: true,
     [ styles[ align ] ]: true,
     [ styles[ size ] ]: true

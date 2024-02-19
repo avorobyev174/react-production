@@ -1,4 +1,4 @@
-import { classNames, type Mods } from 'shared/lib/classNames/classNames';
+import { classNames, type TMods } from 'shared/lib/classNames/classNames';
 import styles from './Modal.module.scss'
 import { type ReactNode, type MouseEvent, useState, useRef, useEffect, useCallback, type MutableRefObject } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
@@ -56,7 +56,7 @@ export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProp
     }
   }, [ isOpen, onKeyDown ]);
 
-  const mods: Mods = {
+  const mods: TMods = {
     [ styles.opened ]: isOpen,
     [ styles.isClosing ]: isClosing
   };

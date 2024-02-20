@@ -43,7 +43,7 @@ export const Dropdown = memo((props: IDropdownProps) => {
       <Menu.Items
         className={ classNames(styles.menu, {}, menuClasses) }
       >
-        { items?.map((item) => {
+        { items?.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
@@ -59,7 +59,7 @@ export const Dropdown = memo((props: IDropdownProps) => {
           if (item.href) {
             return (
               <Menu.Item
-                key={ item.href }
+                key={ index }
                 as={ AppLink }
                 to={ item.href }
                 disabled={ item.disabled }
@@ -70,7 +70,7 @@ export const Dropdown = memo((props: IDropdownProps) => {
           }
           return (
             <Menu.Item
-              key={ item.href }
+              key={ index }
               as={ Fragment }
               disabled={ item.disabled }
             >

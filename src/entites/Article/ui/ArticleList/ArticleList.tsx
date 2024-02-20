@@ -25,15 +25,12 @@ export const ArticleList = memo((props: IArticleListProps) => {
     target
   } = props;
   const { t } = useTranslation('articles');
-  const isBig = view === EArticleView.BIG;
-  const itemsPerRow = isBig ? 1 : 3;
-  const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
   const getSkeletons = (view: EArticleView) =>
     Array.from(
       { length: view === EArticleView.SMALL ? 9 : 3 },
       (_, index) => (<ArticleListItemSkeleton className={ styles.card } view={ view } key={ index }/>))
 
-  const rowRenderer = ({ index, isScrolling, key, style }: ListRowProps) => {
+  const rowRenderer = ({ index, key, style }: ListRowProps) => {
     const items = [];
     const fromIndex = index * itemsPerRow;
     const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
@@ -66,11 +63,12 @@ export const ArticleList = memo((props: IArticleListProps) => {
     </div>)
   }
 
+  const isBig = view === EArticleView.BIG;
+  const itemsPerRow = isBig ? 1 : 3;
+  const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
+
   return (
-    <WindowScroller
-      onScroll={ () => { console.log('scroll'); }}
-      scrollElement={ document.getElementById(PAGE_ID) as Element }
-    >
+    <WindowScroller scrollElement={ document.getElementById(PAGE_ID) as Element }>
       { ({ height, width, registerChild, scrollTop, isScrolling, onChildScroll }) => (
         <div
           ref={ registerChild }
@@ -91,12 +89,5 @@ export const ArticleList = memo((props: IArticleListProps) => {
         </div>
       )}
     </WindowScroller>
-    /* <div className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }>
-      {
-        isLoading
-          ? getSkeletons(view)
-          : articles.length ? articles.map(renderArticle) : t('Статьи отсутствуют')
-      }
-    </div> */
   );
 });

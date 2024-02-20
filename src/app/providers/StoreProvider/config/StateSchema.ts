@@ -9,18 +9,20 @@ import {
   type CombinedState,
   type Dispatch
 } from '@reduxjs/toolkit';
-import { type IProfileSchema } from 'entites/Profile';
 import { type AxiosInstance } from 'axios';
 import { type IArticleDetailsSchema } from 'entites/Article';
 import { type IArticleDetailsPageSchema } from 'pages/article-details-page';
 import { type IAddCommentFormSchema } from 'features/AddNewComment';
 import { type IArticlesPageSchema } from 'pages/articles-page';
 import { type IScrollSaveSchema } from 'features/ScrollSave';
+import { type rtkApi } from 'shared/api/rtkApi';
+import { type IProfileSchema } from 'features/editableProfileCard';
 
 export interface IStateSchema {
   counter: ICounterSchema,
   user: IUserSchema,
   scrollSave: IScrollSaveSchema,
+  [ rtkApi.reducerPath ]: ReturnType<typeof rtkApi.reducer>;
 
   // async reducers
   loginForm?: ILoginSchema,

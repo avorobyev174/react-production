@@ -32,6 +32,7 @@ export const CountrySelect = memo(({ className, readonly, value, onChange }: ICo
       value={ value || ECountry.RUSSIA }
       onChange={ onChangeHandler }
       label={ t('Укажите страну') }
+      direction="top right"
     />
   );
 });

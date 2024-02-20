@@ -32,6 +32,7 @@ export const CurrencySelect = memo(({ className, readonly, value, onChange }: IC
       value={ value || ECurrency.RUB }
       onChange={ onChangeHandler }
       label={ t('Укажите валюту') }
+      direction="top right"
     />
   );
 });

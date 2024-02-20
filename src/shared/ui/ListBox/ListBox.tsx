@@ -4,14 +4,13 @@ import styles from './ListBox.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack';
+import { type TDropDownDirection } from 'shared/types/ui';
 
 export interface IListBoxItem {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
-
-type TDropDownDirection = 'top' | 'bottom'
 
 interface IListBoxProps {
   items?: IListBoxItem[];
@@ -25,8 +24,10 @@ interface IListBoxProps {
 }
 
 const mapDirectionClass: Record<TDropDownDirection, string> = {
-  bottom: styles.optionsBottom,
-  top: styles.optionsTop,
+  'top right': styles.optionsTopRight,
+  'top left': styles.optionsTopLeft,
+  'bottom left': styles.optionsBottomLeft,
+  'bottom right': styles.optionsBottomRight,
 }
 
 export const ListBox = (props: IListBoxProps) => {
@@ -36,7 +37,7 @@ export const ListBox = (props: IListBoxProps) => {
     value,
     onChange, defaultValue,
     readonly,
-    direction = 'bottom',
+    direction = 'bottom left',
     label
   } = props;
 
@@ -63,7 +64,6 @@ export const ListBox = (props: IListBoxProps) => {
               key={ item.value }
               value={ item.value }
               disabled={ item.disabled }
-
               as={ Fragment }
             >
               {({ active, selected }) => (

@@ -9,6 +9,8 @@ import { getUserAuthData, userActions } from 'entites/User';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/RouteConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface NavBarProps {
   className?: string;
@@ -45,13 +47,21 @@ const NavBar = ({ className }: NavBarProps) => {
           to={ RoutePath.article_create }
           className={ styles.createBtn }
         >{ t('Создать статью') }</AppLink>
-        <Button
-          theme={ EButtonTheme.CLEAR_INVERTED }
-          className={ styles.links }
-          onClick={ onLogout }
-        >
-          { t('Выйти') }
-        </Button>
+        <Dropdown
+          className={ styles.dropdown }
+          direction="bottom left"
+          items={[
+            {
+              content: t('Профиль'),
+              href: RoutePath.profile + authData.id
+            },
+            {
+              content: t('Выйти'),
+              onClick: onLogout
+            }
+          ]}
+          trigger={ <Avatar size={ 30 } src={ authData.avatar }/> }
+        />
       </header>
     );
   } else {

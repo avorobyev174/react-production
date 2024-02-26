@@ -14,6 +14,7 @@ interface IArticleListProps {
   articles: IArticle[];
   view?: EArticleView;
   target?: HTMLAttributeAnchorTarget;
+  virtualized?: boolean;
 }
 
 export const ArticleList = memo((props: IArticleListProps) => {
@@ -22,7 +23,8 @@ export const ArticleList = memo((props: IArticleListProps) => {
     isLoading,
     articles,
     view = EArticleView.SMALL,
-    target
+    target,
+    virtualized = true
   } = props;
   const { t } = useTranslation('articles');
   const getSkeletons = (view: EArticleView) =>
@@ -74,17 +76,28 @@ export const ArticleList = memo((props: IArticleListProps) => {
           ref={ registerChild }
           className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }
         >
-          <List
-            width={ width ? width - 80 : 700 }
-            height={ height ?? 700 }
-            rowHeight={ isBig ? 700 : 330 }
-            rowRenderer={ rowRenderer }
-            rowCount={ rowCount }
-            autoHeight
-            scrollTop={ scrollTop }
-            onScroll={ onChildScroll }
-            isScrolling={ isScrolling }
-          />
+          { virtualized
+            ? (
+              <List
+                width={ width ? width - 80 : 700 }
+                height={ height ?? 700 }
+                rowHeight={ isBig ? 700 : 330 }
+                rowRenderer={ rowRenderer }
+                rowCount={ rowCount }
+                autoHeight
+                scrollTop={ scrollTop }
+                onScroll={ onChildScroll }
+                isScrolling={ isScrolling }
+              />)
+            : (articles.map((article) => (
+              <ArticleListItem
+                article={ article }
+                view={ view }
+                target={ target }
+                key={ article.id }
+                className={ styles.item }
+              />)))
+          }
           { isLoading && getSkeletons(view) }
         </div>
       )}

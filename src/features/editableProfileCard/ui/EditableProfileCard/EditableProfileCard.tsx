@@ -22,13 +22,16 @@ import { ProfileCard } from 'entites/Profile';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, type TReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
+import {
+  EditableProfilePageHeader
+} from 'features/editableProfileCard/ui/EditableProfilePageHeader/EditableProfilePageHeader';
 
 const reducers: TReducersList = {
   profile: profileReducer
 }
 interface EditableProfileCardProps {
   className?: string;
-  profileId?: string;
+  profileId: string;
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
@@ -98,11 +101,13 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         max
         className={ classNames('', {}, [ className ]) }
       >
+        <EditableProfilePageHeader />
         { validateErrors?.length && validateErrors.map((error) =>
           <Text
             key={ error }
             theme={ ETextTheme.ERROR }
             text={ validateErrorTranslates[ error ] }
+            data-testid={ 'EditableProfileCard.Error' }
           />
         )}
         <ProfileCard

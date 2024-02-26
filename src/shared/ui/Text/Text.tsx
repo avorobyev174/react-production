@@ -26,6 +26,7 @@ interface ITextProps {
   theme?: ETextTheme;
   align?: ETextAlign;
   size?: ETextSize;
+  'data-testid'?: string;
 }
 
 type THeaderTag = 'h1' | 'h2' | 'h3';
@@ -43,7 +44,8 @@ export const Text = (props: ITextProps) => {
     text,
     theme = ETextTheme.PRIMARY,
     align = ETextAlign.LEFT,
-    size = ETextSize.M
+    size = ETextSize.M,
+    'data-testid': dataTestId = 'Text'
   } = props;
   const mods: TMods = {
     [ styles[ theme ] ]: true,
@@ -54,8 +56,20 @@ export const Text = (props: ITextProps) => {
 
   return (
     <div className={ classNames(styles.Text, mods, [ className ])}>
-      { title && <HeaderTag className={ styles.title }>{ title }</HeaderTag> }
-      { text && <p className={ styles.text }>{ text }</p> }
+      { title &&
+        (<HeaderTag
+          className={ styles.title }
+          data-testid={ `${ dataTestId }.Header`}
+        >
+          { title }
+        </HeaderTag>) }
+      { text &&
+        (<p
+          className={ styles.text }
+          data-testid={ `${ dataTestId }.Paragraph`}
+        >
+          { text }
+        </p>) }
     </div>
   );
 };

@@ -608,27 +608,40 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://loremflickr.com/640/360"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://loremflickr.com/640/360"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://loremflickr.com/640/360"
     }
   ],
   "profile": [
     {
       "id": "1",
-      "first": "njjdasdsad",
-      "lastname": "asfewradsadasd",
+      "first": "Admin firstname1",
+      "lastname": "Admin lastname",
       "age": 465,
       "currency": "USD",
       "country": "USA",
       "city": "Moscow",
-      "username": "admin213",
+      "username": "adminGOD",
       "avatar": "https://loremflickr.com/640/360"
     },
     {

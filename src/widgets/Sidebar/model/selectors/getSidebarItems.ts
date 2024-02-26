@@ -37,8 +37,8 @@ export const getSidebarItems = createSelector(
         text: 'Cтатьи',
         authOnly: true
       });
-
-      return sidebarItemList
     }
+
+    return sidebarItemList;
   }
 )

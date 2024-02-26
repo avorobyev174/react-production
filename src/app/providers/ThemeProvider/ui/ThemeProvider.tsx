@@ -1,11 +1,12 @@
 import { LOCAL_STORAGE_THEME_KEY, ETheme, ThemeContext } from '../lib/ThemeContext';
-import { type FC, useMemo, useState } from 'react';
+import { type ReactNode, useMemo, useState } from 'react';
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme || ETheme.LIGHT;
 interface IThemeProviderProps {
   initialTheme?: ETheme;
+  children: ReactNode;
 }
-const ThemeProvider: FC<IThemeProviderProps> = ({ children, initialTheme }) => {
+const ThemeProvider = ({ children, initialTheme }: IThemeProviderProps) => {
   const [ theme, setTheme ] = useState<ETheme>(initialTheme || defaultTheme)
   const defaultProps = useMemo(() => ({
     theme,

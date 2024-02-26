@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './ArticleDetailsPage.module.scss'
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleDetails } from 'entites/Article';
 import { useParams } from 'react-router-dom';
@@ -21,16 +20,7 @@ const reducers: TReducersList = {
 }
 
 export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
-  const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
-
-  if (!id) {
-    return (
-      <div className={ classNames(styles.ArticleDetailsPage, {}, [ className ]) }>
-        { t('Статья не найдена') }
-      </div>
-    )
-  }
 
   return (
     <DynamicModuleLoader

@@ -73,6 +73,8 @@ export const ArticleList = memo((props: IArticleListProps) => {
     <WindowScroller scrollElement={ document.getElementById(PAGE_ID) as Element }>
       { ({ height, width, registerChild, scrollTop, isScrolling, onChildScroll }) => (
         <div
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          // @ts-expect-error
           ref={ registerChild }
           className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }
         >

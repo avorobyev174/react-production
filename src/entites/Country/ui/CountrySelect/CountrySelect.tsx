@@ -20,7 +20,7 @@ const options = [
 export const CountrySelect = memo(({ className, readonly, value, onChange }: ICountrySelectProps) => {
   const { t } = useTranslation();
 
-  const onChangeHandler = useCallback((value) => {
+  const onChangeHandler = useCallback((value: string) => {
     onChange?.(value as ECountry);
   }, [ onChange ])
 

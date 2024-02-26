@@ -22,7 +22,7 @@ import { useTranslation } from 'react-i18next';
 
 interface IArticleDetailsCommentsProps {
   className?: string;
-  articleDetailsId: string;
+  articleDetailsId?: string;
 }
 
 export const ArticleDetailsComments = memo((props: IArticleDetailsCommentsProps) => {

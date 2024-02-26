@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ArticlesPage } from './ArticlesPage';
+import { ArticleDetailsPage } from './ArticleDetailsPage';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { EArticleType, type IArticle } from 'entites/Article';
 import { EArticleBlockType } from 'entites/Article/model';
 
-const meta: Meta<typeof ArticlesPage> = {
-  title: 'pages/ArticlesPage/ArticlesPage',
-  component: ArticlesPage,
+const meta: Meta<typeof ArticleDetailsPage> = {
+  title: 'pages/ArticleDetails/ArticleDetailsPage',
+  component: ArticleDetailsPage,
   argTypes: {}
 }
+
 const article: IArticle = {
   id: '1',
   title: 'Javascript news',
@@ -50,14 +51,14 @@ const article: IArticle = {
 };
 
 export default meta
-type Story = StoryObj<typeof ArticlesPage>;
+type Story = StoryObj<typeof ArticleDetailsPage>;
 
 export const Normal: Story = {
   args: {},
   parameters: {
     mockData: [
       {
-        url: __API__ + '/articles?_expand=user&_limit=2&_page=1&_sort=created&_order=asc&q=',
+        url: __API__ + '/articles?_limit=1',
         method: 'GET',
         status: 200,
         response: [
@@ -67,5 +68,9 @@ export const Normal: Story = {
       },
     ],
   },
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({
+    articlesDetails: {
+      data: article,
+    },
+  }) ]
 }

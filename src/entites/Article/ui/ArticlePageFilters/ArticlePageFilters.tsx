@@ -14,10 +14,10 @@ import { articlePageActions } from 'pages/articles-page/model/slice/articlePageS
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
-import { type EArticleSortField } from 'entites/Article/model/types/article';
 import { type TSortOrder } from 'shared/types';
 import { fetchArticlesList } from 'pages/articles-page/model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { type EArticleSortField } from 'entites/Article/model/const/const';
 
 interface IArticlePageFiltersProps {
   className?: string;

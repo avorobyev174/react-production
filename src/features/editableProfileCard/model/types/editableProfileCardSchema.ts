@@ -1,4 +1,5 @@
 import type { IProfile } from 'entites/Profile';
+import type { EValidateProfileError } from 'features/editableProfileCard/model/const/const';
 
 export interface IProfileSchema {
   data?: IProfile,
@@ -7,12 +8,4 @@ export interface IProfileSchema {
   error?: string,
   readonly: boolean;
   validateErrors?: EValidateProfileError[];
-}
-
-export enum EValidateProfileError {
-  INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
-  INCORRECT_AGE = 'INCORRECT_AGE',
-  INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
-  NO_DATA = 'NO_DATA',
-  SERVER_ERROR = 'SERVER_ERROR',
 }

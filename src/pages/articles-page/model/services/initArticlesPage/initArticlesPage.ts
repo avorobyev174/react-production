@@ -4,7 +4,8 @@ import { getArticlesPageInited } from 'pages/articles-page/model/selectors/artic
 import { articlePageActions } from 'pages/articles-page/model/slice/articlePageSlice';
 import { fetchArticlesList } from 'pages/articles-page/model/services/fetchArticlesList/fetchArticlesList';
 import { type TSortOrder } from 'shared/types';
-import { type EArticleSortField } from 'entites/Article/model/types/article';
+
+import { type EArticleSortField } from 'entites/Article/model/const/const';
 
 export const initArticlesPage = createAsyncThunk<void, URLSearchParams, IThunkConfig<string>>(
   'articles/initArticlesPage',

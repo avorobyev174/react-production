@@ -1,5 +1,6 @@
 import { type IStateSchema } from 'app/providers/StoreProvider';
-import { EArticleSortField, EArticleType } from 'entites/Article/model/types/article';
+import { EArticleType } from 'entites/Article';
+import { EArticleSortField } from 'entites/Article/model/const/const';
 
 export const getArticlesIsLoading = (state: IStateSchema) => state?.articlesPage?.isLoading || false;
 export const getArticlesError = (state: IStateSchema) => state?.articlesPage?.error;

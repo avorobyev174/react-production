@@ -6,7 +6,8 @@ import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
   const svgLoader = buildSvgLoader()
-  const babelLoader = buildBabelLoader(isDev)
+  const codeBabelLoader = buildBabelLoader({ isDev })
+  const tsxCodeBabelLoader = buildBabelLoader({ isDev, isTsx: true })
   const cssLoader = buildCssLoader(isDev);
 
   const fileLoader = {
@@ -14,17 +15,11 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
     use: [ { loader: 'file-loader' } ]
   };
 
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/
-  };
-
   return [
-    babelLoader,
+    tsxCodeBabelLoader,
+    codeBabelLoader,
     fileLoader,
     svgLoader,
-    typescriptLoader,
     cssLoader
   ]
 }

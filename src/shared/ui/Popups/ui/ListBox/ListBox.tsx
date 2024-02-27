@@ -1,10 +1,12 @@
 import { Fragment, type ReactNode } from 'react'
 import { Listbox as HListBox } from '@headlessui/react'
 import styles from './ListBox.module.scss';
+import popupStyles from '../../styles/popup.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack';
 import { type TDropDownDirection } from 'shared/types/ui';
+import { mapDirectionClass } from '../../styles/const';
 
 export interface IListBoxItem {
   value: string;
@@ -21,13 +23,6 @@ interface IListBoxProps {
   readonly?: boolean;
   direction?: TDropDownDirection;
   label?: string;
-}
-
-const mapDirectionClass: Record<TDropDownDirection, string> = {
-  'top right': styles.optionsTopRight,
-  'top left': styles.optionsTopLeft,
-  'bottom left': styles.optionsBottomLeft,
-  'bottom right': styles.optionsBottomRight,
 }
 
 export const ListBox = (props: IListBoxProps) => {
@@ -51,9 +46,9 @@ export const ListBox = (props: IListBoxProps) => {
         disabled={ readonly }
         onChange={ onChange }
         as="div"
-        className={ classNames(styles.ListBox, {}, [ className ]) }
+        className={ classNames('', {}, [ className, popupStyles.popup ]) }
       >
-        <HListBox.Button as="div" className={ styles.trigger }>
+        <HListBox.Button as="div" className={ popupStyles.trigger }>
           <Button disabled={ readonly }>
             { value ?? defaultValue }
           </Button>
@@ -69,8 +64,8 @@ export const ListBox = (props: IListBoxProps) => {
               {({ active, selected }) => (
                 <li
                   className={ classNames(styles.item, {
-                    [ styles.active ]: active,
-                    [ styles.disabled ]: item.disabled
+                    [ popupStyles.active ]: active,
+                    [ popupStyles.disabled ]: item.disabled
                   }, []) }
                 >
                   { item.content }

@@ -27,7 +27,8 @@ export const Light: Story = {
           lastname: 'vorob',
           first: 'alex',
           city: 'mgn',
-          currency: ECurrency.EUR
+          currency: ECurrency.EUR,
+          avatar: ''
         }
       }
     })

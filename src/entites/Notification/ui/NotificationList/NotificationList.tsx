@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './NotificationList.module.scss'
 import { memo } from 'react';
 import { useNotifications } from 'entites/Notification/api/notificationApi';
 import { VStack } from 'shared/ui/Stack';
@@ -21,7 +20,7 @@ export const NotificationList = memo((props: INotificationListProps) => {
       <VStack
         gap="16"
         max
-        className={ classNames(styles.NotificationList, {}, [ className ]) }
+        className={ classNames('', {}, [ className ]) }
       >
         <Skeleton width={ '100%' } height={ '80px' } border={ '8px' }/>
         <Skeleton width={ '100%' } height={ '80px' } border={ '8px' }/>
@@ -30,17 +29,13 @@ export const NotificationList = memo((props: INotificationListProps) => {
     )
   }
 
-  if (!notifications) {
-    return null;
-  }
-
   return (
     <VStack
       gap="16"
       max
-      className={ classNames(styles.NotificationList, {}, [ className ]) }
+      className={ classNames('', {}, [ className ]) }
     >
-      { notifications.map((notification) => (
+      { notifications?.map((notification) => (
         <NotificationItem
           key={ notification.id }
           notification={ notification }

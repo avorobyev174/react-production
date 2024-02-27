@@ -6,17 +6,17 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import type { ECurrency } from 'entites/Currency';
 import type { ECountry } from 'entites/Country';
-import { EValidateProfileError } from 'features/editableProfileCard';
+import { EValidateProfileError } from '../../model/const/const';
 import {
   getProfileIsLoading
-} from 'features/editableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileForm } from 'features/editableProfileCard/model/selectors/getProfileForm/getProfileForm';
-import { getProfileError } from 'features/editableProfileCard/model/selectors/getProfileError/getProfileError';
-import { getProfileReadonly } from 'features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
+} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import {
   getProfileValidateErrors
-} from 'features/editableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { fetchProfileData } from 'features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
+} from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 import { ProfileCard } from 'entites/Profile';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
@@ -24,7 +24,7 @@ import { DynamicModuleLoader, type TReducersList } from 'shared/lib/components/D
 import { VStack } from 'shared/ui/Stack';
 import {
   EditableProfilePageHeader
-} from 'features/editableProfileCard/ui/EditableProfilePageHeader/EditableProfilePageHeader';
+} from '../EditableProfilePageHeader/EditableProfilePageHeader';
 
 const reducers: TReducersList = {
   profile: profileReducer

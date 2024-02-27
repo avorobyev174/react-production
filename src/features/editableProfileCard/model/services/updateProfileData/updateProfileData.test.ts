@@ -2,8 +2,7 @@ import { updateProfileData } from './updateProfileData';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ECountry } from 'entites/Country';
 import { ECurrency } from 'entites/Currency';
-
-import { EValidateProfileError } from 'features/editableProfileCard';
+import { EValidateProfileError } from '../../const/const';
 
 const data = {
   username: 'av',

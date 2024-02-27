@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { CommentCard, type IComment } from 'entites/Comment';
+import { type IComment } from '../../model/types/comment';
+import { CommentCard } from '../CommentCard/CommentCard';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/ui/Stack';

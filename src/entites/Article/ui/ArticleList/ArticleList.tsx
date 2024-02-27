@@ -2,7 +2,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './ArticleList.module.scss'
 import { useTranslation } from 'react-i18next';
 import { type HTMLAttributeAnchorTarget, memo } from 'react';
-import { EArticleView, type IArticle } from 'entites/Article';
+import { type IArticle } from '../../model/types/article';
+import { EArticleView } from '../../model/const/const';
 import { ArticleListItem } from 'entites/Article/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from 'entites/Article/ui/ArticleListItemSkeleton/ArticleListItemSkeleton';
 import { List, type ListRowProps, WindowScroller } from 'react-virtualized';

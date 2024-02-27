@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { type IProfileSchema } from 'features/editableProfileCard';
-import { fetchProfileData } from 'features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
-import { updateProfileData } from 'features/editableProfileCard/model/services/updateProfileData/updateProfileData';
+import { type IProfileSchema } from '../../model/types/editableProfileCardSchema';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
 const initialState: IProfileSchema = {
   readonly: true,

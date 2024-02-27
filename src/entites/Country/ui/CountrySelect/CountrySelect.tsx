@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ECountry } from 'entites/Country';
+import { ECountry } from '../../model/types/country';
 import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 interface ICountrySelectProps {

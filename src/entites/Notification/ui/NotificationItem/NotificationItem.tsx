@@ -14,6 +14,7 @@ interface INotificationItemProps {
 export const NotificationItem = memo((props: INotificationItemProps) => {
   const { className, notification } = props;
   const target = '_blank';
+
   const content = (
     <Card
       theme={ ECardTheme.OUTLINED }
@@ -22,6 +23,7 @@ export const NotificationItem = memo((props: INotificationItemProps) => {
       <Text title={ notification.title } text={ notification.description } />
     </Card>
   )
+
   if (notification.href) {
     return (
       <AppLink className={ styles.link } to={ notification.href } target={ target }>
@@ -29,12 +31,6 @@ export const NotificationItem = memo((props: INotificationItemProps) => {
       </AppLink>
     )
   }
-  return (
-    <Card
-      theme={ ECardTheme.OUTLINED }
-      className={ classNames(styles.NotificationItem, {}, [ className ]) }
-    >
-      <Text title={ notification.title } text={ notification.description } />
-    </Card>
-  );
+
+  return content;
 });

@@ -4,7 +4,7 @@ import { useTheme } from '@/app/providers/ThemeProvider';
 import { Overlay } from '../Overlay/Overlay';
 import styles from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
-import { useAnimationLibs } from '../../lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '../../lib/components/AnimationProvider';
 
 interface IDrawerProps {
   className?: string;
@@ -16,7 +16,7 @@ interface IDrawerProps {
 
 const height = window.innerHeight - 100;
 
-export const DrawerContent = memo((props: IDrawerProps) => {
+export const DrawerContent = (props: IDrawerProps) => {
   const {
     className,
     children,
@@ -91,13 +91,17 @@ export const DrawerContent = memo((props: IDrawerProps) => {
       </div>
     </Portal>
   );
-});
+};
 
-export const Drawer = memo((props: IDrawerProps) => {
+const DrawerAsync = (props: IDrawerProps) => {
   const { isLoaded } = useAnimationLibs();
   if (!isLoaded) {
     return null;
   }
 
   return <DrawerContent {...props} />;
+};
+
+export const Drawer = memo((props: IDrawerProps) => {
+  return <AnimationProvider><DrawerAsync {...props} /></AnimationProvider>;
 });

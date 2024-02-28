@@ -1,4 +1,4 @@
-import { classNames, type TMods } from 'shared/lib/classNames/classNames';
+import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Button.module.scss';
 import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react';
 

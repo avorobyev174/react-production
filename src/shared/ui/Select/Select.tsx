@@ -1,4 +1,4 @@
-import { classNames, type TMods } from 'shared/lib/classNames/classNames';
+import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Select.module.scss'
 import { type ChangeEvent, memo, useMemo } from 'react';
 

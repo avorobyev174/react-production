@@ -1,23 +1,23 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { ETextSize, Text } from 'shared/ui/Text/Text';
-import { AddCommentForm } from 'features/AddNewComment';
-import { CommentList } from 'entites/Comment';
+import { ETextSize, Text } from '@/shared/ui/Text/Text';
+import { AddCommentForm } from '@/features/AddNewComment';
+import { CommentList } from '@/entities/Comment';
 import { useSelector } from 'react-redux';
-import { getArticleComments } from 'pages/article-details-page/model/slices/articleDetailsPageCommentsSlice';
+import { getArticleComments } from '@/pages/article-details-page/model/slices/articleDetailsPageCommentsSlice';
 import {
   getArticleDetailsCommentsError,
   getArticleDetailsCommentsIsLoading
-} from 'pages/article-details-page/model/selectors/commets';
+} from '@/pages/article-details-page/model/selectors/commets';
 import {
   addCommentForArticle
-} from 'pages/article-details-page/model/services/addCommentForArticle/addCommentForArticle';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+} from '@/pages/article-details-page/model/services/addCommentForArticle/addCommentForArticle';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
   fetchCommentsByArticleId
-} from 'pages/article-details-page/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { VStack } from 'shared/ui/Stack';
+} from '@/pages/article-details-page/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { VStack } from '@/shared/ui/Stack';
 import { useTranslation } from 'react-i18next';
 
 interface IArticleDetailsCommentsProps {

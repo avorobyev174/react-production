@@ -1,4 +1,4 @@
-import { classNames, type TMods } from 'shared/lib/classNames/classNames';
+import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Text.module.scss'
 
 export enum ETextTheme {

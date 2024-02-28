@@ -6,7 +6,9 @@ export function buildResolves ({ paths: { src } }: BuildOptions): ResolveOptions
     extensions: [ '.tsx', '.ts', '.js' ],
     preferAbsolute: true,
     modules: [ src, 'node_modules' ],
-    alias: {},
+    alias: {
+      '@': src
+    },
     mainFiles: [ 'index' ]
   }
 }

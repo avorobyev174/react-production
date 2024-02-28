@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ETextSize, ETextTheme, Text } from './Text';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ETheme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ETheme } from '@/app/providers/ThemeProvider';
 
 const meta: Meta<typeof Text> = {
   title: 'shared/Text',

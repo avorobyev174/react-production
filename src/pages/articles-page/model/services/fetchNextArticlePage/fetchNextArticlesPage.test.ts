@@ -1,7 +1,7 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { fetchNextArticlesPage } from 'pages/articles-page/model/services/fetchNextArticlePage/fetchNextArticlesPage';
-import { EArticleType, EArticleView } from 'entites/Article/model';
-import { fetchArticlesList } from 'pages/articles-page/model/services/fetchArticlesList/fetchArticlesList';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { fetchNextArticlesPage } from '@/pages/articles-page/model/services/fetchNextArticlePage/fetchNextArticlesPage';
+import { EArticleType, EArticleView } from '@/entities/Article/model';
+import { fetchArticlesList } from '@/pages/articles-page/model/services/fetchArticlesList/fetchArticlesList';
 
 jest.mock('pages/articles-page/model/services/fetchArticlesList/fetchArticlesList');
 

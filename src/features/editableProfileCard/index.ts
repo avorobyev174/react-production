@@ -1,3 +1,3 @@
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
-export type { IProfileSchema } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
-export { EValidateProfileError } from 'features/editableProfileCard/model/const/const';
+export type { IProfileSchema } from '../editableProfileCard/model/types/editableProfileCardSchema';
+export { EValidateProfileError } from '../editableProfileCard/model/const/const';

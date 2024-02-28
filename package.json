@@ -56,7 +56,6 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
-    "@types/react-virtualized": "9.21.29",
     "@types/webpack": "^5.28.0",
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "@types/webpack-dev-server": "^4.7.2",
@@ -101,6 +100,7 @@
     "stylelint": "^14.5.3",
     "stylelint-config-standard-scss": "^3.0.0",
     "ts-loader": "^9.2.6",
+    "ts-morph": "^21.0.1",
     "ts-node": "^10.5.0",
     "typescript": "^5.3.3",
     "webpack": "^5.69.1",
@@ -123,8 +123,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^11.18.3",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1",
-    "react-virtualized": "^9.22.5"
+    "react-router-dom": "^6.2.1"
   },
   "loki": {
     "configurations": {

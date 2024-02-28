@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppRouter } from 'app/providers/router';
-import { NavBar } from 'widgets/Navbar';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Sidebar } from 'widgets/Sidebar';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppRouter } from '@/app/providers/router';
+import { NavBar } from '@/widgets/Navbar';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Sidebar } from '@/widgets/Sidebar';
 import React, { Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserInited, userActions } from 'entites/User';
+import { getUserInited, userActions } from '@/entities/User';
 
 const App = () => {
   const { theme } = useTheme()

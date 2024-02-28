@@ -1,14 +1,14 @@
 import { type RouteProps } from 'react-router-dom';
-import { MainPage } from 'pages/main-page';
-import { AboutPage } from 'pages/about-page';
-import { NotFoundPage } from 'pages/not-found';
-import { ProfilePage } from 'pages/profile-page';
-import { ArticlesPage } from 'pages/articles-page';
-import { ArticleDetailsPage } from 'pages/article-details-page';
-import { ArticleEditPage } from 'pages/article-edit-page';
-import { AdminPanelPage } from 'pages/AdminPanelPage';
-import { EUserRole } from 'entites/User';
-import { ForbiddenPage } from 'pages/ForbiddenPage';
+import { MainPage } from '@/pages/main-page';
+import { AboutPage } from '@/pages/about-page';
+import { NotFoundPage } from '@/pages/not-found';
+import { ProfilePage } from '@/pages/profile-page';
+import { ArticlesPage } from '@/pages/articles-page';
+import { ArticleDetailsPage } from '@/pages/article-details-page';
+import { ArticleEditPage } from '@/pages/article-edit-page';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { EUserRole } from '@/entities/User';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
 
 export type TAppRouteProps = RouteProps & {
   authOnly?: boolean;

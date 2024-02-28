@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './ArticlesPage.module.scss'
 import { memo, useCallback } from 'react';
-import { DynamicModuleLoader, type TReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articlePageReducer } from 'pages/articles-page/model/slice/articlePageSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from 'widgets/Page/Page';
-import { fetchNextArticlesPage } from 'pages/articles-page/model/services/fetchNextArticlePage/fetchNextArticlesPage';
-import { ArticlePageFilters } from 'entites/Article/ui/ArticlePageFilters/ArticlePageFilters';
-import { ArticleInfiniteList } from 'pages/articles-page/ui/ArticleInfiniteList/ArticleInfiniteList';
+import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { articlePageReducer } from '@/pages/articles-page/model/slice/articlePageSlice';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Page } from '@/widgets/Page/Page';
+import { fetchNextArticlesPage } from '@/pages/articles-page/model/services/fetchNextArticlePage/fetchNextArticlesPage';
+import { ArticlePageFilters } from '@/entities/Article/ui/ArticlePageFilters/ArticlePageFilters';
+import { ArticleInfiniteList } from '@/pages/articles-page/ui/ArticleInfiniteList/ArticleInfiniteList';
 
 interface IArticlesPage {
   className?: string;

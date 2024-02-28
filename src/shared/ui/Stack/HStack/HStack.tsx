@@ -1,4 +1,4 @@
-import { Flex, type IFlexProps } from 'shared/ui/Stack/Flex/Flex';
+import { Flex, type IFlexProps } from '@/shared/ui/Stack/Flex/Flex';
 
 type THStackProps = Omit<IFlexProps, 'direction'>
 

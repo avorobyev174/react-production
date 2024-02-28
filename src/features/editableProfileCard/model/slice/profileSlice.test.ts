@@ -1,8 +1,9 @@
-import { ECountry } from 'entites/Country';
-import { ECurrency } from 'entites/Currency';
-import { EValidateProfileError, type IProfileSchema } from 'features/editableProfileCard';
-import { profileActions, profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
-import { updateProfileData } from 'features/editableProfileCard/model/services/updateProfileData/updateProfileData';
+import { ECurrency } from '@/entities/Currency';
+import { ECountry } from '@/entities/Country';
+import { EValidateProfileError } from '../../model/const/const';
+import { type IProfileSchema } from '../../model/types/editableProfileCardSchema';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
 const data = {
   username: 'av',

@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import type { ECurrency } from 'entites/Currency';
-import type { ECountry } from 'entites/Country';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import type { ECurrency } from '@/entities/Currency';
+import type { ECountry } from '@/entities/Country';
 import { EValidateProfileError } from '../../model/const/const';
 import {
   getProfileIsLoading
@@ -17,11 +17,11 @@ import {
   getProfileValidateErrors
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { profileActions, profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
-import { ProfileCard } from 'entites/Profile';
-import { ETextTheme, Text } from 'shared/ui/Text/Text';
-import { DynamicModuleLoader, type TReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from 'shared/ui/Stack';
+import { profileActions, profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
+import { ProfileCard } from '@/entities/Profile';
+import { ETextTheme, Text } from '@/shared/ui/Text/Text';
+import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack';
 import {
   EditableProfilePageHeader
 } from '../EditableProfilePageHeader/EditableProfilePageHeader';

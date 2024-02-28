@@ -1,10 +1,10 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { type IStateSchema } from 'app/providers/StoreProvider';
-import { type IArticleDetailsRecommendationsSchema } from 'pages/article-details-page/model/types/ArticleDetailsRecommendationsSchema';
-import { type IArticle } from 'entites/Article';
+import { type IStateSchema } from '@/app/providers/StoreProvider';
+import { type IArticleDetailsRecommendationsSchema } from '@/pages/article-details-page/model/types/ArticleDetailsRecommendationsSchema';
+import { type IArticle } from '@/entities/Article';
 import {
   fetchArticleRecommendations
-} from 'pages/article-details-page/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+} from '@/pages/article-details-page/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 const recommendationsAdapter = createEntityAdapter<IArticle>({
   selectId: (comment) => comment.id

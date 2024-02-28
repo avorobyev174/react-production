@@ -1,12 +1,12 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit';
-import { type IStateSchema, type IThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
-import { counterReducer } from 'entites/Counter';
-import { userReducer } from 'entites/User';
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
-import { $api } from 'shared/api/api';
+import { type IStateSchema, type IThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
+import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
+import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
+import { $api } from '@/shared/api/api';
 import { type CombinedState, type Reducer } from 'redux';
-import { scrollSaveReducer } from 'features/ScrollSave';
-import { rtkApi } from 'shared/api/rtkApi';
+import { scrollSaveReducer } from '@/features/ScrollSave';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export function createReduxStore (
   initialState?: IStateSchema,

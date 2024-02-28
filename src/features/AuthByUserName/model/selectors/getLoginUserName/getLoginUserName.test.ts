@@ -1,4 +1,4 @@
-import { type IStateSchema } from 'app/providers/StoreProvider';
+import { type IStateSchema } from '@/app/providers/StoreProvider';
 import { getLoginUserName } from './getLoginUserName';
 describe('getLoginUserName test', () => {
   test('should return value', () => {

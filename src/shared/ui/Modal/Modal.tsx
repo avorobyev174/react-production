@@ -1,10 +1,10 @@
-import { classNames, type TMods } from 'shared/lib/classNames/classNames';
+import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Modal.module.scss'
 import { type ReactNode } from 'react';
 import { Portal } from '../Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
 import { Overlay } from '../Overlay/Overlay';
-import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
 interface IModalProps {
   className?: string;

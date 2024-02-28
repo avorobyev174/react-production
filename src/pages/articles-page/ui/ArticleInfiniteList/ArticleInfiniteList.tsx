@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import { ArticleList } from 'entites/Article';
+import { ArticleList } from '@/entities/Article';
 import { useSelector } from 'react-redux';
-import { getArticles } from 'pages/articles-page/model/slice/articlePageSlice';
-import { getArticlesError, getArticlesIsLoading, getArticlesView } from 'pages/articles-page/model/selectors/articles';
+import { getArticles } from '@/pages/articles-page/model/slice/articlePageSlice';
+import { getArticlesError, getArticlesIsLoading, getArticlesView } from '@/pages/articles-page/model/selectors/articles';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 
 interface IArticleInfiniteListProps {
   className?: string;

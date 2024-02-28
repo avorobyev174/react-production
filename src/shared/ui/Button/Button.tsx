@@ -24,6 +24,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: EButtonSize;
   disabled?: boolean;
   children?: ReactNode;
+  fullWidth?: boolean;
 }
 
 export const Button = memo((props: IButtonProps) => {
@@ -33,6 +34,7 @@ export const Button = memo((props: IButtonProps) => {
     theme = EButtonTheme.OUTLINE,
     square,
     disabled,
+    fullWidth,
     size = EButtonSize.M,
     ...otherProps
   } = props;
@@ -41,7 +43,8 @@ export const Button = memo((props: IButtonProps) => {
     [ styles[ theme ] ]: true,
     [ styles.square ]: square,
     [ styles[ size ] ]: true,
-    [ styles.disabled ]: disabled
+    [ styles.disabled ]: disabled,
+    [ styles.fullWidth ]: fullWidth,
   };
 
   return (

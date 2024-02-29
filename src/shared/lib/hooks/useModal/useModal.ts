@@ -17,6 +17,12 @@ export function useModal (props: IUseModalProps) {
   const [ isMounted, setIsMounted ] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [ isOpen ]);
+
   const close = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
@@ -32,12 +38,6 @@ export function useModal (props: IUseModalProps) {
       close();
     }
   }, [ close ]);
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true)
-    }
-  }, [ isOpen ]);
 
   useEffect(() => {
     if (isOpen) {

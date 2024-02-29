@@ -689,5 +689,118 @@
       "username": "ulbi tv",
       "avatar": "https://loremflickr.com/640/360"
     }
+  ],
+  "article-rating": [
+    {
+      "id": "1",
+      "rate": 0,
+      "feedback": "Cool cool cool",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "1",
+      "rate": 0,
+      "feedback": "Cool cool cool!!!!",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "11",
+      "rate": 0,
+      "feedback": "",
+      "id": "n7zLQQT"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 0,
+      "feedback": "",
+      "id": "cJvxWm5"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 0,
+      "id": "45Q-kny"
+    },
+    {
+      "userId": "1",
+      "articleId": "13",
+      "rate": 0,
+      "id": "LPKlsfE"
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "rate": 0,
+      "id": "GWHP0Gv"
+    },
+    {
+      "userId": "1",
+      "articleId": "17",
+      "rate": 0,
+      "id": "EToEbcN"
+    },
+    {
+      "userId": "1",
+      "articleId": "15",
+      "rate": 0,
+      "feedback": "cadasdasd",
+      "id": "RGv50kW"
+    },
+    {
+      "userId": "1",
+      "articleId": "14",
+      "rate": 0,
+      "id": "aUemwhf"
+    },
+    {
+      "userId": "1",
+      "articleId": "13",
+      "rate": 5,
+      "id": "p-sapta"
+    },
+    {
+      "userId": "1",
+      "articleId": "13",
+      "rate": 5,
+      "id": "WHCcn4u"
+    },
+    {
+      "userId": "1",
+      "articleId": "13",
+      "rate": 5,
+      "id": "kBULESS"
+    },
+    {
+      "userId": "1",
+      "articleId": "13",
+      "rate": 5,
+      "id": "EEBrt27"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 5,
+      "id": "5T_MK5I"
+    }
+  ],
+  "profile-rating": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Cool cool cool",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "1",
+      "rate": 2,
+      "feedback": "Cool cool cool!!!!",
+      "userId": "2",
+      "profileId": "1"
+    }
   ]
 }

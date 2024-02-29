@@ -15,8 +15,8 @@ const stars = [ 1, 2, 3, 4, 5 ]
 
 export const StarRating = memo((props: IStarRatingProps) => {
   const { className, size = 30, selectedStars = 0, onSelect } = props;
-  const [ isSelected, setIsSelected ] = useState(selectedStars);
-  const [ currentStarCount, setCurrentStarCount ] = useState(0);
+  const [ isSelected, setIsSelected ] = useState(Boolean(selectedStars));
+  const [ currentStarCount, setCurrentStarCount ] = useState(selectedStars);
 
   const onHover = (starCount: number) => () => {
     if (!isSelected) {
@@ -34,7 +34,7 @@ export const StarRating = memo((props: IStarRatingProps) => {
     if (!isSelected) {
       onSelect?.(starCount);
       setCurrentStarCount(starCount);
-      setIsSelected(starCount);
+      setIsSelected(true);
     }
   }
 
@@ -42,7 +42,11 @@ export const StarRating = memo((props: IStarRatingProps) => {
     <div className={ classNames(styles.StarRating, {}, [ className ]) }>
       { stars.map((starNumber) => (
         <Icon
-          className={ classNames(styles.starIcon, {}, [ currentStarCount >= starNumber ? styles.hovered : styles.normal ]) }
+          className={ classNames(
+            styles.starIcon,
+            { [ styles.selected ]: isSelected },
+            [ currentStarCount >= starNumber ? styles.hovered : styles.normal ])
+          }
           width={ size }
           height={ size }
           Svg={ StarIcon }

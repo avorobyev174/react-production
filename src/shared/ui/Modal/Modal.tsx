@@ -33,7 +33,7 @@ export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProp
 
   return (
     <Portal>
-      <div className={ classNames(styles.Modal, mods, [ className, theme ])}>
+      <div className={ classNames(styles.Modal, mods, [ className, theme, 'app_modal' ])}>
         <Overlay onClick={ close }/>
         <div className={ styles.content }>
           { children }

@@ -10,6 +10,7 @@ import { ArticleDetailsPageHeader } from '@/pages/article-details-page/ui/Articl
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ArticleDetailsComments } from '@/pages/article-details-page/ui/ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleRating } from '@/features/articleRating';
 
 interface IArticleDetailsPage {
   className?: string;
@@ -21,6 +22,9 @@ const reducers: TReducersList = {
 
 export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
   const { id } = useParams<{ id: string }>();
+  if (!id) {
+    return null;
+  }
 
   return (
     <DynamicModuleLoader
@@ -31,6 +35,7 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails articleDetailsId={ id } />
+          <ArticleRating articleId={ id }/>
           <ArticleRecommendationList />
           <ArticleDetailsComments articleDetailsId={ id } />
         </VStack>

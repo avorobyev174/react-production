@@ -1,14 +1,13 @@
 .starIcon {
-  fill: none;
   cursor: pointer;
+}
+
+.normal {
+  fill: none !important;
 }
 
 .hovered {
   fill: var(--primary-color);
-}
-
-.normal {
-  fill: none;
 }
 
 .selected {

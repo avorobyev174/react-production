@@ -5,8 +5,8 @@ describe('getProfileIsLoading test', () => {
   test('should work with filled state', () => {
     const state: DeepPartial<IStateSchema> = {
       profile: {
-        readonly: true
-      }
+        readonly: true,
+      },
     }
     expect(getProfileReadonly(state as IStateSchema)).toBe(true);
   })

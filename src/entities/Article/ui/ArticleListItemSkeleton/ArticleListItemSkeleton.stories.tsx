@@ -4,7 +4,7 @@ import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
 const meta: Meta<typeof ArticleListItemSkeleton> = {
   title: 'entities/Article/ArticleListItemSkeleton',
   component: ArticleListItemSkeleton,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -12,5 +12,5 @@ type Story = StoryObj<typeof ArticleListItemSkeleton>;
 
 export const Normal: Story = {
   args: {},
-  decorators: []
+  decorators: [],
 }

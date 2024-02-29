@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-void i18n
+i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -13,12 +13,12 @@ void i18n
     // debug: __IS_DEV__,
     debug: false,
     react: {
-      useSuspense: false
+      useSuspense: false,
     },
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
-    backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' }
+    backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' },
   });
 
 export default i18n;

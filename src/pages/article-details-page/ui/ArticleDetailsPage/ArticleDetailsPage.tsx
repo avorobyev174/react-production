@@ -1,8 +1,8 @@
+import { memo } from 'react';
+import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './ArticleDetailsPage.module.scss'
-import { memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
-import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slice';
@@ -28,16 +28,16 @@ export const ArticleDetailsPage = ({ className }: IArticleDetailsPage) => {
 
   return (
     <DynamicModuleLoader
-      name='articleDetailsPage'
-      reducers={ reducers }
+      name="articleDetailsPage"
+      reducers={reducers}
     >
-      <Page className={ classNames(styles.ArticleDetailsPage, {}, [ className ]) }>
+      <Page className={classNames(styles.ArticleDetailsPage, {}, [ className ])}>
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
-          <ArticleDetails articleDetailsId={ id } />
-          <ArticleRating articleId={ id }/>
+          <ArticleDetails articleDetailsId={id} />
+          <ArticleRating articleId={id} />
           <ArticleRecommendationList />
-          <ArticleDetailsComments articleDetailsId={ id } />
+          <ArticleDetailsComments articleDetailsId={id} />
         </VStack>
       </Page>
     </DynamicModuleLoader>

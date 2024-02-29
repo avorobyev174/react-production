@@ -1,24 +1,24 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ETextSize, Text } from '@/shared/ui/Text/Text';
 import { AddCommentForm } from '@/features/AddNewComment';
 import { CommentList } from '@/entities/Comment';
-import { useSelector } from 'react-redux';
 import { getArticleComments } from '../../model/slice/articleDetailsPageCommentsSlice';
 import {
   getArticleDetailsCommentsError,
-  getArticleDetailsCommentsIsLoading
+  getArticleDetailsCommentsIsLoading,
 } from '../../model/selectors/commets';
 import {
-  addCommentForArticle
+  addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
-  fetchCommentsByArticleId
+  fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { VStack } from '@/shared/ui/Stack';
-import { useTranslation } from 'react-i18next';
 
 interface IArticleDetailsCommentsProps {
   className?: string;
@@ -42,23 +42,23 @@ export const ArticleDetailsComments = memo((props: IArticleDetailsCommentsProps)
   })
 
   if (isLoading || error) {
-    return (<Text text={ t('Произошла ошибка при подгрузке данных') } />)
+    return (<Text text={t('Произошла ошибка при подгрузке данных')} />)
   }
 
   return (
     <VStack
       gap="16"
       max
-      className={ classNames('styles.ArticleDetailsComments', {}, [ className ]) }
+      className={classNames('styles.ArticleDetailsComments', {}, [ className ])}
     >
       <Text
-        size={ ETextSize.L }
-        title={ t('Комментарии')}
+        size={ETextSize.L}
+        title={t('Комментарии')}
       />
-      <AddCommentForm onSendComment={ onCommentSend } />
+      <AddCommentForm onSendComment={onCommentSend} />
       <CommentList
-        isLoading={ isLoading }
-        comments={ comments }
+        isLoading={isLoading}
+        comments={comments}
       />
     </VStack>
   );

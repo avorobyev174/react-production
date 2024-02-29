@@ -12,12 +12,12 @@ describe('getProfileData test', () => {
       lastname: 'vorob',
       first: 'alex',
       city: 'mgn',
-      currency: ECurrency.EUR
+      currency: ECurrency.EUR,
     }
     const state: DeepPartial<IStateSchema> = {
       profile: {
-        data
-      }
+        data,
+      },
     }
     expect(getProfileData(state as IStateSchema)).toEqual(data);
   })

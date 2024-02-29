@@ -1,31 +1,31 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { MemoizedNavbar as NavBar } from './NavBar';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ETheme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ETheme } from '@/shared/const/theme';
 
 const meta: Meta<typeof NavBar> = {
   title: 'widget/NavBar',
   component: NavBar,
-  argTypes: {}
+  argTypes: {},
 }
 const notification = {
   id: '1',
   title: 'Уведомление 1',
   description: 'Произошло какое-то событие',
-  userId: '1'
+  userId: '1',
 }
 export default meta
 type Story = StoryObj<typeof NavBar>;
 
 export const Light: Story = {
   args: {},
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({}) ],
 }
 
 export const Dark: Story = {
   args: {},
-  decorators: [ ThemeDecorator(ETheme.DARK), StoreDecorator({}) ]
+  decorators: [ ThemeDecorator(ETheme.DARK), StoreDecorator({}) ],
 }
 
 export const AuthNavbar: Story = {
@@ -33,17 +33,17 @@ export const AuthNavbar: Story = {
   parameters: {
     mockData: [
       {
-        url: __API__ + '/notifications',
+        url: `${ __API__ }/notifications`,
         method: 'GET',
         status: 200,
         response: [
           { ...notification, id: '1' },
           { ...notification, id: '2' },
-        ]
+        ],
       },
     ],
   },
   decorators: [ ThemeDecorator(ETheme.DARK), StoreDecorator({
-    user: { authData: {} }
-  }) ]
+    user: { authData: {} },
+  }) ],
 }

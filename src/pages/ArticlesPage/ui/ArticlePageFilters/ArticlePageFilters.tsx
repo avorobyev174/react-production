@@ -1,9 +1,9 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import styles from './ArticlePageFilters.module.scss'
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleViewSelector, ArticleSortSelector, ArticleTypeTabs } from '../../../../entities/Article';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import styles from './ArticlePageFilters.module.scss'
+import { ArticleViewSelector, ArticleSortSelector, ArticleTypeTabs } from '../../../../entities/Article';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -65,30 +65,30 @@ export const ArticlePageFilters = memo((props: IArticlePageFiltersProps) => {
   }, [ dispatch, debounceFetchData ]);
 
   return (
-    <div className={ classNames(styles.ArticlePageFilters, {}, [ className ]) }>
-      <div className={ styles.filterWrapper }>
+    <div className={classNames(styles.ArticlePageFilters, {}, [ className ])}>
+      <div className={styles.filterWrapper}>
         <ArticleSortSelector
-          order={ order }
-          sort={ sort }
-          onChangeSort={ onSortChange }
-          onChangeOrder={ onOrderChange }
+          order={order}
+          sort={sort}
+          onChangeSort={onSortChange}
+          onChangeOrder={onOrderChange}
         />
         <ArticleViewSelector
-          view={ view }
-          onViewClick={ onViewChange }
+          view={view}
+          onViewClick={onViewChange}
         />
       </div>
-      <Card className={ styles.search }>
+      <Card className={styles.search}>
         <Input
-          placeholder={ t('Поиск') }
-          onChange={ onSearchChange }
-          value={ search }
+          placeholder={t('Поиск')}
+          onChange={onSearchChange}
+          value={search}
         />
       </Card>
       <ArticleTypeTabs
-        className={ styles.tabs }
-        value={ type }
-        onChangeType={ onTypeChange }
+        className={styles.tabs}
+        value={type}
+        onChangeType={onTypeChange}
       />
     </div>
   );

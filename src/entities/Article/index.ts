@@ -6,4 +6,6 @@ export { ArticleList } from '../Article/ui/ArticleList/ArticleList';
 export { ArticleViewSelector } from '../Article/ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleSortSelector } from '../Article/ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from '../Article/ui/ArticleTypeTabs/ArticleTypeTabs';
-export { EArticleView, EArticleType, EArticleBlockType, EArticleSortField } from './model/const/const';
+export {
+  EArticleView, EArticleType, EArticleBlockType, EArticleSortField,
+} from './model/const/const';

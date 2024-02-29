@@ -7,7 +7,7 @@ const initialState: IProfileSchema = {
   readonly: true,
   isLoading: false,
   error: undefined,
-  data: undefined
+  data: undefined,
 }
 
 const profileSlice = createSlice({
@@ -25,9 +25,9 @@ const profileSlice = createSlice({
     updateProfile: (state, action) => {
       state.form = {
         ...state.form,
-        ...action.payload
+        ...action.payload,
       };
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -59,7 +59,7 @@ const profileSlice = createSlice({
         state.isLoading = false;
         state.validateErrors = action.payload;
       })
-  }
+  },
 })
 
 export const { actions: profileActions } = profileSlice;

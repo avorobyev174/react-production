@@ -1,6 +1,8 @@
+import React, {
+  memo, type ReactNode, useCallback, useEffect,
+} from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import React, { memo, type ReactNode, useCallback, useEffect } from 'react';
-import { useTheme } from '@/app/providers/ThemeProvider';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Overlay } from '../Overlay/Overlay';
 import styles from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -79,12 +81,12 @@ export const DrawerContent = (props: IDrawerProps) => {
 
   return (
     <Portal>
-      <div className={ classNames(styles.Drawer, {}, [ className, theme, 'app_drawer' ]) }>
-        <Overlay onClick={ close } />
+      <div className={classNames(styles.Drawer, {}, [ className, theme, 'app_drawer' ])}>
+        <Overlay onClick={close} />
         <Spring.a.div
-          className={ styles.sheet }
+          className={styles.sheet}
           style={{ display, bottom: `calc(-100vh + ${ height - 100 }px)`, y }}
-          { ...bind() }
+          {...bind()}
         >
           { children }
         </Spring.a.div>

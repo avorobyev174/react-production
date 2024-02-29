@@ -1,4 +1,6 @@
-import { Component, type ErrorInfo, type ReactNode, Suspense } from 'react';
+import {
+  Component, type ErrorInfo, type ReactNode, Suspense,
+} from 'react';
 import { PageError } from '@/widgets/PageError';
 
 interface ErrorBoundaryProps {
@@ -10,21 +12,20 @@ interface ErrorBoundaryState {
 }
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor (props: ErrorBoundaryProps) {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
 
-  // eslint-disable-next-line n/handle-callback-err
-  static getDerivedStateFromError () {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
-  componentDidCatch (error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.log(error, errorInfo);
   }
 
-  render () {
+  render() {
     const { hasError } = this.state;
     const { children } = this.props;
 

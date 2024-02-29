@@ -8,11 +8,11 @@ import { type TSortOrder } from '@/shared/types';
 import { EArticleSortField } from '@/entities/Article';
 
 const articlesAdapter = createEntityAdapter<IArticle>({
-  selectId: (article) => article.id
+  selectId: (article) => article.id,
 })
 
 export const getArticles = articlesAdapter.getSelectors<IStateSchema>(
-  (state) => state.articlesPage || articlesAdapter.getInitialState()
+  (state) => state.articlesPage || articlesAdapter.getInitialState(),
 )
 
 const articlesPageSlice = createSlice({
@@ -30,7 +30,7 @@ const articlesPageSlice = createSlice({
     sort: EArticleSortField.CREATED,
     search: '',
     order: 'asc',
-    type: EArticleType.ALL
+    type: EArticleType.ALL,
   }),
   reducers: {
     setView: (state, action: PayloadAction<EArticleView>) => {
@@ -52,12 +52,12 @@ const articlesPageSlice = createSlice({
     setType: (state, action: PayloadAction<EArticleType>) => {
       state.type = action.payload;
     },
-    initState: state => {
+    initState: (state) => {
       const view = localStorage.getItem(ARTICLE_VIEW_STORAGE_KEY) as EArticleView;
       state.view = view;
       state.limit = view === EArticleView.BIG ? 4 : 9;
       state._inited = true;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -82,7 +82,7 @@ const articlesPageSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-  }
+  },
 });
 
 export const { reducer: articlePageReducer } = articlesPageSlice;

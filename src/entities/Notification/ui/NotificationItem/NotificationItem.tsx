@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './NotificationItem.module.scss'
-import { memo } from 'react';
 import { type INotification } from '../../model/types/notifications';
 import { Card, ECardTheme } from '@/shared/ui/Card/Card';
 import { Text } from '@/shared/ui/Text/Text';
@@ -17,16 +17,16 @@ export const NotificationItem = memo((props: INotificationItemProps) => {
 
   const content = (
     <Card
-      theme={ ECardTheme.OUTLINED }
-      className={ classNames(styles.NotificationItem, {}, [ className ]) }
+      theme={ECardTheme.OUTLINED}
+      className={classNames(styles.NotificationItem, {}, [ className ])}
     >
-      <Text title={ notification.title } text={ notification.description } />
+      <Text title={notification.title} text={notification.description} />
     </Card>
   )
 
   if (notification.href) {
     return (
-      <AppLink className={ styles.link } to={ notification.href } target={ target }>
+      <AppLink className={styles.link} to={notification.href} target={target}>
         { content }
       </AppLink>
     )

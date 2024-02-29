@@ -5,7 +5,7 @@ import { Button } from '../../../Button/Button';
 const meta: Meta<typeof Dropdown> = {
   title: 'shared/Dropdown',
   component: Dropdown,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -14,18 +14,18 @@ type Story = StoryObj<typeof Dropdown>;
 export const Normal: Story = {
   args: {
     // eslint-disable-next-line i18next/no-literal-string
-    trigger: <Button>{ 'Open' }</Button>,
+    trigger: <Button>Open</Button>,
     items: [
       {
-        content: 'first'
+        content: 'first',
       },
       {
-        content: 'second'
+        content: 'second',
       },
       {
-        content: 'third'
-      }
-    ]
+        content: 'third',
+      },
+    ],
   },
-  decorators: []
+  decorators: [],
 }

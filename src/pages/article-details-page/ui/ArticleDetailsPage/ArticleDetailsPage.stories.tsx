@@ -7,7 +7,7 @@ import { EArticleBlockType } from '@/entities/Article';
 const meta: Meta<typeof ArticleDetailsPage> = {
   title: 'pages/ArticleDetails/ArticleDetailsPage',
   component: ArticleDetailsPage,
-  argTypes: {}
+  argTypes: {},
 }
 
 const article: IArticle = {
@@ -58,13 +58,13 @@ export const Normal: Story = {
   parameters: {
     mockData: [
       {
-        url: __API__ + '/articles?_limit=1',
+        url: `${ __API__ }/articles?_limit=1`,
         method: 'GET',
         status: 200,
         response: [
           { ...article, id: '1' },
           { ...article, id: '2' },
-        ]
+        ],
       },
     ],
   },
@@ -72,5 +72,5 @@ export const Normal: Story = {
     articlesDetails: {
       data: article,
     },
-  }) ]
+  }) ],
 }

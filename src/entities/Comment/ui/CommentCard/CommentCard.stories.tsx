@@ -5,7 +5,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 const meta: Meta<typeof CommentCard> = {
   title: 'entities/Comment/CommentCard',
   component: CommentCard,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -16,10 +16,10 @@ export const Normal: Story = {
     comment: {
       id: '1',
       user: { id: '1', username: 'Vasya' },
-      text: 'hello'
-    }
+      text: 'hello',
+    },
   },
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({}) ],
 }
 
 export const IsLoading: Story = {
@@ -27,9 +27,9 @@ export const IsLoading: Story = {
     comment: {
       id: '1',
       user: { id: '1', username: 'Vasya' },
-      text: 'hello'
+      text: 'hello',
     },
-    isLoading: true
+    isLoading: true,
   },
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({}) ],
 }

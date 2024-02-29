@@ -1,6 +1,8 @@
+import {
+  type ChangeEvent, type InputHTMLAttributes, memo, type MutableRefObject, useEffect, useRef, useState,
+} from 'react';
 import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Input.module.scss'
-import { type ChangeEvent, type InputHTMLAttributes, memo, type MutableRefObject, useEffect, useRef, useState } from 'react';
 
 type THtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' >
 
@@ -52,31 +54,32 @@ export const Input = memo(({
   }
 
   const mods: TMods = {
-    [ styles.readonly ]: readonly
+    [ styles.readonly ]: readonly,
   }
 
   return (
-    <div className={ classNames(styles.InputWrapper, mods, [ className ])}>
-      { placeholder && (<div className={ styles.placeholder }>{ `${ placeholder }>` }</div>) }
-      <div className={ styles.caretWrapper }>
+    <div className={classNames(styles.InputWrapper, mods, [ className ])}>
+      { placeholder && (<div className={styles.placeholder}>{ `${ placeholder }>` }</div>) }
+      <div className={styles.caretWrapper}>
         <input
-          ref={ ref }
-          className={ styles.input }
-          type={ type }
-          value={ value }
-          onChange={ onChangeHandler }
-          onFocus={ onFocus }
-          onBlur={ onBlur }
-          onSelect={ onSelect }
-          readOnly={ readonly }
-          { ...otherProps }
+          ref={ref}
+          className={styles.input}
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onSelect={onSelect}
+          readOnly={readonly}
+          {...otherProps}
         />
         { isCaretVisible &&
-          <span
-            className={ styles.caret }
-            style={{ left: `${ caretPosition * 7 }px` }}
-          />
-        }
+          (
+            <span
+              className={styles.caret}
+              style={{ left: `${ caretPosition * 7 }px` }}
+            />
+          )}
       </div>
     </div>
   );

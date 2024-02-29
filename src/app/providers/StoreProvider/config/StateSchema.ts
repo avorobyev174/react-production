@@ -1,15 +1,14 @@
-import { type ICounterSchema } from '@/entities/Counter';
-import { type IUserSchema } from '@/entities/User';
-import { type ILoginSchema } from '@/features/authByUserName';
 import {
   type AnyAction,
   type EnhancedStore,
   type Reducer,
   type ReducersMapObject,
   type CombinedState,
-  type Dispatch
+  type Dispatch,
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
+import { type IUserSchema } from '@/entities/User';
+import { type ILoginSchema } from '@/features/authByUserName';
 import { type IArticleDetailsSchema } from '@/entities/Article';
 import { type IArticleDetailsPageSchema } from '@/pages/article-details-page';
 import { type IAddCommentFormSchema } from '@/features/AddNewComment';
@@ -19,7 +18,6 @@ import { type rtkApi } from '@/shared/api/rtkApi';
 import { type IProfileSchema } from '@/features/editableProfileCard';
 
 export interface IStateSchema {
-  counter: ICounterSchema,
   user: IUserSchema,
   scrollSave: IScrollSaveSchema,
   [ rtkApi.reducerPath ]: ReturnType<typeof rtkApi.reducer>;

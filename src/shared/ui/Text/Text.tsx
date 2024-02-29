@@ -45,31 +45,35 @@ export const Text = (props: ITextProps) => {
     theme = ETextTheme.PRIMARY,
     align = ETextAlign.LEFT,
     size = ETextSize.M,
-    'data-testid': dataTestId = 'Text'
+    'data-testid': dataTestId = 'Text',
   } = props;
   const mods: TMods = {
     [ styles[ theme ] ]: true,
     [ styles[ align ] ]: true,
-    [ styles[ size ] ]: true
+    [ styles[ size ] ]: true,
   };
   const HeaderTag = mapSizeToHeaderTag[ size ];
 
   return (
-    <div className={ classNames(styles.Text, mods, [ className ])}>
+    <div className={classNames(styles.Text, mods, [ className ])}>
       { title &&
-        (<HeaderTag
-          className={ styles.title }
-          data-testid={ `${ dataTestId }.Header`}
-        >
-          { title }
-        </HeaderTag>) }
+        (
+          <HeaderTag
+            className={styles.title}
+            data-testid={`${ dataTestId }.Header`}
+          >
+            { title }
+          </HeaderTag>
+        ) }
       { text &&
-        (<p
-          className={ styles.text }
-          data-testid={ `${ dataTestId }.Paragraph`}
-        >
-          { text }
-        </p>) }
+        (
+          <p
+            className={styles.text}
+            data-testid={`${ dataTestId }.Paragraph`}
+          >
+            { text }
+          </p>
+        ) }
     </div>
   );
 };

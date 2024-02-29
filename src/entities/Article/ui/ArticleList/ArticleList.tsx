@@ -1,7 +1,7 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import styles from './ArticleList.module.scss'
 import { useTranslation } from 'react-i18next';
 import { type HTMLAttributeAnchorTarget, memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import styles from './ArticleList.module.scss'
 import { type IArticle } from '../../model/types/article';
 import { EArticleView } from '../../model/const/const';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -13,7 +13,6 @@ interface IArticleListProps {
   articles: IArticle[];
   view?: EArticleView;
   target?: HTMLAttributeAnchorTarget;
-  virtualized?: boolean;
 }
 
 export const ArticleList = memo((props: IArticleListProps) => {
@@ -25,29 +24,32 @@ export const ArticleList = memo((props: IArticleListProps) => {
     target,
   } = props;
   const { t } = useTranslation('articles');
-  const getSkeletons = (view: EArticleView) =>
-    Array.from(
-      { length: view === EArticleView.SMALL ? 9 : 3 },
-      (_, index) => (<ArticleListItemSkeleton className={ styles.card } view={ view } key={ index }/>))
+  const getSkeletons = (view: EArticleView) => Array.from(
+    { length: view === EArticleView.SMALL ? 9 : 3 },
+    (_, index) => (<ArticleListItemSkeleton className={styles.card} view={view} key={index} />),
+  )
 
   if (!isLoading && !articles.length) {
-    return (<div className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }>
-      { t('Статьи отсутствуют') }
-    </div>)
+    return (
+      <div className={classNames(styles.ArticleList, {}, [ className, styles[ view ] ])}>
+        { t('Статьи отсутствуют') }
+      </div>
+    )
   }
 
   return (
     <div
-      className={ classNames(styles.ArticleList, {}, [ className, styles[ view ] ]) }
+      className={classNames(styles.ArticleList, {}, [ className, styles[ view ] ])}
     >
       { articles.map((article) => (
         <ArticleListItem
-          article={ article }
-          view={ view }
-          target={ target }
-          key={ article.id }
-          className={ styles.item }
-        />)) }
+          article={article}
+          view={view}
+          target={target}
+          key={article.id}
+          className={styles.item}
+        />
+      )) }
       { isLoading && getSkeletons(view) }
     </div>
   )

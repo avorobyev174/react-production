@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Tabs } from './Tabs';
 import { action } from '@storybook/addon-actions';
+import { Tabs } from './Tabs';
 
 const meta: Meta<typeof Tabs> = {
   title: 'shared/Tabs',
   component: Tabs,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -19,7 +19,7 @@ export const Normal: Story = {
       { value: 'tab3', content: 'tab3' },
     ],
     value: 'tab2',
-    onTabClick: action('onTabClick')
+    onTabClick: action('onTabClick'),
   },
-  decorators: []
+  decorators: [],
 }

@@ -12,7 +12,7 @@ const data = {
   lastname: 'vorob',
   first: 'alex',
   city: 'mgn',
-  currency: ECurrency.EUR
+  currency: ECurrency.EUR,
 }
 
 describe('profileSlice test', () => {
@@ -20,7 +20,7 @@ describe('profileSlice test', () => {
     const state: DeepPartial<IProfileSchema> = { readonly: false };
     expect(profileReducer(
       state as IProfileSchema,
-      profileActions.setReadonly(true)
+      profileActions.setReadonly(true),
     )).toEqual({ readonly: true })
   })
 
@@ -28,12 +28,12 @@ describe('profileSlice test', () => {
     const state: DeepPartial<IProfileSchema> = { data, form: { username: '' } };
     expect(profileReducer(
       state as IProfileSchema,
-      profileActions.cancelEdit()
+      profileActions.cancelEdit(),
     )).toEqual({
       readonly: true,
       validateErrors: undefined,
       data,
-      form: data
+      form: data,
     })
   })
 
@@ -42,40 +42,40 @@ describe('profileSlice test', () => {
     expect(profileReducer(
       state as IProfileSchema,
       profileActions.updateProfile({
-        username: '123456'
-      })
+        username: '123456',
+      }),
     )).toEqual({
-      form: { username: '123456' }
+      form: { username: '123456' },
     })
   })
 
   test('test update profile pending', () => {
     const state: DeepPartial<IProfileSchema> = {
       isLoading: false,
-      validateErrors: [ EValidateProfileError.SERVER_ERROR ]
+      validateErrors: [ EValidateProfileError.SERVER_ERROR ],
     };
     expect(profileReducer(
       state as IProfileSchema,
-      updateProfileData.pending
+      updateProfileData.pending,
     )).toEqual({
       isLoading: true,
-      validateErrors: undefined
+      validateErrors: undefined,
     })
   })
 
   test('test update profile fulfilled', () => {
     const state: DeepPartial<IProfileSchema> = {
-      isLoading: true
+      isLoading: true,
     };
     expect(profileReducer(
       state as IProfileSchema,
-      updateProfileData.fulfilled(data, '', undefined, '')
+      updateProfileData.fulfilled(data, '', undefined, ''),
     )).toEqual({
       isLoading: false,
       readonly: true,
       validateErrors: undefined,
       form: data,
-      data
+      data,
     })
   })
 })

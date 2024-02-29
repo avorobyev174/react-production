@@ -1,11 +1,12 @@
 import { type IStateSchema } from '@/app/providers/StoreProvider';
 import { getLoginPassword } from './getLoginPassword';
+
 describe('getLoginPassword test', () => {
   test('should return value', () => {
     const state: DeepPartial<IStateSchema> = {
       loginForm: {
-        password: '1234'
-      }
+        password: '1234',
+      },
     }
     expect(getLoginPassword(state as IStateSchema)).toBe('1234');
   })

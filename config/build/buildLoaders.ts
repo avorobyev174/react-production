@@ -4,7 +4,7 @@ import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const svgLoader = buildSvgLoader()
   const codeBabelLoader = buildBabelLoader({ isDev })
   const tsxCodeBabelLoader = buildBabelLoader({ isDev, isTsx: true })
@@ -12,7 +12,7 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
-    use: [ { loader: 'file-loader' } ]
+    use: [ { loader: 'file-loader' } ],
   };
 
   return [
@@ -20,6 +20,6 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
     codeBabelLoader,
     fileLoader,
     svgLoader,
-    cssLoader
+    cssLoader,
   ]
 }

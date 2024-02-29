@@ -1,6 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 interface IForbiddenPageProps {
@@ -12,7 +12,7 @@ const ForbiddenPage = memo((props: IForbiddenPageProps) => {
   const { t } = useTranslation();
 
   return (
-    <Page className={ classNames('', {}, [ className ]) }>
+    <Page className={classNames('', {}, [ className ])}>
       { t('У вас нет доступа к этой странице') }
     </Page>
   );

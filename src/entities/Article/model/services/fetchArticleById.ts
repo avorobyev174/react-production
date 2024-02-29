@@ -11,19 +11,20 @@ export const fetchArticleById = createAsyncThunk<IArticle, string | undefined, I
       if (!articleId) {
         throw new Error('Article id is empty')
       }
-      const response = await extra.api.get<IArticle>(`/articles/${ articleId }`,
+      const response = await extra.api.get<IArticle>(
+        `/articles/${ articleId }`,
         {
           params: {
-            _expand: 'user'
-          }
-        });
+            _expand: 'user',
+          },
+        },
+      );
       if (!response.data) {
         throw new Error();
       }
       return response.data
     } catch (e) {
-      console.log(e)
       return rejectWithValue('error');
     }
-  }
+  },
 )

@@ -8,8 +8,8 @@ interface IPageLoaderProps {
 
 export const PageLoader = ({ className }: IPageLoaderProps) => {
   return (
-    <div className={ classNames(styles.PageLoader, {}, [ className ])}>
-      { <Loader /> }
+    <div className={classNames(styles.PageLoader, {}, [ className ])}>
+      <Loader />
     </div>
   );
 };

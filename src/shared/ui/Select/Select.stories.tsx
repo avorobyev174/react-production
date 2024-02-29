@@ -4,7 +4,7 @@ import { Select } from './Select';
 const meta: Meta<typeof Select> = {
   title: 'shared/Select',
   component: Select,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -15,7 +15,7 @@ export const Primary: Story = {
     label: 'Test text',
     options: [
       { value: '123', content: '1' },
-      { value: '234', content: '2' }
-    ]
-  }
+      { value: '234', content: '2' },
+    ],
+  },
 }

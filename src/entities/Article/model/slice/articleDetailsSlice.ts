@@ -5,7 +5,7 @@ import { type IArticle } from '../../model/index';
 
 const initialState: IArticleDetailsSchema = {
   isLoading: false,
-  error: ''
+  error: '',
 }
 
 const articleDetailsSlice = createSlice({
@@ -26,7 +26,7 @@ const articleDetailsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-  }
+  },
 })
 
 export const { actions: articleDetailsActions } = articleDetailsSlice;

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button, EButtonSize, EButtonTheme } from './Button';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ETheme } from '@/app/providers/ThemeProvider';
+import { ETheme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Button> = {
   title: 'shared/Button',
   component: Button,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -14,67 +14,67 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    children: 'text'
-  }
+    children: 'text',
+  },
 }
 
 export const Clear: Story = {
   args: {
     children: 'text',
-    theme: EButtonTheme.CLEAR
-  }
+    theme: EButtonTheme.CLEAR,
+  },
 }
 
 export const ClearInverted: Story = {
   args: {
     children: 'text',
-    theme: EButtonTheme.CLEAR_INVERTED
-  }
+    theme: EButtonTheme.CLEAR_INVERTED,
+  },
 }
 
 export const OutlineSizeM: Story = {
   args: {
     children: 'text',
-    theme: EButtonTheme.OUTLINE
-  }
+    theme: EButtonTheme.OUTLINE,
+  },
 }
 
 export const OutlineSizeL: Story = {
   args: {
     children: 'text',
     theme: EButtonTheme.OUTLINE,
-    size: EButtonSize.L
-  }
+    size: EButtonSize.L,
+  },
 }
 
 export const OutlineSizeXL: Story = {
   args: {
     children: 'text',
     theme: EButtonTheme.OUTLINE,
-    size: EButtonSize.XL
-  }
+    size: EButtonSize.XL,
+  },
 }
 
 export const OutlineDark: Story = {
   args: {
     children: 'text',
-    theme: EButtonTheme.OUTLINE
+    theme: EButtonTheme.OUTLINE,
   },
-  decorators: [ ThemeDecorator(ETheme.DARK) ]
+  decorators: [ ThemeDecorator(ETheme.DARK) ],
 }
 
 export const BackgroundTheme: Story = {
   args: {
     children: 'text',
-    theme: EButtonTheme.BACKGROUND
-  }
+    theme: EButtonTheme.BACKGROUND,
+  },
 }
 
 export const BackgroundThemeInverted: Story = {
   args: {
     children: 'text',
-    theme: EButtonTheme.BACKGROUND_INVERTED
-  }
+    theme: EButtonTheme.BACKGROUND_INVERTED,
+  },
 }
 
 export const SquareSizeM: Story = {
@@ -82,8 +82,8 @@ export const SquareSizeM: Story = {
     children: '>',
     theme: EButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: EButtonSize.M
-  }
+    size: EButtonSize.M,
+  },
 }
 
 export const SquareSizeL: Story = {
@@ -91,8 +91,8 @@ export const SquareSizeL: Story = {
     children: '>',
     theme: EButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: EButtonSize.L
-  }
+    size: EButtonSize.L,
+  },
 }
 
 export const SquareSizeXL: Story = {
@@ -100,14 +100,14 @@ export const SquareSizeXL: Story = {
     children: '>',
     theme: EButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: EButtonSize.XL
-  }
+    size: EButtonSize.XL,
+  },
 }
 
 export const Disabled: Story = {
   args: {
     children: '>',
     theme: EButtonTheme.OUTLINE,
-    disabled: true
-  }
+    disabled: true,
+  },
 }

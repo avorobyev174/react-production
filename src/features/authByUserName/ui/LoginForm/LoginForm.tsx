@@ -9,7 +9,9 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { ETextTheme, Text } from '@/shared/ui/Text/Text';
 import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { getLoginUserName, getLoginError, getLoginIsLoading, getLoginPassword } from '../..';
+import {
+  getLoginUserName, getLoginError, getLoginIsLoading, getLoginPassword,
+} from '../..';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export interface ILoginFormProps {
@@ -18,7 +20,7 @@ export interface ILoginFormProps {
 }
 
 const initialReducers: TReducersList = {
-  loginForm: loginReducer
+  loginForm: loginReducer,
 }
 
 export const LoginForm = ({ className, onSuccess }: ILoginFormProps) => {
@@ -47,31 +49,31 @@ export const LoginForm = ({ className, onSuccess }: ILoginFormProps) => {
   return (
     <DynamicModuleLoader
       name="loginForm"
-      reducers={ initialReducers }
+      reducers={initialReducers}
     >
-      <div className={ classNames(styles.LoginForm, {}, [ className ?? '' ])}>
-        <Text text={ t('Форма авторизации') }/>
-        { error && <Text text={ t('Вы ввели неверный логин или пароль') } theme={ ETextTheme.ERROR }/> }
+      <div className={classNames(styles.LoginForm, {}, [ className ?? '' ])}>
+        <Text text={t('Форма авторизации')} />
+        { error && <Text text={t('Вы ввели неверный логин или пароль')} theme={ETextTheme.ERROR} /> }
         <Input
-          placeholder={ t('Ввведите имя') }
-          className={ styles.input }
+          placeholder={t('Ввведите имя')}
+          className={styles.input}
           type="text"
           autofocus
-          onChange={ onChangeUserName }
-          value={ username }
+          onChange={onChangeUserName}
+          value={username}
         />
         <Input
-          placeholder={ t('Ввведите пароль') }
-          className={ styles.input }
+          placeholder={t('Ввведите пароль')}
+          className={styles.input}
           type="text"
-          onChange={ onChangePassword }
-          value={ password }
+          onChange={onChangePassword}
+          value={password}
         />
         <Button
-          className={ styles.loginBtn }
-          theme={ EButtonTheme.OUTLINE }
-          onClick={ onLoginClick }
-          disabled={ isLoading }
+          className={styles.loginBtn}
+          theme={EButtonTheme.OUTLINE}
+          onClick={onLoginClick}
+          disabled={isLoading}
         >
           { t('Войти') }
         </Button>

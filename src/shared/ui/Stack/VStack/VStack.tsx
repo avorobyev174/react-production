@@ -5,6 +5,6 @@ type TVStackProps = Omit<IFlexProps, 'direction'>
 export const VStack = (props: TVStackProps) => {
   const { align = 'start' } = props;
   return (
-    <Flex { ...props } direction="column" align={ align } />
+    <Flex { ...props } direction="column" align={align} />
   );
 };

@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './NotificationList.module.scss';
 import { useNotifications } from '../../api/notificationApi';
 import { VStack } from '@/shared/ui/Stack';
@@ -13,7 +13,7 @@ interface INotificationListProps {
 export const NotificationList = memo((props: INotificationListProps) => {
   const { className } = props;
   const { data: notifications, isLoading } = useNotifications(null, {
-    pollingInterval: 10000
+    pollingInterval: 10000,
   });
 
   if (isLoading) {
@@ -21,11 +21,11 @@ export const NotificationList = memo((props: INotificationListProps) => {
       <VStack
         gap="16"
         max
-        className={ classNames(styles.NotificationList, {}, [ className ]) }
+        className={classNames(styles.NotificationList, {}, [ className ])}
       >
-        <Skeleton width={ '100%' } height={ '80px' } border={ '8px' }/>
-        <Skeleton width={ '100%' } height={ '80px' } border={ '8px' }/>
-        <Skeleton width={ '100%' } height={ '80px' } border={ '8px' }/>
+        <Skeleton width="100%" height="80px" border="8px" />
+        <Skeleton width="100%" height="80px" border="8px" />
+        <Skeleton width="100%" height="80px" border="8px" />
       </VStack>
     )
   }
@@ -34,12 +34,12 @@ export const NotificationList = memo((props: INotificationListProps) => {
     <VStack
       gap="16"
       max
-      className={ classNames(styles.NotificationList, {}, [ className ]) }
+      className={classNames(styles.NotificationList, {}, [ className ])}
     >
       { notifications?.map((notification) => (
         <NotificationItem
-          key={ notification.id }
-          notification={ notification }
+          key={notification.id}
+          notification={notification}
         />
       )) }
     </VStack>

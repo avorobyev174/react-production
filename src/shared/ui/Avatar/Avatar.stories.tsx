@@ -8,7 +8,7 @@ const meta: Meta<typeof Avatar> = {
   title: 'shared/Avatar',
   component: Avatar,
   argTypes: {},
-  args: {}
+  args: {},
 }
 
 export default meta
@@ -17,13 +17,13 @@ type Story = StoryObj<typeof Avatar>;
 export const Primary: Story = {
   args: {
     size: 150,
-    src: AvatarImg
-  }
+    src: AvatarImg,
+  },
 }
 
 export const Small: Story = {
   args: {
     size: 50,
-    src: AvatarImg
-  }
+    src: AvatarImg,
+  },
 }

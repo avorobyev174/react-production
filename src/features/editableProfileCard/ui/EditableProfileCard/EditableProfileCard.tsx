@@ -1,20 +1,20 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import type { ECurrency } from '@/entities/Currency';
 import type { ECountry } from '@/entities/Country';
 import { EValidateProfileError } from '../../model/const/const';
 import {
-  getProfileIsLoading
+  getProfileIsLoading,
 } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import {
-  getProfileValidateErrors
+  getProfileValidateErrors,
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
@@ -23,11 +23,11 @@ import { ETextTheme, Text } from '@/shared/ui/Text/Text';
 import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import {
-  EditableProfilePageHeader
+  EditableProfilePageHeader,
 } from '../EditableProfilePageHeader/EditableProfilePageHeader';
 
 const reducers: TReducersList = {
-  profile: profileReducer
+  profile: profileReducer,
 }
 interface EditableProfileCardProps {
   className?: string;
@@ -49,7 +49,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     [ EValidateProfileError.INCORRECT_COUNTRY ]: t('Некорректный регион'),
     [ EValidateProfileError.INCORRECT_USER_DATA ]: t('Имя и фамилия обязательны'),
     [ EValidateProfileError.INCORRECT_AGE ]: t('Некорректный возраст'),
-    [ EValidateProfileError.NO_DATA ]: t('Данные не указаны')
+    [ EValidateProfileError.NO_DATA ]: t('Данные не указаны'),
   }
 
   useInitialEffect(() => {
@@ -93,36 +93,36 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   return (
     <DynamicModuleLoader
       name="profile"
-      reducers={ reducers }
+      reducers={reducers}
       removeAfterUnmount
     >
       <VStack
         gap="8"
         max
-        className={ classNames('', {}, [ className ]) }
+        className={classNames('', {}, [ className ])}
       >
         <EditableProfilePageHeader />
-        { validateErrors?.length && validateErrors.map((error) =>
+        { validateErrors?.length && validateErrors.map((error) => (
           <Text
-            key={ error }
-            theme={ ETextTheme.ERROR }
-            text={ validateErrorTranslates[ error ] }
-            data-testid={ 'EditableProfileCard.Error' }
+            key={error}
+            theme={ETextTheme.ERROR}
+            text={validateErrorTranslates[ error ]}
+            data-testid="EditableProfileCard.Error"
           />
-        )}
+        ))}
         <ProfileCard
-          data={ formData }
-          isLoading={ isLoading }
-          error={ error }
-          onChangeFirstname={ onChangeFirstname }
-          onChangeLastname={ onChangeLastname }
-          onChangeAvatar={ onChangeAvatar }
-          onChangeUsername={ onChangeUsername }
-          onChangeAge={ onChangeAge }
-          onChangeCity={ onChangeCity }
-          readonly={ readonly }
-          onChangeCurrency={ onChangeCurrency }
-          onChangeCountry={ onChangeCountry }
+          data={formData}
+          isLoading={isLoading}
+          error={error}
+          onChangeFirstname={onChangeFirstname}
+          onChangeLastname={onChangeLastname}
+          onChangeAvatar={onChangeAvatar}
+          onChangeUsername={onChangeUsername}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          readonly={readonly}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
         />
       </VStack>
     </DynamicModuleLoader>

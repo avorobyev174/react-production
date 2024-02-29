@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import ProfilePage from './ProfilePage';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ETheme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ECountry } from '@/entities/Country';
 import { ECurrency } from '@/entities/Currency';
+import { ETheme } from '@/shared/const/theme';
 
 const meta: Meta<typeof ProfilePage> = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -28,11 +28,11 @@ export const Light: Story = {
           first: 'alex',
           city: 'mgn',
           currency: ECurrency.EUR,
-          avatar: ''
-        }
-      }
-    })
-  ]
+          avatar: '',
+        },
+      },
+    }),
+  ],
 }
 
 export const Dark: Story = {
@@ -48,9 +48,9 @@ export const Dark: Story = {
           lastname: 'vorob',
           first: 'alex',
           city: 'mgn',
-          currency: ECurrency.EUR
-        }
-      }
-    })
-  ]
+          currency: ECurrency.EUR,
+        },
+      },
+    }),
+  ],
 }

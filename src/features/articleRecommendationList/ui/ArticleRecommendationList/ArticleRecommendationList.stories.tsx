@@ -3,10 +3,11 @@ import { ArticleRecommendationList } from './ArticleRecommendationList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { EArticleType, type IArticle } from '@/entities/Article';
 import { EArticleBlockType } from '@/entities/Article';
+
 const meta: Meta<typeof ArticleRecommendationList> = {
   title: 'features/ArticleRecommendationList',
   component: ArticleRecommendationList,
-  argTypes: {}
+  argTypes: {},
 }
 
 const article: IArticle = {
@@ -57,15 +58,15 @@ export const Normal: Story = {
   parameters: {
     mockData: [
       {
-        url: __API__ + '/articles?_limit=3',
+        url: `${ __API__ }/articles?_limit=3`,
         method: 'GET',
         status: 200,
         response: [
           { ...article, id: '1' },
           { ...article, id: '2' },
-        ]
+        ],
       },
     ],
   },
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({}) ],
 }

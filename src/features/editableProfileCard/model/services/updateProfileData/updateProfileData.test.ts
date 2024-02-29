@@ -20,8 +20,8 @@ describe('updateProfileData test', () => {
       profile: {
         form: data,
         isLoading: false,
-        readonly: false
-      }
+        readonly: false,
+      },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
@@ -38,8 +38,8 @@ describe('updateProfileData test', () => {
       profile: {
         form: data,
         isLoading: false,
-        readonly: false
-      }
+        readonly: false,
+      },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
     const res = await thunk.callThunk(undefined);
@@ -53,8 +53,8 @@ describe('updateProfileData test', () => {
       profile: {
         form: { ...data, lastname: '' },
         isLoading: false,
-        readonly: false
-      }
+        readonly: false,
+      },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
     const res = await thunk.callThunk(undefined);

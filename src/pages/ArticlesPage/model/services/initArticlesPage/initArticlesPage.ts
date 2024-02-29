@@ -29,5 +29,5 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, IThunkCo
       dispatch(articlePageActions.initState());
       dispatch(fetchArticlesList({ replace: false }));
     }
-  }
+  },
 )

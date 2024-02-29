@@ -22,8 +22,7 @@ export const updateProfileData = createAsyncThunk<IProfile, undefined, IThunkCon
       }
       return response.data;
     } catch (e) {
-      console.log(e)
       return rejectWithValue([ EValidateProfileError.SERVER_ERROR ]);
     }
-  }
+  },
 )

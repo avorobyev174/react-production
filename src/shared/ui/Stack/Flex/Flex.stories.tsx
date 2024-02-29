@@ -4,7 +4,7 @@ import { Flex } from './Flex';
 const meta: Meta<typeof Flex> = {
   title: 'shared/Flex',
   component: Flex,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -18,9 +18,9 @@ export const Row: Story = {
         <div>345</div>
         <div>678</div>
       </>
-    )
+    ),
   },
-  decorators: []
+  decorators: [],
 }
 
 export const Column: Story = {
@@ -32,9 +32,9 @@ export const Column: Story = {
         <div>345</div>
         <div>678</div>
       </>
-    )
+    ),
   },
-  decorators: []
+  decorators: [],
 }
 
 export const RowGap4: Story = {
@@ -46,9 +46,9 @@ export const RowGap4: Story = {
         <div>345</div>
         <div>678</div>
       </>
-    )
+    ),
   },
-  decorators: []
+  decorators: [],
 }
 
 export const RowGap8: Story = {
@@ -60,9 +60,9 @@ export const RowGap8: Story = {
         <div>345</div>
         <div>678</div>
       </>
-    )
+    ),
   },
-  decorators: []
+  decorators: [],
 }
 
 export const RowGap16: Story = {
@@ -74,9 +74,9 @@ export const RowGap16: Story = {
         <div>345</div>
         <div>678</div>
       </>
-    )
+    ),
   },
-  decorators: []
+  decorators: [],
 }
 
 export const RowGap32: Story = {
@@ -88,9 +88,9 @@ export const RowGap32: Story = {
         <div>345</div>
         <div>678</div>
       </>
-    )
+    ),
   },
-  decorators: []
+  decorators: [],
 }
 
 export const ColumnGap4: Story = {
@@ -103,9 +103,9 @@ export const ColumnGap4: Story = {
         <div>345</div>
         <div>678</div>
       </>
-    )
+    ),
   },
-  decorators: []
+  decorators: [],
 }
 
 export const ColumnGap16: Story = {
@@ -118,7 +118,7 @@ export const ColumnGap16: Story = {
         <div>345</div>
         <div>678</div>
       </>
-    )
+    ),
   },
-  decorators: []
+  decorators: [],
 }

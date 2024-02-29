@@ -15,9 +15,9 @@ const config: StorybookConfig = {
     name: '@storybook/react-webpack5',
     options: {
       builder: {
-        useSWC: true
-      }
-    }
+        useSWC: true,
+      },
+    },
   },
   webpackFinal: async (config) => {
     if (config?.resolve) {
@@ -37,13 +37,13 @@ const config: StorybookConfig = {
     jsc: {
       transform: {
         react: {
-          runtime: 'automatic'
-        }
-      }
-    }
+          runtime: 'automatic',
+        },
+      },
+    },
   }),
   docs: {
-    autodocs: 'tag'
-  }
+    autodocs: 'tag',
+  },
 };
 export default config;

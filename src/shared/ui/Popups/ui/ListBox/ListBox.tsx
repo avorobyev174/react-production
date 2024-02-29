@@ -33,40 +33,40 @@ export const ListBox = (props: IListBoxProps) => {
     onChange, defaultValue,
     readonly,
     direction = 'bottom left',
-    label
+    label,
   } = props;
 
   const optionsClasses = [ mapDirectionClass[ direction ] ]
 
   return (
     <HStack>
-      { label && <span>{ label + '>' }</span> }
+      { label && <span>{ `${ label }>` }</span> }
       <HListBox
-        value={ value }
-        disabled={ readonly }
-        onChange={ onChange }
+        value={value}
+        disabled={readonly}
+        onChange={onChange}
         as="div"
-        className={ classNames('', {}, [ className, popupStyles.popup ]) }
+        className={classNames('', {}, [ className, popupStyles.popup ])}
       >
-        <HListBox.Button as="div" className={ popupStyles.trigger }>
-          <Button disabled={ readonly }>
+        <HListBox.Button as="div" className={popupStyles.trigger}>
+          <Button disabled={readonly}>
             { value ?? defaultValue }
           </Button>
         </HListBox.Button>
-        <HListBox.Options className={ classNames(styles.options, {}, optionsClasses) }>
+        <HListBox.Options className={classNames(styles.options, {}, optionsClasses)}>
           { items?.map((item) => (
             <HListBox.Option
-              key={ item.value }
-              value={ item.value }
-              disabled={ item.disabled }
-              as={ Fragment }
+              key={item.value}
+              value={item.value}
+              disabled={item.disabled}
+              as={Fragment}
             >
               {({ active, selected }) => (
                 <li
-                  className={ classNames(styles.item, {
+                  className={classNames(styles.item, {
                     [ popupStyles.active ]: active,
-                    [ popupStyles.disabled ]: item.disabled
-                  }, []) }
+                    [ popupStyles.disabled ]: item.disabled,
+                  }, [])}
                 >
                   { item.content }
                 </li>

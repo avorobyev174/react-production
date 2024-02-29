@@ -4,7 +4,7 @@ import { ListBox } from './ListBox';
 const meta: Meta<typeof ListBox> = {
   title: 'shared/ListBox',
   component: ListBox,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -17,12 +17,12 @@ export const ListBottomRight: Story = {
     items: [
       { content: '12dsadas3', value: '123123' },
       { content: 'dsadasd', value: '3123' },
-      { content: 'dasda', value: '21' }
-    ]
+      { content: 'dasda', value: '21' },
+    ],
   },
   decorators: [
-    (Story) => <div style={{ padding: '100px' }}><Story /></div>
-  ]
+    (Story) => <div style={{ padding: '100px' }}><Story /></div>,
+  ],
 }
 
 export const ListBottomLeft: Story = {
@@ -32,12 +32,12 @@ export const ListBottomLeft: Story = {
     items: [
       { content: '12dsadas3', value: '123123' },
       { content: 'dsadasd', value: '3123' },
-      { content: 'dasda', value: '21' }
-    ]
+      { content: 'dasda', value: '21' },
+    ],
   },
   decorators: [
-    (Story) => <div style={{ padding: '100px' }}><Story /></div>
-  ]
+    (Story) => <div style={{ padding: '100px' }}><Story /></div>,
+  ],
 }
 
 export const ListTopRight: Story = {
@@ -47,12 +47,12 @@ export const ListTopRight: Story = {
     items: [
       { content: '12dsadas3', value: '123123' },
       { content: 'dsadasd', value: '3123' },
-      { content: 'dasda', value: '21' }
-    ]
+      { content: 'dasda', value: '21' },
+    ],
   },
   decorators: [
-    (Story) => <div style={{ padding: '100px' }}><Story /></div>
-  ]
+    (Story) => <div style={{ padding: '100px' }}><Story /></div>,
+  ],
 }
 
 export const ListTopLeft: Story = {
@@ -62,10 +62,10 @@ export const ListTopLeft: Story = {
     items: [
       { content: '12dsadas3', value: '123123' },
       { content: 'dsadasd', value: '3123' },
-      { content: 'dasda', value: '21' }
-    ]
+      { content: 'dasda', value: '21' },
+    ],
   },
   decorators: [
-    (Story) => <div style={{ padding: '100px' }}><Story /></div>
-  ]
+    (Story) => <div style={{ padding: '100px' }}><Story /></div>,
+  ],
 }

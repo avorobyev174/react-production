@@ -5,7 +5,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 const meta: Meta<typeof AvatarDropdown> = {
   title: 'features/AvatarDropdown',
   component: AvatarDropdown,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -13,5 +13,5 @@ type Story = StoryObj<typeof AvatarDropdown>;
 
 export const Normal: Story = {
   args: {},
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({}) ],
 }

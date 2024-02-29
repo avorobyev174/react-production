@@ -4,15 +4,15 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API__: '',
-    __PROJECT__: 'jest'
+    __PROJECT__: 'jest',
   },
   clearMocks: true,
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: [
-    '/node_modules/'
+    '/node_modules/',
   ],
   moduleDirectories: [
-    'node_modules'
+    'node_modules',
   ],
   moduleFileExtensions: [
     'js',
@@ -20,35 +20,35 @@ export default {
     'ts',
     'tsx',
     'json',
-    'node'
+    'node',
   ],
   modulePaths: [
-    '<rootDir>/src'
+    '<rootDir>/src',
   ],
   testMatch: [
-    '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)'
+    '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
   setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
   moduleNameMapper: {
     '\\.(s?css)$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
-    "@/features/(.*)": '<rootDir>/src/features/$1',
-    "@/shared/(.*)": '<rootDir>/src/shared/$1',
-    "@/entities/(.*)": '<rootDir>/src/entities/$1',
-    "@/app/(.*)": '<rootDir>/src/app/$1',
-    "@/widgets/(.*)": '<rootDir>/src/widgets/$1',
-    "@/pages/(.*)": '<rootDir>/src/pages/$1',
+    '@/features/(.*)': '<rootDir>/src/features/$1',
+    '@/shared/(.*)': '<rootDir>/src/shared/$1',
+    '@/entities/(.*)': '<rootDir>/src/entities/$1',
+    '@/app/(.*)': '<rootDir>/src/app/$1',
+    '@/widgets/(.*)': '<rootDir>/src/widgets/$1',
+    '@/pages/(.*)': '<rootDir>/src/pages/$1',
   },
   reporters: [
-    "default",
-    [ "jest-html-reporters", {
-      "publicPath": '<rootDir>/reports/unit',
-      "filename": "report.html",
-      "openReport": true,
-      "inlineSource": true
-    } ]
+    'default',
+    [ 'jest-html-reporters', {
+      publicPath: '<rootDir>/reports/unit',
+      filename: 'report.html',
+      openReport: true,
+      inlineSource: true,
+    } ],
   ],
-  rootDir: ''
+  rootDir: '',
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -90,7 +90,6 @@ export default {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",

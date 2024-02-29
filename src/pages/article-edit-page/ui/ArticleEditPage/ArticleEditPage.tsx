@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 interface IArticleEditPageProps {
@@ -14,7 +14,7 @@ export const ArticleEditPage = memo((props: IArticleEditPageProps) => {
 
   return (
     // eslint-disable-next-line i18next/no-literal-string
-    <Page className={ classNames('', {}, [ className ]) }>
+    <Page className={classNames('', {}, [ className ])}>
       EDIT
     </Page>
   );

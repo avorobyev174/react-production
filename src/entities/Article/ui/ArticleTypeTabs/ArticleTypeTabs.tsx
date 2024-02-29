@@ -1,6 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { type ITabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
 import { EArticleType } from '../../model/const/const';
 
@@ -27,10 +27,10 @@ export const ArticleTypeTabs = memo((props: IArticleTypeTabsProps) => {
 
   return (
     <Tabs
-      className={ classNames('', {}, [ className ]) }
-      tabs={ typeTabs }
-      value={ value }
-      onTabClick={ onTypeClick }
+      className={classNames('', {}, [ className ])}
+      tabs={typeTabs}
+      value={value}
+      onTabClick={onTypeClick}
     />
   );
 });

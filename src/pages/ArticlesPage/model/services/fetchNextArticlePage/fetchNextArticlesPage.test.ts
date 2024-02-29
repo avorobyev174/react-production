@@ -17,8 +17,8 @@ describe('fetchNextArticlesPage test', () => {
         hasMore: true,
         view: EArticleView.SMALL,
         _inited: false,
-        type: EArticleType.ALL
-      }
+        type: EArticleType.ALL,
+      },
     });
 
     await thunk.callThunk();
@@ -38,8 +38,8 @@ describe('fetchNextArticlesPage test', () => {
         hasMore: false,
         view: EArticleView.SMALL,
         _inited: false,
-        type: EArticleType.ALL
-      }
+        type: EArticleType.ALL,
+      },
     });
 
     await thunk.callThunk();

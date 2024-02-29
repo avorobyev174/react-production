@@ -11,7 +11,7 @@ export const fetchArticleRecommendations = createAsyncThunk<IArticle[], void, IT
       const response = await extra.api.get<IArticle[]>('/articles', {
         params: {
           _limit: 4,
-        }
+        },
       });
       if (!response.data) {
         throw new Error();
@@ -20,5 +20,5 @@ export const fetchArticleRecommendations = createAsyncThunk<IArticle[], void, IT
     } catch (e) {
       return rejectWithValue('error');
     }
-  }
+  },
 )

@@ -4,7 +4,7 @@ import { Input } from './Input';
 const meta: Meta<typeof Input> = {
   title: 'shared/Input',
   component: Input,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -13,6 +13,6 @@ type Story = StoryObj<typeof Input>;
 export const Primary: Story = {
   args: {
     placeholder: 'Type text',
-    value: '12345'
-  }
+    value: '12345',
+  },
 }

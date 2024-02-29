@@ -1,5 +1,7 @@
-import { LOCAL_STORAGE_THEME_KEY, ETheme, ThemeContext } from '../lib/ThemeContext';
 import { type ReactNode, useMemo, useState } from 'react';
+import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
+import { ETheme } from '@/shared/const/theme';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme || ETheme.LIGHT;
 interface IThemeProviderProps {
@@ -10,10 +12,10 @@ const ThemeProvider = ({ children, initialTheme }: IThemeProviderProps) => {
   const [ theme, setTheme ] = useState<ETheme>(initialTheme || defaultTheme)
   const defaultProps = useMemo(() => ({
     theme,
-    setTheme
+    setTheme,
   }), [ theme ])
   return (
-    <ThemeContext.Provider value={ defaultProps }>
+    <ThemeContext.Provider value={defaultProps}>
       { children }
     </ThemeContext.Provider>
   );

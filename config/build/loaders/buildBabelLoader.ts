@@ -4,7 +4,7 @@ interface BuildBabelLoaderProps {
   isDev: boolean;
   isTsx?: boolean;
 }
-export function buildBabelLoader ({ isDev, isTsx }: BuildBabelLoaderProps) {
+export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
   return {
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
@@ -17,21 +17,21 @@ export function buildBabelLoader ({ isDev, isTsx }: BuildBabelLoaderProps) {
             'i18next-extract',
             {
               locales: [ 'ru', 'en' ],
-              keyAsDefaultValue: true
-            }
+              keyAsDefaultValue: true,
+            },
           ],
           [
             '@babel/plugin-transform-typescript',
-            { isTsx }
+            { isTsx },
           ],
           '@babel/plugin-transform-runtime',
           isTsx && [
             babelRemovePropsPlugin(),
-            { props: [ 'data-testid' ] }
+            { props: [ 'data-testid' ] },
           ],
-          isDev && require.resolve('react-refresh/babel')
-        ].filter(Boolean)
-      }
-    }
+          isDev && require.resolve('react-refresh/babel'),
+        ].filter(Boolean),
+      },
+    },
   };
 }

@@ -1,6 +1,6 @@
+import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './ArticlesPage.module.scss'
-import { memo, useCallback } from 'react';
 import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlePageReducer } from '../../model/slice/articlePageSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -14,7 +14,7 @@ interface IArticlesPage {
 }
 
 const reducers: TReducersList = {
-  articlesPage: articlePageReducer
+  articlesPage: articlePageReducer,
 }
 
 export const ArticlesPage = ({ className }: IArticlesPage) => {
@@ -26,16 +26,16 @@ export const ArticlesPage = ({ className }: IArticlesPage) => {
 
   return (
     <DynamicModuleLoader
-      name='articlesPage'
-      reducers={ reducers }
-      removeAfterUnmount={ false }
+      name="articlesPage"
+      reducers={reducers}
+      removeAfterUnmount={false}
     >
       <Page
-        onScrollEnd={ onLoadNextPart }
-        className={ classNames(styles.ArticlesPage, {}, [ className ]) }
+        onScrollEnd={onLoadNextPart}
+        className={classNames(styles.ArticlesPage, {}, [ className ])}
       >
         <ArticlePageFilters />
-        <ArticleInfiniteList className={ styles.list }/>
+        <ArticleInfiniteList className={styles.list} />
       </Page>
     </DynamicModuleLoader>
   )

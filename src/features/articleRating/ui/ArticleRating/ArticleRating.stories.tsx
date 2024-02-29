@@ -5,7 +5,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 const meta: Meta<typeof ArticleRating> = {
   title: 'features/ArticleRating',
   component: ArticleRating,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -13,48 +13,48 @@ type Story = StoryObj<typeof ArticleRating>;
 
 export const Normal: Story = {
   args: {
-    articleId: '1'
+    articleId: '1',
   },
   parameters: {
     mockData: [
       {
-        url: __API__ + '/article-rating?userId=1&articleId=1',
+        url: `${ __API__ }/article-rating?userId=1&articleId=1`,
         method: 'GET',
         status: 200,
         response: [
-          { rate: 4 }
-        ]
+          { rate: 4 },
+        ],
       },
     ],
   },
   decorators: [ StoreDecorator({
     user: {
       authData: {
-        id: '1'
-      }
-    }
-  }) ]
+        id: '1',
+      },
+    },
+  }) ],
 }
 
 export const WithoutRate: Story = {
   args: {
-    articleId: '1'
+    articleId: '1',
   },
   parameters: {
     mockData: [
       {
-        url: __API__ + '/article-rating?userId=1&articleId=1',
+        url: `${ __API__ }/article-rating?userId=1&articleId=1`,
         method: 'GET',
         status: 200,
-        response: []
+        response: [],
       },
     ],
   },
   decorators: [ StoreDecorator({
     user: {
       authData: {
-        id: '1'
-      }
-    }
-  }) ]
+        id: '1',
+      },
+    },
+  }) ],
 }

@@ -3,15 +3,15 @@ import { type IComment } from '@/entities/Comment';
 import { type IStateSchema } from '@/app/providers/StoreProvider';
 import { type IArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 import {
-  fetchCommentsByArticleId
+  fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 const commentsAdapter = createEntityAdapter<IComment>({
-  selectId: (comment) => comment.id
+  selectId: (comment) => comment.id,
 })
 
 export const getArticleComments = commentsAdapter.getSelectors<IStateSchema>(
-  (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
+  (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 )
 
 const articleDetailsPageCommentsSlice = createSlice({
@@ -20,7 +20,7 @@ const articleDetailsPageCommentsSlice = createSlice({
     isLoading: false,
     error: undefined,
     ids: [],
-    entities: {}
+    entities: {},
   }),
   reducers: {},
   extraReducers: (builder) => {
@@ -37,7 +37,7 @@ const articleDetailsPageCommentsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-  }
+  },
 });
 
 export const { reducer: articleDetailsCommentsReducer } = articleDetailsPageCommentsSlice;

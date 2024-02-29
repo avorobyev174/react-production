@@ -1,6 +1,6 @@
 import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
-import { BuildPaths } from '../build/types/config';
 import path from 'path';
+import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
@@ -11,7 +11,7 @@ export default ({ config }: { config: Configuration }) => {
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
     locales: '',
-    buildLocales: ''
+    buildLocales: '',
   }
 
   config!.resolve!.modules!.push(paths.src);
@@ -31,8 +31,8 @@ export default ({ config }: { config: Configuration }) => {
 
   config!.plugins!.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
-    __API__ : JSON.stringify('https://testapi.ru'),
-    __PROJECT__ : JSON.stringify('storybook')
+    __API__: JSON.stringify('https://testapi.ru'),
+    __PROJECT__: JSON.stringify('storybook'),
   }));
 
   return config;

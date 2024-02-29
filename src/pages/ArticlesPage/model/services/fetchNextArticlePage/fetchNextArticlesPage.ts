@@ -20,5 +20,5 @@ export const fetchNextArticlesPage = createAsyncThunk<void, void, IThunkConfig<s
       dispatch(articlePageActions.setPage(page + 1));
       dispatch(fetchArticlesList({ replace: false }));
     }
-  }
+  },
 )

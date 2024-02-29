@@ -1,6 +1,6 @@
+import { type ChangeEvent, memo, useMemo } from 'react';
 import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Select.module.scss'
-import { type ChangeEvent, memo, useMemo } from 'react';
 
 export interface ISelectOption {
   value: string;
@@ -22,13 +22,13 @@ export const Select = memo(({
   options,
   value,
   onChange,
-  readonly
+  readonly,
 }: ISelectProps) => {
   const optionsList = useMemo(() => options?.map((opt) => (
     <option
-      value={ opt.value }
-      className={ styles.option }
-      key={ opt.value }
+      value={opt.value}
+      className={styles.option}
+      key={opt.value}
     >
       { opt.content }
     </option>
@@ -41,21 +41,21 @@ export const Select = memo(({
   };
 
   const mods: TMods = {
-    [ styles.readonly ]: readonly
+    [ styles.readonly ]: readonly,
   };
 
   return (
-    <div className={ classNames(styles.Wrapper, mods, [ className ])}>
+    <div className={classNames(styles.Wrapper, mods, [ className ])}>
       { label && (
-        <span className={ classNames(styles.label, mods, [ className ]) }>
+        <span className={classNames(styles.label, mods, [ className ])}>
           { `${ label }>` }
         </span>
       )}
       <select
-        disabled={ readonly }
-        className={ styles.select }
-        value={ value }
-        onChange={ onChangeHandler }
+        disabled={readonly}
+        className={styles.select}
+        value={value}
+        onChange={onChangeHandler}
       >
         { optionsList }
       </select>

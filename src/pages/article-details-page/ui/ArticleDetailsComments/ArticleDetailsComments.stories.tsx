@@ -5,7 +5,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 const meta: Meta<typeof ArticleDetailsComments> = {
   title: 'pages/ArticleDetails/ArticleDetailsComments',
   component: ArticleDetailsComments,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -15,5 +15,5 @@ export const Normal: Story = {
   args: {
     articleDetailsId: '1',
   },
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({}) ],
 }

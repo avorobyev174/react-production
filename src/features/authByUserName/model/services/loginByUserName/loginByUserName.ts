@@ -25,8 +25,7 @@ export const loginByUserName = createAsyncThunk<IUser, ILoginByUserNameProps, IT
 
       return response.data
     } catch (e) {
-      console.log(e)
       return rejectWithValue('error');
     }
-  }
+  },
 )

@@ -5,7 +5,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 const meta: Meta<typeof ArticleInfiniteList> = {
   title: 'pages/ArticlesPage/ArticleInfiniteList',
   component: ArticleInfiniteList,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -13,5 +13,5 @@ type Story = StoryObj<typeof ArticleInfiniteList>;
 
 export const Normal: Story = {
   args: {},
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({}) ],
 }

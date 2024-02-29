@@ -1,6 +1,6 @@
+import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react';
 import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Button.module.scss';
-import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react';
 
 export enum EButtonTheme {
   CLEAR = 'clear',
@@ -49,10 +49,10 @@ export const Button = memo((props: IButtonProps) => {
 
   return (
     <button
-      type='button'
-      className={ classNames(styles.Button, mods, [ className ])}
-      disabled={ disabled }
-      { ...otherProps }
+      type="button"
+      className={classNames(styles.Button, mods, [ className ])}
+      disabled={disabled}
+      {...otherProps}
     >
       { children }
     </button>

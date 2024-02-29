@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { ArticleList } from '@/entities/Article';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { ArticleList } from '@/entities/Article';
 import { getArticles } from '../../model/slice/articlePageSlice';
 import { getArticlesError, getArticlesIsLoading, getArticlesView } from '../../model/selectors/articles';
-import { useTranslation } from 'react-i18next';
 import { Text } from '@/shared/ui/Text/Text';
 
 interface IArticleInfiniteListProps {
@@ -19,15 +19,15 @@ export const ArticleInfiniteList = memo((props: IArticleInfiniteListProps) => {
   const view = useSelector(getArticlesView);
 
   if (error) {
-    return (<Text text={ t('Произошла ошибка при подгрузке данных') } />)
+    return (<Text text={t('Произошла ошибка при подгрузке данных')} />)
   }
 
   return (
     <ArticleList
-      className={ className }
-      isLoading={ isLoading }
-      articles={ articles }
-      view={ view }
+      className={className}
+      isLoading={isLoading}
+      articles={articles}
+      view={view}
     />
   );
 });

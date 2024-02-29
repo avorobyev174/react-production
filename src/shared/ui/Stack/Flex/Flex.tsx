@@ -1,6 +1,6 @@
+import { type DetailedHTMLProps, type HTMLAttributes, type ReactNode } from 'react';
 import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Flex.module.scss'
-import { type DetailedHTMLProps, type HTMLAttributes, type ReactNode } from 'react';
 
 export type TFlexJustify = 'start' | 'center' | 'end' | 'between'
 export type TFlexAlign = 'start' | 'end' | 'center';
@@ -11,7 +11,7 @@ const justifyClasses: Record<TFlexJustify, string> = {
   start: styles.justifyStart,
   end: styles.justifyEnd,
   center: styles.justifyCenter,
-  between: styles.justifyBetween
+  between: styles.justifyBetween,
 };
 
 const alignClasses: Record<TFlexAlign, string> = {
@@ -22,14 +22,14 @@ const alignClasses: Record<TFlexAlign, string> = {
 
 const directionClasses: Record<TFlexDirection, string> = {
   row: styles.directionRow,
-  column: styles.directionColumn
+  column: styles.directionColumn,
 };
 
 const gapClasses: Record<TFlexGap, string> = {
   4: styles.gap4,
   8: styles.gap8,
   16: styles.gap16,
-  32: styles.gap32
+  32: styles.gap32,
 }
 
 type TDivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
@@ -51,7 +51,7 @@ export const Flex = (props: IFlexProps) => {
     align = 'center',
     direction = 'row',
     gap = '4',
-    max
+    max,
   } = props;
 
   const classes = [
@@ -59,15 +59,15 @@ export const Flex = (props: IFlexProps) => {
     justifyClasses[ justify ],
     alignClasses[ align ],
     directionClasses[ direction ],
-    gap && gapClasses[ gap ]
+    gap && gapClasses[ gap ],
   ];
 
   const mods: TMods = {
-    [ styles.max ]: max
+    [ styles.max ]: max,
   }
 
   return (
-    <div className={ classNames(styles.Flex, mods, classes) }>
+    <div className={classNames(styles.Flex, mods, classes)}>
       { children }
     </div>
   );

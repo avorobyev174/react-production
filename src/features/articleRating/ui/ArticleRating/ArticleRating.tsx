@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entities/Rating';
 import { useArticleRating, useRateArticle } from '../../api/articleRatingApi';
-import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
@@ -17,7 +17,7 @@ const ArticleRating = memo((props: IArticleRatingProps) => {
   const authData = useSelector(getUserAuthData);
   const { data, isLoading } = useArticleRating({
     articleId,
-    userId: authData?.id ?? ''
+    userId: authData?.id ?? '',
   });
 
   const [ rateArticleMutation] = useRateArticle();
@@ -27,7 +27,7 @@ const ArticleRating = memo((props: IArticleRatingProps) => {
         userId: authData?.id ?? '',
         articleId,
         rate: starsCount,
-        feedback
+        feedback,
       });
     } catch (e) {
       console.log(e)
@@ -44,7 +44,7 @@ const ArticleRating = memo((props: IArticleRatingProps) => {
 
   if (isLoading) {
     return (
-      <Skeleton width={ '100%' } height={ 120 }/>
+      <Skeleton width="100%" height={120} />
     )
   }
 
@@ -52,13 +52,13 @@ const ArticleRating = memo((props: IArticleRatingProps) => {
 
   return (
     <RatingCard
-      onAccept={ onAccept }
-      onCancel={ onCancel }
-      className={ className }
-      title={ t('Оцените статью') }
-      feedbackTitle={ t('Оставьте свой отзыв о статье') }
+      onAccept={onAccept}
+      onCancel={onCancel}
+      className={className}
+      title={t('Оцените статью')}
+      feedbackTitle={t('Оставьте свой отзыв о статье')}
       hasFeedback
-      rate={ rating?.rate }
+      rate={rating?.rate}
     />
   );
 });

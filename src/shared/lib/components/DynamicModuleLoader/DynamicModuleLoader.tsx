@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
-import type { IReduxStoreWithManager, IStateSchema, TStateSchemaKey } from '@/app/providers/StoreProvider';
 import { type Reducer } from '@reduxjs/toolkit';
+import type { IReduxStoreWithManager, IStateSchema, TStateSchemaKey } from '@/app/providers/StoreProvider';
 
 export type TReducersList = {
   [ name in TStateSchemaKey ]?: Reducer<NonNullable<IStateSchema[ name ]>>;
@@ -19,7 +19,7 @@ export const DynamicModuleLoader = (props: IDynamicModuleLoaderProps) => {
     children,
     name,
     reducers,
-    removeAfterUnmount = true
+    removeAfterUnmount = true,
   } = props;
   const dispatch = useDispatch();
   const store = useStore() as IReduxStoreWithManager;

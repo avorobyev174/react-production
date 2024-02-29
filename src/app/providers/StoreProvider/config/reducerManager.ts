@@ -1,8 +1,10 @@
-import { type AnyAction, combineReducers, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  type AnyAction, combineReducers, type Reducer, type ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { type IStateSchema, type TStateSchemaKey } from '@/app/providers/StoreProvider';
 import { type IReducerManager, type TMountedReducers } from '@/app/providers/StoreProvider/config/StateSchema';
 
-export function createReducerManager (initialReducers: ReducersMapObject<IStateSchema>): IReducerManager {
+export function createReducerManager(initialReducers: ReducersMapObject<IStateSchema>): IReducerManager {
   const reducers = { ...initialReducers };
   let combinedReducer = combineReducers(reducers);
   let keysToRemove: TStateSchemaKey[] = [];
@@ -14,6 +16,7 @@ export function createReducerManager (initialReducers: ReducersMapObject<IStateS
     reduce: (state: IStateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
         state = { ...state }
+        // eslint-disable-next-line no-restricted-syntax
         for (const key of keysToRemove) {
           delete state[ key ]
         }
@@ -43,6 +46,6 @@ export function createReducerManager (initialReducers: ReducersMapObject<IStateS
       mountedReducers[ key ] = false;
 
       combinedReducer = combineReducers(reducers)
-    }
+    },
   }
 }

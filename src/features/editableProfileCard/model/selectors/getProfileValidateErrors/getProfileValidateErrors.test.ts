@@ -8,13 +8,13 @@ describe('getProfileValidateErrors test', () => {
       profile: {
         validateErrors: [
           EValidateProfileError.SERVER_ERROR,
-          EValidateProfileError.INCORRECT_AGE
-        ]
-      }
+          EValidateProfileError.INCORRECT_AGE,
+        ],
+      },
     }
     expect(getProfileValidateErrors(state as IStateSchema)).toEqual([
       EValidateProfileError.SERVER_ERROR,
-      EValidateProfileError.INCORRECT_AGE
+      EValidateProfileError.INCORRECT_AGE,
     ]);
   })
 

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Sidebar } from './Sidebar';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ETheme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ETheme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Sidebar> = {
   title: 'widget/Sidebar',
   component: Sidebar,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -16,27 +16,27 @@ type Story = StoryObj<typeof Sidebar>;
 export const Light: Story = {
   args: {},
   decorators: [ StoreDecorator({
-    user: { authData: {} }
-  }) ]
+    user: { authData: {} },
+  }) ],
 }
 
 export const Dark: Story = {
   args: {},
   decorators: [ ThemeDecorator(ETheme.DARK), StoreDecorator({
-    user: { authData: {} }
-  }) ]
+    user: { authData: {} },
+  }) ],
 }
 
 export const NoAuth: Story = {
   args: {},
   decorators: [ StoreDecorator({
-    user: {}
-  }) ]
+    user: {},
+  }) ],
 }
 
 export const NoAuthDark: Story = {
   args: {},
   decorators: [ ThemeDecorator(ETheme.DARK), StoreDecorator({
-    user: {}
-  }) ]
+    user: {},
+  }) ],
 }

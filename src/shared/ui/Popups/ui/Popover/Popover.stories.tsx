@@ -4,7 +4,7 @@ import { Popover } from './Popover';
 const meta: Meta<typeof Popover> = {
   title: 'shared/Popover',
   component: Popover,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -12,5 +12,5 @@ type Story = StoryObj<typeof Popover>;
 
 export const Normal: Story = {
   args: {},
-  decorators: []
+  decorators: [],
 }

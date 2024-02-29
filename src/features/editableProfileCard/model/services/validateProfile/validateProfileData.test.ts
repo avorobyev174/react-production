@@ -10,7 +10,7 @@ const data = {
   lastname: 'vorob',
   first: 'alex',
   city: 'mgn',
-  currency: ECurrency.EUR
+  currency: ECurrency.EUR,
 }
 
 describe('validateProfileData test', () => {
@@ -22,21 +22,21 @@ describe('validateProfileData test', () => {
   test('without first and last', async () => {
     const res = validateProfileData({ ...data, first: '', lastname: '' });
     expect(res).toEqual([
-      EValidateProfileError.INCORRECT_USER_DATA
+      EValidateProfileError.INCORRECT_USER_DATA,
     ]);
   })
 
   test('without age', async () => {
     const res = validateProfileData({ ...data, age: undefined });
     expect(res).toEqual([
-      EValidateProfileError.INCORRECT_AGE
+      EValidateProfileError.INCORRECT_AGE,
     ]);
   })
 
   test('without country', async () => {
     const res = validateProfileData({ ...data, country: undefined });
     expect(res).toEqual([
-      EValidateProfileError.INCORRECT_COUNTRY
+      EValidateProfileError.INCORRECT_COUNTRY,
     ]);
   })
 
@@ -45,7 +45,7 @@ describe('validateProfileData test', () => {
     expect(res).toEqual([
       EValidateProfileError.INCORRECT_USER_DATA,
       EValidateProfileError.INCORRECT_AGE,
-      EValidateProfileError.INCORRECT_COUNTRY
+      EValidateProfileError.INCORRECT_COUNTRY,
     ]);
   })
 })

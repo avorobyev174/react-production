@@ -17,7 +17,7 @@ const AnimationContext = createContext<AnimationContextPayload>({});
 
 // Обе либы зависят друг от друга
 const getAsyncAnimationModules = async () => {
-  return await Promise.all([
+  return Promise.all([
     import('@react-spring/web'),
     import('@use-gesture/react'),
   ]);
@@ -48,7 +48,7 @@ export const AnimationProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <AnimationContext.Provider
-      value={ value }
+      value={value}
     >
       { children }
     </AnimationContext.Provider>

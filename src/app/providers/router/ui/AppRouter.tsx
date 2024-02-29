@@ -1,26 +1,29 @@
 import React, { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig, type TAppRouteProps } from '@/shared/config/RouteConfig/routeConfig';
 import { PageLoader } from '@/widgets/PageLoader';
-import { RequireAuth } from '@/app/providers/ErrorBoundary/ui/RequireAuth';
+import { RequireAuth } from '../../ErrorBoundary/ui/RequireAuth';
+import { routeConfig } from '../../router/config/routeConfig';
+import { type TAppRouteProps } from '@/shared/types/router';
 
 const AppRouter = () => {
   const renderWithWrapper = useCallback((route: TAppRouteProps) => {
     const element = (
-      <Suspense fallback={ <PageLoader/> }>
+      <Suspense fallback={<PageLoader />}>
         { route.element }
       </Suspense>
     )
 
-    return <Route
-      key={ route.path }
-      path={ route.path }
-      element={
-        route.authOnly
-          ? <RequireAuth roles={ route.roles }>{ element }</RequireAuth>
-          : element
-      }
-    />;
+    return (
+      <Route
+        key={route.path}
+        path={route.path}
+        element={
+          route.authOnly
+            ? <RequireAuth roles={route.roles}>{ element }</RequireAuth>
+            : element
+        }
+      />
+    );
   }, []);
 
   return (

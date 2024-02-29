@@ -5,13 +5,13 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 const meta: Meta<typeof NotificationList> = {
   title: 'entities/Notification/NotificationList',
   component: NotificationList,
-  argTypes: {}
+  argTypes: {},
 }
 const notification = {
   id: '1',
   title: 'Уведомление 1',
   description: 'Произошло какое-то событие',
-  userId: '1'
+  userId: '1',
 }
 export default meta
 type Story = StoryObj<typeof NotificationList>;
@@ -21,15 +21,15 @@ export const Normal: Story = {
   parameters: {
     mockData: [
       {
-        url: __API__ + '/notifications',
+        url: `${ __API__ }/notifications`,
         method: 'GET',
         status: 200,
         response: [
           { ...notification, id: '1' },
           { ...notification, id: '2' },
-        ]
+        ],
       },
     ],
   },
-  decorators: [ StoreDecorator({}) ]
+  decorators: [ StoreDecorator({}) ],
 }

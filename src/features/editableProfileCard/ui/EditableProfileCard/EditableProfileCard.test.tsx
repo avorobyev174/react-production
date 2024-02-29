@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { EditableProfileCard } from './EditableProfileCard';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { type IProfile } from '@/entities/Profile';
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
 import { profileReducer } from '../../model/slice/profileSlice';
-import userEvent from '@testing-library/user-event';
 import { $api } from '@/shared/api/api';
 
 const profile: IProfile = {
@@ -17,7 +17,7 @@ const profile: IProfile = {
   country: ECountry.MEXICO,
   city: 'Moscow',
   username: 'admin213',
-  avatar: 'https://loremflickr.com/640/360'
+  avatar: 'https://loremflickr.com/640/360',
 }
 
 const options = {
@@ -30,13 +30,13 @@ const options = {
     user: {
       authData: {
         id: '1',
-        username: 'admin'
-      }
-    }
+        username: 'admin',
+      },
+    },
   },
   asyncReducers: {
-    profile: profileReducer
-  }
+    profile: profileReducer,
+  },
 }
 
 describe('EditableProfileCard', () => {

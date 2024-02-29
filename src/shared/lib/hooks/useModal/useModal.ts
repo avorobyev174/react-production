@@ -1,4 +1,6 @@
-import { type MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  type MutableRefObject, useCallback, useEffect, useRef, useState,
+} from 'react';
 
 interface IUseModalProps {
   onClose?: () => void;
@@ -6,11 +8,11 @@ interface IUseModalProps {
   animationDelay: number;
 }
 
-export function useModal (props: IUseModalProps) {
+export function useModal(props: IUseModalProps) {
   const {
     onClose,
     isOpen,
-    animationDelay
+    animationDelay,
   } = props;
 
   const [ isClosing, setIsClosing ] = useState(false);
@@ -53,6 +55,6 @@ export function useModal (props: IUseModalProps) {
   return {
     isClosing,
     isMounted,
-    close
+    close,
   }
 }

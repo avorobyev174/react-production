@@ -7,15 +7,15 @@ interface IPageLoaderProps {
 
 export const Loader = ({ className }: IPageLoaderProps) => {
   return (
-    <div className={ classNames('lds-roller', {}, [ className ])}>
-      <div/>
-      <div/>
-      <div/>
-      <div/>
-      <div/>
-      <div/>
-      <div/>
-      <div/>
+    <div className={classNames('lds-roller', {}, [ className ])}>
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
     </div>
   );
 };

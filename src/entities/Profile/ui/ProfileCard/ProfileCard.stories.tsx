@@ -6,7 +6,7 @@ import { ECurrency } from '@/entities/Currency';
 const meta: Meta<typeof ProfileCard> = {
   title: 'entities/ProfileCard',
   component: ProfileCard,
-  argTypes: {}
+  argTypes: {},
 }
 
 export default meta
@@ -21,19 +21,19 @@ export const Primary: Story = {
       lastname: 'vorob',
       first: 'alex',
       city: 'mgn',
-      currency: ECurrency.EUR
-    }
-  }
+      currency: ECurrency.EUR,
+    },
+  },
 }
 
 export const WithError: Story = {
   args: {
-    error: 'error'
-  }
+    error: 'error',
+  },
 }
 
 export const WithLoading: Story = {
   args: {
-    isLoading: true
-  }
+    isLoading: true,
+  },
 }

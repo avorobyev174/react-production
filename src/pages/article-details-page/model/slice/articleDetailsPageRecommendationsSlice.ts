@@ -3,15 +3,15 @@ import { type IStateSchema } from '@/app/providers/StoreProvider';
 import { type IArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema';
 import { type IArticle } from '@/entities/Article';
 import {
-  fetchArticleRecommendations
+  fetchArticleRecommendations,
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 const recommendationsAdapter = createEntityAdapter<IArticle>({
-  selectId: (comment) => comment.id
+  selectId: (comment) => comment.id,
 })
 
 export const getArticleRecommendations = recommendationsAdapter.getSelectors<IStateSchema>(
-  (state) => state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState()
+  (state) => state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState(),
 )
 
 const articleDetailsPageRecommendationsSlice = createSlice({
@@ -20,7 +20,7 @@ const articleDetailsPageRecommendationsSlice = createSlice({
     isLoading: false,
     error: undefined,
     ids: [],
-    entities: {}
+    entities: {},
   }),
   reducers: {},
   extraReducers: (builder) => {
@@ -37,7 +37,7 @@ const articleDetailsPageRecommendationsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-  }
+  },
 });
 
 export const { reducer: articleDetailsPageRecommendationsReducer } = articleDetailsPageRecommendationsSlice;

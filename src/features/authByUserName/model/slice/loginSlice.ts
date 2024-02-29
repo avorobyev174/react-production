@@ -5,7 +5,7 @@ import { loginByUserName } from '../services/loginByUserName/loginByUserName';
 const initialState: ILoginSchema = {
   isLoading: false,
   password: '',
-  username: ''
+  username: '',
 }
 
 const loginSlice = createSlice({
@@ -17,7 +17,7 @@ const loginSlice = createSlice({
     },
     setPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -32,7 +32,7 @@ const loginSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-  }
+  },
 })
 
 export const { actions: loginActions } = loginSlice;

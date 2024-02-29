@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entities/Article';
 import { getArticles } from '../../model/slice/articlePageSlice';
 import { getArticlesError, getArticlesIsLoading, getArticlesView } from '../../model/selectors/articles';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 
 interface IArticleInfiniteListProps {
   className?: string;

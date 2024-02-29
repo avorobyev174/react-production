@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './ArticleListItemSkeleton.module.scss'
 import { EArticleView } from '../../../Article/model/const/const';
-import { Card } from '@/shared/ui/Card/Card';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface IArticleListItemSkeletonProps {
   className?: string;

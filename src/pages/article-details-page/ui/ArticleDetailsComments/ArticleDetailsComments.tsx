@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ETextSize, Text } from '@/shared/ui/Text/Text';
+import { ETextSize, Text } from '@/shared/ui/Text';
 import { AddCommentForm } from '@/features/AddNewComment';
 import { CommentList } from '@/entities/Comment';
 import { getArticleComments } from '../../model/slice/articleDetailsPageCommentsSlice';

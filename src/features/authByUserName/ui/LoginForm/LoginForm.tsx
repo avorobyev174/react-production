@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import styles from './LoginForm.module.scss'
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, EButtonTheme } from '@/shared/ui/Button/Button';
-import { Input } from '@/shared/ui/Input/Input';
+import { Button, EButtonTheme } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
-import { ETextTheme, Text } from '@/shared/ui/Text/Text';
+import { ETextTheme, Text } from '@/shared/ui/Text';
 import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   getLoginUserName, getLoginError, getLoginIsLoading, getLoginPassword,

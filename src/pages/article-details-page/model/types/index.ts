@@ -1,4 +1,5 @@
-import type { IArticleDetailsCommentsSchema, IArticleDetailsRecommendationsSchema } from '@/pages/article-details-page';
+import type { IArticleDetailsCommentsSchema, } from './ArticleDetailsCommentsSchema';
+import type { IArticleDetailsRecommendationsSchema } from './ArticleDetailsRecommendationsSchema';
 
 export interface IArticleDetailsPageSchema {
   comments: IArticleDetailsCommentsSchema;

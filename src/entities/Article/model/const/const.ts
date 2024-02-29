@@ -1,4 +1,4 @@
-import type { IArticleCodeBlock, IArticleImageBlock, IArticleTextBlock } from '@/entities/Article/model';
+import type { IArticleCodeBlock, IArticleImageBlock, IArticleTextBlock } from '../types/article';
 
 export enum EArticleType {
   IT = 'IT',

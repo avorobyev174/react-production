@@ -22,7 +22,8 @@ module.exports = {
         "i18next",
         "jest",
         "react-hooks",
-        "alexey-plugin"
+        "alexey-plugin",
+        "ulbi-tv-plugin"
     ],
     "rules": {
         "react/jsx-indent": [ 2, 2 ],
@@ -71,7 +72,17 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "template-curly-spacing": ["error", "always"],
-        "alexey-plugin/path-checker": "error"
+        "ulbi-tv-plugin/public-api-imports": [
+            'error',
+            {
+                alias: "@",
+                testFilesPatterns: [ '**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx' ]
+            }
+        ],
+        "ulbi-tv-plugin/path-checker": [
+            'error',
+            { alias: "@" }
+        ]
     },
     "globals": {
         __IS_DEV__: true,

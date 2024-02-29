@@ -1,6 +1,6 @@
 import { type ICounterSchema } from '@/entities/Counter';
 import { type IUserSchema } from '@/entities/User';
-import { type ILoginSchema } from '@/features/AuthByUserName';
+import { type ILoginSchema } from '@/features/authByUserName';
 import {
   type AnyAction,
   type EnhancedStore,
@@ -13,7 +13,7 @@ import { type AxiosInstance } from 'axios';
 import { type IArticleDetailsSchema } from '@/entities/Article';
 import { type IArticleDetailsPageSchema } from '@/pages/article-details-page';
 import { type IAddCommentFormSchema } from '@/features/AddNewComment';
-import { type IArticlesPageSchema } from '@/pages/articles-page';
+import { type IArticlesPageSchema } from '@/pages/ArticlesPage';
 import { type IScrollSaveSchema } from '@/features/ScrollSave';
 import { type rtkApi } from '@/shared/api/rtkApi';
 import { type IProfileSchema } from '@/features/editableProfileCard';

@@ -6,14 +6,14 @@ import { LangSwitcher } from '@/widgets/LangSwitcher';
 import { Button, EButtonSize, EButtonTheme } from '@/shared/ui/Button/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
-import { getSidebarItems } from '@/widgets/Sidebar/model/selectors/getSidebarItems';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 
 interface ISidebarProps {
   className?: string;
 }
 
-const Sidebar = ({ className }: ISidebarProps) => {
+export const Sidebar = memo(({ className }: ISidebarProps) => {
   const [ collapsed, setCollapsed ] = useState(false);
   const sideBarItemsList = useSelector(getSidebarItems);
   const onToggle = () => {
@@ -59,6 +59,4 @@ const Sidebar = ({ className }: ISidebarProps) => {
       </div>
     </aside>
   );
-};
-
-export const MemoizedSidebar = memo(Sidebar);
+});

@@ -1,8 +1,7 @@
 import { validateProfileData } from './validateProfileData';
 import { ECountry } from '@/entities/Country';
 import { ECurrency } from '@/entities/Currency';
-
-import { EValidateProfileError } from '@/features/editableProfileCard';
+import { EValidateProfileError } from '../../const/const';
 
 const data = {
   username: 'av',

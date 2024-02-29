@@ -4,7 +4,7 @@ import { componentRender } from '@/shared/lib/tests/componentRender/componentRen
 import { type IProfile } from '@/entities/Profile';
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
+import { profileReducer } from '../../model/slice/profileSlice';
 import userEvent from '@testing-library/user-event';
 import { $api } from '@/shared/api/api';
 

@@ -4,7 +4,7 @@ import popupStyles from '../../styles/popup.module.scss';
 import { Fragment, memo, type ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { type TDropDownDirection } from '@/shared/types/ui';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '../../../AppLink/AppLink';
 import { mapDirectionClass } from '../../styles/const';
 
 export interface IDropDownItem {

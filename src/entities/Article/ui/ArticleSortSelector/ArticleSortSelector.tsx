@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { type ISelectOption, Select } from '@/shared/ui/Select/Select';
 import { type TSortOrder } from '@/shared/types';
-import { EArticleSortField } from '@/entities/Article/model/const/const';
+import { EArticleSortField } from '../../../Article/model/const/const';
 
 interface IArticleSortSelectorProps {
   className?: string;

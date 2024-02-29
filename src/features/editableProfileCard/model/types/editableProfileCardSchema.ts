@@ -1,5 +1,5 @@
 import type { IProfile } from '@/entities/Profile';
-import type { EValidateProfileError } from '@/features/editableProfileCard/model/const/const';
+import type { EValidateProfileError } from '../../model/const/const';
 
 export interface IProfileSchema {
   data?: IProfile,

@@ -2,8 +2,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './ArticleListItem.module.scss'
 import { useTranslation } from 'react-i18next';
 import { type HTMLAttributeAnchorTarget, memo } from 'react';
-import { type IArticle } from '@/entities/Article';
-import { EArticleBlockType, EArticleView, type IArticleTextBlock } from '@/entities/Article/model';
+import { type IArticle, type IArticleTextBlock } from '../../model/types/article';
+import { EArticleBlockType, EArticleView } from '../../model/const/const';
 import { Text } from '@/shared/ui/Text/Text';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
@@ -11,7 +11,7 @@ import { Card } from '@/shared/ui/Card/Card';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button } from '@/shared/ui/Button/Button';
-import { ArticleTextBlock } from '@/entities/Article/ui/ArticleTextBlock/ArticleTextBlock';
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { RoutePath } from '@/shared/config/RouteConfig/routeConfig';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 

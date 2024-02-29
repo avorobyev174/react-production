@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, EButtonSize, EButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, EButtonSize, EButtonTheme } from './Button';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ETheme } from '@/app/providers/ThemeProvider';
 

@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { type HTMLAttributeAnchorTarget, memo } from 'react';
 import { type IArticle } from '../../model/types/article';
 import { EArticleView } from '../../model/const/const';
-import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItemSkeleton/ArticleListItemSkeleton';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../ArticleListItemSkeleton/ArticleListItemSkeleton';
 
 interface IArticleListProps {
   className?: string;

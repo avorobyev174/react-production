@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { ETextSize, Text } from '@/shared/ui/Text/Text';
 import { ArticleList } from '@/entities/Article';
 import { VStack } from '@/shared/ui/Stack';
-import { useArticleRecommendationsList } from '@/features/articleRecommendationList/api/articleRecommendationsApi';
+import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationListProps {
   className?: string;

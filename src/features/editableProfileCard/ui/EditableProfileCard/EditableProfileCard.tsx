@@ -17,7 +17,7 @@ import {
   getProfileValidateErrors
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { profileActions, profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ProfileCard } from '@/entities/Profile';
 import { ETextTheme, Text } from '@/shared/ui/Text/Text';
 import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';

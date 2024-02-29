@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { Sidebar } from '@/widgets/Sidebar';
+import { Sidebar } from '../Sidebar/Sidebar';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 
 describe('Sidebar', () => {
@@ -8,7 +8,7 @@ describe('Sidebar', () => {
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   })
 
-  test('Sidebar render', () => {
+  test('Sidebar render collapsed', () => {
     componentRender(<Sidebar />)
     const toggleBtn = screen.getByTestId('sidebar-toggle');
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();

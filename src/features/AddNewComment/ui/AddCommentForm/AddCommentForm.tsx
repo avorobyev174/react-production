@@ -5,9 +5,9 @@ import { memo, useCallback } from 'react';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getAddCommentFormText } from '@/features/AddNewComment/model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { addCommentFormActions, addCommentFormReducer } from '@/features/AddNewComment/model/slice/addCommentFormSlice';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { HStack } from '@/shared/ui/Stack';
 

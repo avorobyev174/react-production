@@ -1,5 +1,5 @@
 import { type IUser } from '@/entities/User';
-import type { EArticleBlockType, EArticleType, TArticleBlock } from '@/entities/Article/model/const/const';
+import type { EArticleBlockType, EArticleType, TArticleBlock } from '../../../Article/model/const/const';
 
 export interface IArticleBlockBase {
   id: string;

@@ -4,12 +4,12 @@ import { memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
 import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from '@/widgets/Page/Page';
-import { articleDetailsPageReducer } from '@/pages/article-details-page/model/slices';
-import { ArticleDetailsPageHeader } from '@/pages/article-details-page/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { Page } from '@/widgets/Page';
+import { articleDetailsPageReducer } from '../../model/slice';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
-import { ArticleDetailsComments } from '@/pages/article-details-page/ui/ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
 
 interface IArticleDetailsPage {

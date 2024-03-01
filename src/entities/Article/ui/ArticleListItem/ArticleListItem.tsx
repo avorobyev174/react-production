@@ -13,7 +13,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { AppLink } from '@/shared/ui/AppLink';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticlesDetails } from '@/shared/const/router';
 
 interface IArticleListItemProps {
   className?: string;
@@ -53,7 +53,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
           <img src={article.img} alt={article.title} className={styles.img} />
           { textBlock && (<ArticleTextBlock block={textBlock} className={styles.textBlock} />) }
           <div className={styles.footer}>
-            <AppLink to={RoutePath.article_details + article.id}>
+            <AppLink to={ getRouteArticlesDetails(article.id) }>
               <Button>
                 { t('Читать далее') }
               </Button>
@@ -68,7 +68,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={RoutePath.article_details + article.id}
+      to={ getRouteArticlesDetails(article.id) }
       {...bindHover}
       className={classNames(styles.ArticleListItem, {}, [ className, styles[ view ] ])}
     >

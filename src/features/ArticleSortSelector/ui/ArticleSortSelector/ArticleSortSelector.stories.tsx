@@ -3,7 +3,7 @@ import { ArticleSortSelector } from './ArticleSortSelector';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta: Meta<typeof ArticleSortSelector> = {
-  title: 'entities/Article/ArticleSortSelector',
+  title: 'features/ArticleSortSelector',
   component: ArticleSortSelector,
   argTypes: {},
 }

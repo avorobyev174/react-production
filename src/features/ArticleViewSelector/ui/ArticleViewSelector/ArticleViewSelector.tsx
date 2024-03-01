@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './ArticleViewSelector.module.scss'
-import { EArticleView } from '../../../Article/model/const/const';
+import { EArticleView } from '@/entities/Article';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg';
 import { Button, EButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 
 interface IArticleViewSelectorProps {
-  className?: string;
-  view?: EArticleView;
-  onViewClick?: (view: EArticleView) => void;
+    className?: string;
+    view?: EArticleView;
+    onViewClick?: (view: EArticleView) => void;
 }
 
 const viewTypes = [

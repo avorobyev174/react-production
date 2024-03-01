@@ -4,14 +4,14 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './ArticleSortSelector.module.scss'
 import { type ISelectOption, Select } from '@/shared/ui/Select';
 import { type TSortOrder } from '@/shared/types';
-import { EArticleSortField } from '../../../Article/model/const/const';
+import { EArticleSortField } from '@/entities/Article';
 
 interface IArticleSortSelectorProps {
-  className?: string;
-  sort: EArticleSortField;
-  order: TSortOrder;
-  onChangeOrder: (newOrder: TSortOrder) => void;
-  onChangeSort: (newSort: EArticleSortField) => void;
+    className?: string;
+    sort: EArticleSortField;
+    order: TSortOrder;
+    onChangeOrder: (newOrder: TSortOrder) => void;
+    onChangeSort: (newSort: EArticleSortField) => void;
 }
 
 export const ArticleSortSelector = memo((props: IArticleSortSelectorProps) => {
@@ -20,7 +20,7 @@ export const ArticleSortSelector = memo((props: IArticleSortSelectorProps) => {
   } = props;
   const { t } = useTranslation('articles');
 
-  const orderOptions = useMemo<ISelectOption[]>(() => [
+  const orderOptions = useMemo<ISelectOption<TSortOrder>[]>(() => [
     {
       value: 'asc',
       content: t('возрастанию'),
@@ -31,7 +31,7 @@ export const ArticleSortSelector = memo((props: IArticleSortSelectorProps) => {
     },
   ], [ t ]);
 
-  const sortFieldOptions = useMemo<ISelectOption[]>(() => [
+  const sortFieldOptions = useMemo<ISelectOption<EArticleSortField>[]>(() => [
     {
       value: EArticleSortField.CREATED,
       content: t('дате создания'),

@@ -3,7 +3,6 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './ArticlePageFilters.module.scss'
-import { ArticleViewSelector, ArticleSortSelector, ArticleTypeTabs } from '../../../../entities/Article';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -19,6 +18,9 @@ import { Input } from '@/shared/ui/Input';
 import { type TSortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import type { EArticleSortField, EArticleView, EArticleType } from '../../../../entities/Article/model';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
 interface IArticlePageFiltersProps {
   className?: string;

@@ -2,28 +2,28 @@ import { type ChangeEvent, memo, useMemo } from 'react';
 import { classNames, type TMods } from '@/shared/lib/classNames/classNames';
 import styles from './Select.module.scss'
 
-export interface ISelectOption {
-  value: string;
+export interface ISelectOption<T extends string> {
+  value: T;
   content: string;
 }
 
-interface ISelectProps {
+interface ISelectProps<T extends string> {
   className?: string;
   label?: string;
-  options?: ISelectOption[];
-  value?: string;
+  options?: ISelectOption<T>[];
+  value?: T;
   onChange?: (value: string) => void;
   readonly?: boolean;
 }
 
-export const Select = memo(({
+export const Select = <T extends string>({
   className,
   label,
   options,
   value,
   onChange,
   readonly,
-}: ISelectProps) => {
+}: ISelectProps<T>) => {
   const optionsList = useMemo(() => options?.map((opt) => (
     <option
       value={opt.value}
@@ -36,7 +36,7 @@ export const Select = memo(({
 
   const onChangeHandler = (evt: ChangeEvent<HTMLSelectElement>) => {
     if (onChange) {
-      onChange(evt.target.value);
+      onChange(evt.target.value as T);
     }
   };
 
@@ -61,4 +61,4 @@ export const Select = memo(({
       </select>
     </div>
   );
-});
+};

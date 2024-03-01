@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { type ITabItem, Tabs } from '@/shared/ui/Tabs';
-import { EArticleType } from '../../model/const/const';
+import { EArticleType } from '@/entities/Article';
 
 interface IArticleTypeTabsProps {
-  className?: string;
-  value: EArticleType;
-  onChangeType: (type: EArticleType) => void;
+    className?: string;
+    value: EArticleType;
+    onChangeType: (type: EArticleType) => void;
 }
 
 export const ArticleTypeTabs = memo((props: IArticleTypeTabsProps) => {

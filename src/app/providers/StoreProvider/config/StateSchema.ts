@@ -11,7 +11,7 @@ import { type IUserSchema } from '@/entities/User';
 import { type ILoginSchema } from '@/features/authByUserName';
 import { type IArticleDetailsSchema } from '@/entities/Article';
 import { type IArticleDetailsPageSchema } from '@/pages/article-details-page';
-import { type IAddCommentFormSchema } from '@/features/AddNewComment';
+import { type IAddCommentFormSchema } from '@/features/addCommentForm';
 import { type IArticlesPageSchema } from '@/pages/ArticlesPage';
 import { type IScrollSaveSchema } from '@/features/ScrollSave';
 import { type rtkApi } from '@/shared/api/rtkApi';

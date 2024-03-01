@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ETextSize, Text } from '@/shared/ui/Text';
-import { AddCommentForm } from '@/features/AddNewComment';
+import { AddCommentForm } from '@/features/addCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { getArticleComments } from '../../model/slice/articleDetailsPageCommentsSlice';
 import {

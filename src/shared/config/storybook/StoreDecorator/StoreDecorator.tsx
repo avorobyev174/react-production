@@ -4,7 +4,7 @@ import { loginReducer } from '@/features/authByUserName/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
 import { type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '@/entities/Article/testing';
-import { addCommentFormReducer } from '@/features/AddNewComment/testing';
+import { addCommentFormReducer } from '@/features/addCommentForm/testing';
 import { articleDetailsPageReducer } from '@/pages/article-details-page/testing';
 
 const defaultReducers: TReducersList = {

@@ -4,7 +4,7 @@ import { type IArticlesPageSchema } from '../types/articlePageSchema';
 import { EArticleView, EArticleType, type IArticle } from '@/entities/Article';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ARTICLE_VIEW_STORAGE_KEY } from '@/shared/const/localStorage';
-import { type TSortOrder } from '@/shared/types';
+import { type TSortOrder } from '@/shared/types/sort';
 import { EArticleSortField } from '@/entities/Article';
 
 const articlesAdapter = createEntityAdapter<IArticle>({

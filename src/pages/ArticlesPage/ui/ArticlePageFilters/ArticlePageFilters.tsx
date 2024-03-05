@@ -15,7 +15,7 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
-import { type TSortOrder } from '@/shared/types';
+import { type TSortOrder } from '@/shared/types/sort';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import type { EArticleSortField, EArticleView, EArticleType } from '../../../../entities/Article/model';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';

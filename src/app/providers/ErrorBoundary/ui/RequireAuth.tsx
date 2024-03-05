@@ -22,7 +22,7 @@ export const RequireAuth = ({ children, roles }: RequireAuthProps) => {
     return roles.some((requiredRoles) => userRoles?.includes(requiredRoles))
   }, [ roles, userRoles ])
 
-  if (!auth || !hasRequireRoles) {
+  if (!auth) {
     return <Navigate to={ getRouteMain() } state={{ from: location }} replace />
   }
 

@@ -11,11 +11,13 @@ import { getScrollByPath, scrollSaveActions } from '@/features/ScrollSave';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { type IStateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { ITestProps } from '@/shared/types/tests';
 
-interface IPageProps {
+interface IPageProps extends ITestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
+  'data-testid'?: string;
 }
 
 export const PAGE_ID = 'PAGE_ID'
@@ -48,6 +50,7 @@ export const Page = memo((props: IPageProps) => {
   return (
     <main
       id={PAGE_ID}
+      data-testid={ props['data-testid'] ?? 'Page' }
       onScroll={onScroll}
       ref={wrapperRef}
       className={classNames(styles.Page, {}, [ className ])}

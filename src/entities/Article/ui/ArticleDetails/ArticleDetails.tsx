@@ -83,7 +83,7 @@ export const ArticleDetails = memo(({ className, articleDetailsId }: IArticleDet
         <HStack justify="center" max>
           <Avatar size={200} src={article?.img} className={styles.avatar} />
         </HStack>
-        <VStack max>
+        <VStack max data-testid="ArticleDetails.Info">
           <Text
             className={styles.title}
             title={article?.title}

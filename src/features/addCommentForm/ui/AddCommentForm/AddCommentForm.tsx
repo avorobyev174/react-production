@@ -41,16 +41,18 @@ export const AddCommentForm = memo(({ className, onSendComment }: IAddCommentFor
     >
       <HStack
         justify="between"
+        data-testid="AddCommentForm"
         max
         className={classNames(styles.AddCommentForm, {}, [ className ])}
       >
         <Input
+          data-testid="AddCommentForm.Input"
           className={styles.input}
           placeholder={t('Введите текст комментария')}
           value={text}
           onChange={onCommentTextChange}
         />
-        <Button onClick={onSendHandler}>
+        <Button onClick={onSendHandler} data-testid="AddCommentForm.Button">
           { t('Отправить') }
         </Button>
       </HStack>

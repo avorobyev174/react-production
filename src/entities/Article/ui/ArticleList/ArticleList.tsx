@@ -39,6 +39,7 @@ export const ArticleList = memo((props: IArticleListProps) => {
 
   return (
     <div
+      data-testid="ArticleList"
       className={classNames(styles.ArticleList, {}, [ className, styles[ view ] ])}
     >
       { articles.map((article) => (

@@ -21,6 +21,7 @@ export const CommentCard = memo(({ className, comment, isLoading }: ICommentCard
       <VStack
         gap="8"
         max
+        data-testid="CommentCard.Loading"
         className={classNames(styles.CommentCard, {}, [ className, styles.loading ])}
       >
         <div className={styles.header}>
@@ -37,7 +38,12 @@ export const CommentCard = memo(({ className, comment, isLoading }: ICommentCard
   }
 
   return (
-    <div className={classNames(styles.CommentCard, {}, [ className ])}>
+    <VStack
+      gap="8"
+      max
+      data-testid="CommentCard.Content"
+      className={classNames(styles.CommentCard, {}, [ className ])}
+    >
       <AppLink
         to={ getRouteProfile(comment.user.id) }
         className={styles.header}
@@ -54,6 +60,6 @@ export const CommentCard = memo(({ className, comment, isLoading }: ICommentCard
         className={styles.text}
         text={comment.text}
       />
-    </div>
+    </VStack>
   );
 });

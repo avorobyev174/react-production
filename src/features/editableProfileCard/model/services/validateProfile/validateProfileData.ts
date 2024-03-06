@@ -3,11 +3,9 @@ import { EValidateProfileError } from '../../const/const';
 
 export const validateProfileData = (profile?: IProfile) => {
   if (!profile) {
-    return [ EValidateProfileError.NO_DATA ]
+    return [EValidateProfileError.NO_DATA];
   }
-  const {
-    first, lastname, age, country,
-  } = profile;
+  const { first, lastname, age, country } = profile;
   const errors: EValidateProfileError[] = [];
 
   if (!first || !lastname) {
@@ -23,4 +21,4 @@ export const validateProfileData = (profile?: IProfile) => {
   }
 
   return errors;
-}
+};

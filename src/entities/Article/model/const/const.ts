@@ -1,4 +1,8 @@
-import type { IArticleCodeBlock, IArticleImageBlock, IArticleTextBlock } from '../types/article';
+import type {
+  IArticleCodeBlock,
+  IArticleImageBlock,
+  IArticleTextBlock,
+} from '../types/article';
 
 export enum EArticleType {
   IT = 'IT',
@@ -7,7 +11,10 @@ export enum EArticleType {
   ALL = 'ALL',
 }
 
-export type TArticleBlock = IArticleImageBlock | IArticleTextBlock | IArticleCodeBlock;
+export type TArticleBlock =
+  | IArticleImageBlock
+  | IArticleTextBlock
+  | IArticleCodeBlock;
 
 export enum EArticleSortField {
   VIEWS = 'views',
@@ -23,5 +30,5 @@ export enum EArticleBlockType {
 
 export enum EArticleView {
   BIG = 'BIG',
-  SMALL = 'SMALL'
+  SMALL = 'SMALL',
 }

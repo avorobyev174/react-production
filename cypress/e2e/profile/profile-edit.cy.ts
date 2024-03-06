@@ -4,7 +4,7 @@ describe('пользователь заходит на страницу проф
     cy.visit('');
     cy.login().then((data) => {
       profileId = data.id;
-      cy.visit(`profile/${ data.id }`)
+      cy.visit(`profile/${data.id}`);
     });
   });
   afterEach(() => {
@@ -12,10 +12,10 @@ describe('пользователь заходит на страницу проф
   });
   it('и профиль успешно загрузился', () => {
     cy.getByTestId('ProfileCard.FirstName').should('have.value', 'ulbi tv 2');
-  })
+  });
   it('и редактирует его', () => {
     cy.updateProfile();
     cy.getByTestId('ProfileCard.FirstName').should('have.value', 'new');
     cy.getByTestId('ProfileCard.LastName').should('have.value', 'new2');
-  })
-})
+  });
+});

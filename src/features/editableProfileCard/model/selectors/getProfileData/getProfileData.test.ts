@@ -13,17 +13,17 @@ describe('getProfileData test', () => {
       first: 'alex',
       city: 'mgn',
       currency: ECurrency.EUR,
-    }
+    };
     const state: DeepPartial<IStateSchema> = {
       profile: {
         data,
       },
-    }
+    };
     expect(getProfileData(state as IStateSchema)).toEqual(data);
-  })
+  });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<IStateSchema> = {}
+    const state: DeepPartial<IStateSchema> = {};
     expect(getProfileData(state as IStateSchema)).toBe(undefined);
-  })
-})
+  });
+});

@@ -1,1 +1,5 @@
-export { articlePageReducer, getArticles, articlePageActions } from './model/slice/articlePageSlice';
+export {
+  articlePageReducer,
+  getArticles,
+  articlePageActions,
+} from './model/slice/articlePageSlice';

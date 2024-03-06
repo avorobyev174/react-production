@@ -10,12 +10,8 @@ describe('Пользователь заходит на страницу стат
   afterEach(() => {
     cy.removeArticle(currentArticleId);
   });
-  describe('работа с API', () => {
-
-  });
-  describe('работа на фикстурах', () => {
-
-  });
+  describe('работа с API', () => {});
+  describe('работа на фикстурах', () => {});
   it('И видит содержимое статьи', () => {
     cy.getByTestId('ArticleDetails.Info').should('exist');
   });

@@ -7,12 +7,12 @@ describe('getLoginError test', () => {
       loginForm: {
         error: 'error',
       },
-    }
+    };
     expect(getLoginError(state as IStateSchema)).toBe('error');
-  })
+  });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<IStateSchema> = {}
+    const state: DeepPartial<IStateSchema> = {};
     expect(getLoginError(state as IStateSchema)).toBe(undefined);
-  })
-})
+  });
+});

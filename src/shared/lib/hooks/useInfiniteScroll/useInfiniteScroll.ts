@@ -6,7 +6,11 @@ export interface IUseInfiniteScroll {
   wrapperRef: MutableRefObject<HTMLElement>;
 }
 
-export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: IUseInfiniteScroll) {
+export function useInfiniteScroll({
+  callback,
+  triggerRef,
+  wrapperRef,
+}: IUseInfiniteScroll) {
   useEffect(() => {
     let observer: IntersectionObserver | null = null;
     const wrapperElement = wrapperRef.current;
@@ -18,7 +22,7 @@ export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: IUseInfi
         threshold: 1.0,
       };
 
-      observer = new IntersectionObserver(([ entry ]) => {
+      observer = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
           callback();
         }
@@ -32,6 +36,6 @@ export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: IUseInfi
         // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(triggerElement);
       }
-    }
-  }, [ callback, triggerRef, wrapperRef ]);
+    };
+  }, [callback, triggerRef, wrapperRef]);
 }

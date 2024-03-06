@@ -4,11 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:i18next/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -24,11 +20,12 @@ module.exports = {
     'react-hooks',
     'ulbi-tv-plugin',
     'alexey-plugin',
+    'prettier',
   ],
   rules: {
-    'react/jsx-indent': [2, 2],
-    'react/jsx-indent-props': [2, 2],
-    indent: [2, 2, { SwitchCase: 1 }],
+    'implicit-arrow-linebreak': 'off',
+    'object-curly-newline': 'off',
+    'function-paren-newline': 'off',
     'react/jsx-filename-extension': [
       2,
       { extensions: ['.js', '.jsx', '.tsx'] },
@@ -92,18 +89,23 @@ module.exports = {
     'arrow-body-style': 'off',
     'operator-linebreak': 'off',
     'template-curly-spacing': 'off',
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     'ulbi-tv-plugin/public-api-imports': [
       'error',
       {
         alias: '@',
-        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+        testFilesPatterns: [
+          '**/*.test.*',
+          '**/*.story.*',
+          '**/StoreDecorator.tsx',
+        ],
       },
     ],
     'ulbi-tv-plugin/layer-imports': [
       'error',
       {
         alias: '@',
-        ignoreImportPatterns: [ '**/StoreProvider', '**/testing' ],
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
       },
     ],
   },

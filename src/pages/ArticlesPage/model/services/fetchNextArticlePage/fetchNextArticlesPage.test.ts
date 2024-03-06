@@ -3,7 +3,9 @@ import { fetchNextArticlesPage } from '../../../model/services/fetchNextArticleP
 import { EArticleType, EArticleView } from '@/entities/Article';
 import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fetchArticlesList';
 
-jest.mock('pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList');
+jest.mock(
+  'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList',
+);
 
 describe('fetchNextArticlesPage test', () => {
   test('success', async () => {
@@ -25,7 +27,7 @@ describe('fetchNextArticlesPage test', () => {
 
     expect(thunk.dispatch).toBeCalledTimes(4);
     expect(fetchArticlesList).toBeCalledWith({ replace: false });
-  })
+  });
 
   test('fetchArticlesList not called', async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
@@ -46,5 +48,5 @@ describe('fetchNextArticlesPage test', () => {
 
     expect(thunk.dispatch).toBeCalledTimes(2);
     expect(fetchArticlesList).not.toHaveBeenCalled();
-  })
-})
+  });
+});

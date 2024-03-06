@@ -22,5 +22,5 @@ root.render(
       </ErrorBoundary>
     </StoreProvider>
   </BrowserRouter>,
-)
+);
 export { ETheme } from '@/shared/const/theme';

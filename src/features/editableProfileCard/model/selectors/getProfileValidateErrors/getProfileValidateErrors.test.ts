@@ -11,15 +11,15 @@ describe('getProfileValidateErrors test', () => {
           EValidateProfileError.INCORRECT_AGE,
         ],
       },
-    }
+    };
     expect(getProfileValidateErrors(state as IStateSchema)).toEqual([
       EValidateProfileError.SERVER_ERROR,
       EValidateProfileError.INCORRECT_AGE,
     ]);
-  })
+  });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<IStateSchema> = {}
+    const state: DeepPartial<IStateSchema> = {};
     expect(getProfileValidateErrors(state as IStateSchema)).toBe(undefined);
-  })
-})
+  });
+});

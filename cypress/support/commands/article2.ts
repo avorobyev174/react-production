@@ -8,9 +8,7 @@ const defaultArticle = {
   views: 1022,
   createdAt: '26.04.2022',
   userId: '1',
-  type: [
-    'IT',
-  ],
+  type: ['IT'],
   blocks: [
     {
       id: '1',
@@ -90,16 +88,16 @@ export const createArticle = (article: IArticle) => {
     body: article ?? defaultArticle,
   }).then(({ body }) => {
     return body;
-  })
+  });
 };
 
 export const removeArticle = (articleId: string) => {
   cy.request({
     method: 'DELETE',
-    url: `http://localhost:8000/articles/${ articleId }`,
+    url: `http://localhost:8000/articles/${articleId}`,
     headers: { Authorization: 'asdas' },
-  })
-}
+  });
+};
 
 declare global {
   namespace Cypress {

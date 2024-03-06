@@ -6,7 +6,11 @@ import { buildResolves } from './buildResolves';
 import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): Configuration {
-  const { mode, isDev, paths: { entry, build } } = options;
+  const {
+    mode,
+    isDev,
+    paths: { entry, build },
+  } = options;
   return {
     mode,
     entry,
@@ -23,5 +27,5 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
     resolve: buildResolves(options),
     devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
-  }
+  };
 }

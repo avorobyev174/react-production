@@ -7,12 +7,12 @@ describe('getProfileIsLoading test', () => {
       profile: {
         isLoading: true,
       },
-    }
+    };
     expect(getProfileIsLoading(state as IStateSchema)).toBe(true);
-  })
+  });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<IStateSchema> = {}
+    const state: DeepPartial<IStateSchema> = {};
     expect(getProfileIsLoading(state as IStateSchema)).toBe(undefined);
-  })
-})
+  });
+});

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 import { type IProfileSchema } from '../../model/types/editableProfileCardSchema';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
@@ -8,7 +8,7 @@ const initialState: IProfileSchema = {
   isLoading: false,
   error: undefined,
   data: undefined,
-}
+};
 
 const profileSlice = createSlice({
   name: 'profile',
@@ -58,9 +58,9 @@ const profileSlice = createSlice({
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
         state.validateErrors = action.payload;
-      })
+      });
   },
-})
+});
 
 export const { actions: profileActions } = profileSlice;
 export const { reducer: profileReducer } = profileSlice;

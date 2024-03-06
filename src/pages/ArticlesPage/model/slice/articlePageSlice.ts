@@ -1,4 +1,8 @@
-import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import {
+  createEntityAdapter,
+  createSlice,
+  type PayloadAction,
+} from '@reduxjs/toolkit';
 import { type IStateSchema } from '@/app/providers/StoreProvider';
 import { type IArticlesPageSchema } from '../types/articlePageSchema';
 import { EArticleView, EArticleType, type IArticle } from '@/entities/Article';
@@ -9,11 +13,11 @@ import { EArticleSortField } from '@/entities/Article';
 
 const articlesAdapter = createEntityAdapter<IArticle>({
   selectId: (article) => article.id,
-})
+});
 
 export const getArticles = articlesAdapter.getSelectors<IStateSchema>(
   (state) => state.articlesPage || articlesAdapter.getInitialState(),
-)
+);
 
 const articlesPageSlice = createSlice({
   name: 'articlesPageSlice',
@@ -53,7 +57,9 @@ const articlesPageSlice = createSlice({
       state.type = action.payload;
     },
     initState: (state) => {
-      const view = localStorage.getItem(ARTICLE_VIEW_STORAGE_KEY) as EArticleView;
+      const view = localStorage.getItem(
+        ARTICLE_VIEW_STORAGE_KEY,
+      ) as EArticleView;
       state.view = view;
       state.limit = view === EArticleView.BIG ? 4 : 9;
       state._inited = true;
@@ -81,7 +87,7 @@ const articlesPageSlice = createSlice({
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
+      });
   },
 });
 

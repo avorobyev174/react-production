@@ -7,12 +7,12 @@ describe('getLoginPassword test', () => {
       loginForm: {
         password: '1234',
       },
-    }
+    };
     expect(getLoginPassword(state as IStateSchema)).toBe('1234');
-  })
+  });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<IStateSchema> = {}
+    const state: DeepPartial<IStateSchema> = {};
     expect(getLoginPassword(state as IStateSchema)).toBe('');
-  })
-})
+  });
+});

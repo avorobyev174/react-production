@@ -12,7 +12,7 @@ const data = {
   first: 'alex',
   city: 'mgn',
   currency: ECurrency.EUR,
-}
+};
 
 describe('updateProfileData test', () => {
   test('success', async () => {
@@ -31,7 +31,7 @@ describe('updateProfileData test', () => {
     expect(thunk.api.put).toHaveBeenCalled();
     expect(res.meta.requestStatus).toBe('fulfilled');
     expect(res.payload).toEqual(data);
-  })
+  });
 
   test('error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
@@ -45,8 +45,8 @@ describe('updateProfileData test', () => {
     const res = await thunk.callThunk(undefined);
 
     expect(res.meta.requestStatus).toBe('rejected');
-    expect(res.payload).toEqual([ EValidateProfileError.SERVER_ERROR ]);
-  })
+    expect(res.payload).toEqual([EValidateProfileError.SERVER_ERROR]);
+  });
 
   test('validate error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
@@ -60,6 +60,6 @@ describe('updateProfileData test', () => {
     const res = await thunk.callThunk(undefined);
 
     expect(res.meta.requestStatus).toBe('rejected');
-    expect(res.payload).toEqual([ EValidateProfileError.INCORRECT_USER_DATA ]);
-  })
-})
+    expect(res.payload).toEqual([EValidateProfileError.INCORRECT_USER_DATA]);
+  });
+});

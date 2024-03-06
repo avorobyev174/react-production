@@ -13,7 +13,7 @@ export default function (): PluginItem {
               current.parentPath.remove();
             }
           },
-        })
+        });
       },
     },
   };

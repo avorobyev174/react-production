@@ -6,4 +6,4 @@ export const mapDirectionClass: Record<TDropDownDirection, string> = {
   'top left': styles.optionsTopLeft,
   'bottom left': styles.optionsBottomLeft,
   'bottom right': styles.optionsBottomRight,
-}
+};

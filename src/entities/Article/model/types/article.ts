@@ -1,5 +1,9 @@
 import { type IUser } from '@/entities/User';
-import type { EArticleBlockType, EArticleType, TArticleBlock } from '../../../Article/model/const/const';
+import type {
+  EArticleBlockType,
+  EArticleType,
+  TArticleBlock,
+} from '../../../Article/model/const/const';
 
 export interface IArticleBlockBase {
   id: string;
@@ -32,5 +36,5 @@ export interface IArticle {
   views: number;
   createdAt: string;
   type: EArticleType[];
-  blocks: TArticleBlock[]
+  blocks: TArticleBlock[];
 }

@@ -1,6 +1,9 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit';
 import { type CombinedState, type Reducer } from 'redux';
-import { type IStateSchema, type IThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
+import {
+  type IStateSchema,
+  type IThunkExtraArg,
+} from '@/app/providers/StoreProvider/config/StateSchema';
 import { userReducer } from '@/entities/User';
 import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
 import { $api } from '@/shared/api/api';
@@ -15,23 +18,24 @@ export function createReduxStore(
     ...asyncReducers,
     user: userReducer,
     scrollSave: scrollSaveReducer,
-    [ rtkApi.reducerPath ]: rtkApi.reducer,
-  }
+    [rtkApi.reducerPath]: rtkApi.reducer,
+  };
 
   const reducerManager = createReducerManager(rootReducers);
   const extraArg: IThunkExtraArg = {
     api: $api,
-  }
+  };
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<IStateSchema>>,
     preloadedState: initialState,
     devTools: __IS_DEV__,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      thunk: {
-        extraArgument: extraArg,
-      },
-    }).concat(rtkApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: extraArg,
+        },
+      }).concat(rtkApi.middleware),
   });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -1,0 +1,6 @@
+dist
+coverage
+*.html
+*.scss
+node_modules
+*.css

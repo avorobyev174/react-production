@@ -1,18 +1,21 @@
-import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import {
+  createEntityAdapter,
+  createSlice,
+  type PayloadAction,
+} from '@reduxjs/toolkit';
 import { type IComment } from '@/entities/Comment';
 import { type IStateSchema } from '@/app/providers/StoreProvider';
 import { type IArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
-import {
-  fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 const commentsAdapter = createEntityAdapter<IComment>({
   selectId: (comment) => comment.id,
-})
+});
 
 export const getArticleComments = commentsAdapter.getSelectors<IStateSchema>(
-  (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
-)
+  (state) =>
+    state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
+);
 
 const articleDetailsPageCommentsSlice = createSlice({
   name: 'articleDetailsCommentsSlice',
@@ -29,15 +32,19 @@ const articleDetailsPageCommentsSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchCommentsByArticleId.fulfilled, (state, action: PayloadAction<IComment[]>) => {
-        state.isLoading = false;
-        commentsAdapter.setAll(state, action.payload);
-      })
+      .addCase(
+        fetchCommentsByArticleId.fulfilled,
+        (state, action: PayloadAction<IComment[]>) => {
+          state.isLoading = false;
+          commentsAdapter.setAll(state, action.payload);
+        },
+      )
       .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
+      });
   },
 });
 
-export const { reducer: articleDetailsCommentsReducer } = articleDetailsPageCommentsSlice;
+export const { reducer: articleDetailsCommentsReducer } =
+  articleDetailsPageCommentsSlice;

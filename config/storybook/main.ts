@@ -2,7 +2,7 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
 
 const config: StorybookConfig = {
-  stories: [ '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)' ],
+  stories: ['../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -30,7 +30,7 @@ const config: StorybookConfig = {
         '@/entities': path.resolve(__dirname, '../../src/entities/'),
         '@/app': path.resolve(__dirname, '../../src/app/'),
         '@/features': path.resolve(__dirname, '../../src/features/'),
-      }
+      };
     }
     return config;
   },

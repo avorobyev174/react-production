@@ -7,12 +7,12 @@ describe('getLoginIsLoading test', () => {
       loginForm: {
         isLoading: true,
       },
-    }
+    };
     expect(getLoginIsLoading(state as IStateSchema)).toBe(true);
-  })
+  });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<IStateSchema> = {}
+    const state: DeepPartial<IStateSchema> = {};
     expect(getLoginIsLoading(state as IStateSchema)).toBe(false);
-  })
-})
+  });
+});

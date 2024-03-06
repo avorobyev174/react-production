@@ -7,12 +7,12 @@ describe('getProfileError test', () => {
       profile: {
         error: 'error',
       },
-    }
+    };
     expect(getProfileError(state as IStateSchema)).toBe('error');
-  })
+  });
 
   test('should work with empty state', () => {
-    const state: DeepPartial<IStateSchema> = {}
+    const state: DeepPartial<IStateSchema> = {};
     expect(getProfileError(state as IStateSchema)).toBe(undefined);
-  })
-})
+  });
+});

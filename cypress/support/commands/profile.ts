@@ -8,7 +8,7 @@ export const updateProfile = () => {
 export const resetProfile = (profileId: string) => {
   cy.request({
     method: 'PUT',
-    url: `http://localhost:8000/profile/${ profileId }`,
+    url: `http://localhost:8000/profile/${profileId}`,
     headers: { authorization: 'asdas' },
     body: {
       id: '4',
@@ -21,8 +21,8 @@ export const resetProfile = (profileId: string) => {
       username: 'ulbi tv2',
       avatar: 'https://loremflickr.com/640/360',
     },
-  })
-}
+  });
+};
 
 declare global {
   namespace Cypress {

@@ -11,7 +11,7 @@ const data = {
   first: 'alex',
   city: 'mgn',
   currency: ECurrency.EUR,
-}
+};
 
 describe('fetchProfileData test', () => {
   test('success', async () => {
@@ -24,7 +24,7 @@ describe('fetchProfileData test', () => {
     expect(thunk.api.get).toHaveBeenCalled();
     expect(res.meta.requestStatus).toBe('fulfilled');
     expect(res.payload).toEqual(data);
-  })
+  });
 
   test('error', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
@@ -32,5 +32,5 @@ describe('fetchProfileData test', () => {
     const res = await thunk.callThunk('1');
 
     expect(res.meta.requestStatus).toBe('rejected');
-  })
-})
+  });
+});

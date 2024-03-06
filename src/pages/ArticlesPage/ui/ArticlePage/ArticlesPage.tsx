@@ -31,6 +31,7 @@ export const ArticlesPage = ({ className }: IArticlesPage) => {
       removeAfterUnmount={false}
     >
       <Page
+        data-testid="ArticlesPage"
         onScrollEnd={onLoadNextPart}
         className={classNames(styles.ArticlesPage, {}, [ className ])}
       >

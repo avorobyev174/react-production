@@ -4,14 +4,14 @@ import { ETheme } from '../../../const/theme';
 import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localStorage';
 
 interface UseTheme {
-  toggleTheme: () => void;
+  toggleTheme: (saveAction?: (theme: ETheme) => void) => void;
   theme: ETheme;
 }
 
 export function useTheme(): UseTheme {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const toggleTheme = () => {
+  const toggleTheme = (saveAction?: (theme: ETheme) => void) => {
     let newTheme: ETheme;
     switch (theme) {
       case ETheme.DARK:
@@ -27,8 +27,7 @@ export function useTheme(): UseTheme {
         newTheme = ETheme.LIGHT;
     }
     setTheme?.(newTheme);
-    document.body.className = newTheme;
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    saveAction?.(newTheme);
   };
 
   return { theme: theme || ETheme.LIGHT, toggleTheme };

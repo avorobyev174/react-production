@@ -1,25 +1,24 @@
 import {
-  type MutableRefObject,
+  MutableRefObject,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react';
 
-interface IUseModalProps {
+interface UseModalProps {
   onClose?: () => void;
   isOpen?: boolean;
   animationDelay: number;
 }
+
 /**
  * Переиспользуемый хук для модальных компонентов (drawer/modal)
  * @param animationDelay
  * @param isOpen
  * @param onClose
  */
-export function useModal(props: IUseModalProps) {
-  const { onClose, isOpen, animationDelay } = props;
-
+export function useModal({ animationDelay, isOpen, onClose }: UseModalProps) {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
@@ -40,6 +39,7 @@ export function useModal(props: IUseModalProps) {
     }
   }, [animationDelay, onClose]);
 
+  // Новые ссылки!!!
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') {

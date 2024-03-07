@@ -1,22 +1,36 @@
-import { type ReactNode, useMemo, useState } from 'react';
+import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
 import { ETheme } from '@/shared/const/theme';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
+import { useJsonSettings } from '@/entities/User';
 
-const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme || ETheme.LIGHT;
 interface IThemeProviderProps {
   initialTheme?: ETheme;
   children: ReactNode;
 }
 const ThemeProvider = ({ children, initialTheme }: IThemeProviderProps) => {
-  const [ theme, setTheme ] = useState<ETheme>(initialTheme || defaultTheme)
-  const defaultProps = useMemo(() => ({
-    theme,
-    setTheme,
-  }), [ theme ])
+  const { theme: defaultTheme } = useJsonSettings();
+  const [isThemeInited, setThemeInited] = useState(false);
+  const [theme, setTheme] = useState<ETheme>(
+    initialTheme || defaultTheme || ETheme.LIGHT,
+  );
+
+  useEffect(() => {
+    if (!isThemeInited && defaultTheme) {
+      setTheme(defaultTheme);
+      setThemeInited(true);
+    }
+  }, [defaultTheme, isThemeInited]);
+
+  const defaultProps = useMemo(
+    () => ({
+      theme,
+      setTheme,
+    }),
+    [theme],
+  );
   return (
     <ThemeContext.Provider value={defaultProps}>
-      { children }
+      {children}
     </ThemeContext.Provider>
   );
 };

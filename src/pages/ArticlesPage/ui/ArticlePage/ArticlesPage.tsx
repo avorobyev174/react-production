@@ -1,13 +1,17 @@
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import styles from './ArticlesPage.module.scss'
-import { DynamicModuleLoader, type TReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import styles from './ArticlesPage.module.scss';
+import {
+  DynamicModuleLoader,
+  type TReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlePageReducer } from '../../model/slice/articlePageSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlePage/fetchNextArticlesPage';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 
 interface IArticlesPage {
   className?: string;
@@ -15,14 +19,14 @@ interface IArticlesPage {
 
 const reducers: TReducersList = {
   articlesPage: articlePageReducer,
-}
+};
 
 export const ArticlesPage = ({ className }: IArticlesPage) => {
   const dispatch = useAppDispatch();
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
-  }, [ dispatch ])
+  }, [dispatch]);
 
   return (
     <DynamicModuleLoader
@@ -33,13 +37,14 @@ export const ArticlesPage = ({ className }: IArticlesPage) => {
       <Page
         data-testid="ArticlesPage"
         onScrollEnd={onLoadNextPart}
-        className={classNames(styles.ArticlesPage, {}, [ className ])}
+        className={classNames(styles.ArticlesPage, {}, [className])}
       >
         <ArticlePageFilters />
         <ArticleInfiniteList className={styles.list} />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
-  )
+  );
 };
 
 export default memo(ArticlesPage);

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleDetailsPage } from './ArticleDetailsPage';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { EArticleType, type IArticle } from '@/entities/Article';
@@ -8,7 +8,7 @@ const meta: Meta<typeof ArticleDetailsPage> = {
   title: 'pages/ArticleDetails/ArticleDetailsPage',
   component: ArticleDetailsPage,
   argTypes: {},
-}
+};
 
 const article: IArticle = {
   id: '1',
@@ -17,10 +17,13 @@ const article: IArticle = {
   img: '',
   views: 1022,
   createdAt: '26.02.2022',
-  type: [ EArticleType.IT ],
+  type: [EArticleType.IT],
   user: {
     id: '1',
     username: 'Ulbi tv',
+    features: {
+      isArticleRatingEnabled: true,
+    },
   },
   blocks: [
     {
@@ -50,7 +53,7 @@ const article: IArticle = {
   ],
 };
 
-export default meta
+export default meta;
 type Story = StoryObj<typeof ArticleDetailsPage>;
 
 export const Normal: Story = {
@@ -58,7 +61,7 @@ export const Normal: Story = {
   parameters: {
     mockData: [
       {
-        url: `${ __API__ }/articles?_limit=1`,
+        url: `${__API__}/articles?_limit=1`,
         method: 'GET',
         status: 200,
         response: [
@@ -68,9 +71,11 @@ export const Normal: Story = {
       },
     ],
   },
-  decorators: [ StoreDecorator({
-    articlesDetails: {
-      data: article,
-    },
-  }) ],
-}
+  decorators: [
+    StoreDecorator({
+      articlesDetails: {
+        data: article,
+      },
+    }),
+  ],
+};

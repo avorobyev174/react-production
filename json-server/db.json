@@ -616,21 +616,30 @@
       "username": "admin",
       "password": "123",
       "roles": ["ADMIN"],
-      "avatar": "https://loremflickr.com/640/360"
+      "avatar": "https://loremflickr.com/640/360",
+      "features": {
+        "isArticleRatingEnabled": true
+      }
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
       "roles": ["USER"],
-      "avatar": "https://loremflickr.com/640/360"
+      "avatar": "https://loremflickr.com/640/360",
+      "features": {
+        "isArticleRatingEnabled": false
+      }
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
       "roles": ["MANAGER"],
-      "avatar": "https://loremflickr.com/640/360"
+      "avatar": "https://loremflickr.com/640/360",
+      "features": {
+        "isArticleRatingEnabled": false
+      }
     },
     {
       "id": "4",
